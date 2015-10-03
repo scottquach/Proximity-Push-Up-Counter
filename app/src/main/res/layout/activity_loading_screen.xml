@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.awesome.scottquach.proximitypush_upcounter.LoadingScreen"
+    android:background="#f5f5f5">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/urbane_productions_logo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

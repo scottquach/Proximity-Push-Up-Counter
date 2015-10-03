@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Proximity Push-Up Counter</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_start_menu">StartMenu</string>
+    <string name="title_activity_saves">Saves</string>
+    <string name="title_activity_loading_screen">LoadingScreen</string>
+    <string name="title_activity_graph">Graph</string>
+</resources>

@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.awesome.scottquach.proximitypush_upcounter.StartMenu"
+    android:background="#ff00acc1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical">
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Start Push-Ups"
+        android:onClick="startPushUpStarted"
+        android:textColor="#ff00bcd4"
+        android:background="#ff000000"
+        android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#9c27b0">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goal"
+            android:layout_marginLeft="30dp"
+            android:textSize="50sp"
+            android:textColor="#010101" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="up"
+                android:id="@+id/upButton"
+                android:onClick="upButtonClicked"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="30sp"
+                android:textColor="#4caf50"
+                android:id="@+id/goalTextView"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="down"
+                android:id="@+id/downButton"
+                android:onClick="downButtonClicked"/>
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:text="View Saves"-->
+        <!--android:onClick="saveButtonClicked"-->
+        <!--android:textColor="#ff00bcd4"-->
+        <!--android:background="#ff000000"-->
+        <!--android:layout_gravity="center_horizontal"-->
+         <!--/>-->
+</LinearLayout>
