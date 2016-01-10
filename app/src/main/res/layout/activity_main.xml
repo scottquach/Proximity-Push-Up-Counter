@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#ff00acc1"
+    android:background="#03A9F4"
     >
 
     <TextView
@@ -39,7 +39,7 @@
         android:text="Save"
         android:onClick="savedButtonClicked"
         android:textColor="#ff00bcd4"
-        android:background="#ff000000" />
+        android:background="@drawable/button_black_round" />
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -54,7 +54,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Switch
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Vibrate"
         android:id="@+id/vibrateSwitch"
@@ -62,7 +62,7 @@
         android:layout_gravity="center_horizontal" />
 
     <Switch
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Sound "
         android:id="@+id/soundSwitch"
