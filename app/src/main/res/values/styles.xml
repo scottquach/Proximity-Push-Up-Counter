@@ -1,8 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">#03A9F4</item>
+        <item name="colorAccent">@android:color/holo_orange_light</item>
+
     </style>
 
 </resources>
