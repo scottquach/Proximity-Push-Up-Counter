@@ -28,43 +28,19 @@ public class LoadingScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_screen);
 
-        LinearLayout splashLayout = (LinearLayout)findViewById(R.id.splashScreenLayoutId);
-        ImageView logoImageView = (ImageView)findViewById(R.id.logoImageViewId);
-        StartAnimations(splashLayout, logoImageView);
 
         new Handler().postDelayed(new Runnable() {
-            @Override
+                        @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
                 Intent mainIntent = new Intent(LoadingScreen.this, StartMenu.class);
                 LoadingScreen.this.startActivity(mainIntent);
                 LoadingScreen.this.finish();
-            }
-        }, 4000);
-
-
-
-
-
+                        }
+        }, 2000);
 
     }
 
-    private void StartAnimations(LinearLayout splashcreenLayout, ImageView logoView) {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
-        anim.reset();
-        splashcreenLayout.clearAnimation();
-        splashcreenLayout.startAnimation(anim);
 
-        anim = AnimationUtils.loadAnimation(this, R.anim.translate);
-        anim.reset();
-        logoView.clearAnimation();
-        logoView.startAnimation(anim);
-
-        anim = AnimationUtils.loadAnimation(this, R.anim.translate);
-        anim.reset();
-        splashcreenLayout.setVisibility(View.VISIBLE);
-        splashcreenLayout.clearAnimation();
-        splashcreenLayout.startAnimation(anim);
-    }
 
 }
