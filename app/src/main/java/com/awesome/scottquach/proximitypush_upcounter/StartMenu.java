@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 
 public class StartMenu extends Activity {
 
@@ -26,6 +30,11 @@ public class StartMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         goalTextView = (TextView) findViewById(R.id.goalTextView);
 
