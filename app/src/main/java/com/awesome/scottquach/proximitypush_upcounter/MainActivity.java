@@ -167,14 +167,16 @@ public class MainActivity extends Activity implements SensorEventListener {
                 if(event.values[0] <= 3.0f) {
 
                     if (player != null && proximitySensor != null) {
-                        if (soundSwitch.isChecked()) {
-                            numberOfPushUps++;
-                            if (numberOfPushUps == goalValue) {
-                                tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
-                            }else {
+                        numberOfPushUps++;
+                        if (numberOfPushUps == goalValue) {
+                            tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
+                        }else {
+                            if (soundSwitch.isChecked()) {
                                 player.start();
                             }
+
                         }
+
 
                         if(vibrateSwitch.isChecked() && proximitySensor != null){
                             ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(80);
