@@ -24,6 +24,9 @@ import android.widget.Toast;
 import android.app.Activity;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -70,6 +73,12 @@ public class MainActivity extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         c = Calendar.getInstance();
         df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         formattedDate = df.format(c.getTime());
@@ -107,6 +116,8 @@ public class MainActivity extends Activity implements SensorEventListener {
                 }
             }
         });
+
+
 
     }
 
@@ -156,14 +167,16 @@ public class MainActivity extends Activity implements SensorEventListener {
                 if(event.values[0] <= 3.0f) {
 
                     if (player != null && proximitySensor != null) {
-                        if (soundSwitch.isChecked()) {
-                            numberOfPushUps++;
-                            if (numberOfPushUps == goalValue) {
-                                tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
-                            }else {
+                        numberOfPushUps++;
+                        if (numberOfPushUps == goalValue) {
+                            tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
+                        }else {
+                            if (soundSwitch.isChecked()) {
                                 player.start();
                             }
+
                         }
+
 
                         if(vibrateSwitch.isChecked() && proximitySensor != null){
                             ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(80);
