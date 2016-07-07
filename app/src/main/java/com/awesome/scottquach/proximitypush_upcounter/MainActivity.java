@@ -128,6 +128,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     @Override
     protected void onPause() {
+        super.onPause();
+
         if (this.isFinishing()){ //basically BACK was pressed from this activity
             player.stop();
 //            player = null;
@@ -137,27 +139,25 @@ public class MainActivity extends Activity implements SensorEventListener {
                 tts.stop();
                 tts.shutdown();
             }
-        }
-        Context context = getApplicationContext();
-        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
-        if (!taskInfo.isEmpty()) {
-            ComponentName topActivity = taskInfo.get(0).topActivity;
-            if (!topActivity.getPackageName().equals(context.getPackageName())) {
+        }else{
+            if(player != null){
                 player.stop();
-//                player = null;
-                proximitySensor = null;
-                sm = null;
-                if(tts !=null){
-                    tts.stop();
-                    tts.shutdown();
-                }
-            }
-            else {
 
             }
+//                player = null;
+            proximitySensor = null;
+            sm = null;
+            if(tts !=null){
+                tts.stop();
+                tts.shutdown();
+            }
+
         }
-        super.onPause();
+
+
+
+
+
     }
 
     @Override
