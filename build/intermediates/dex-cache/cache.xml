@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.0"
+        sha1="4c3d3a13609902b8ba7d7fda23d85797fdbd4223">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jjoe64-graphview-4.1.0_e8faf2ab41ecd5e9c8e36312ac2c5b1b431c9375\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.github.lecho\hellocharts-library\1.5.8\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.0"
+        sha1="56c6a22c42588628903e9dda5d8f3aa1c1b4372f">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.lecho-hellocharts-library-1.5.8_286cdf950749dd232f7d6ac45c6511884d2d0e49\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.0"
+        sha1="adb14b956cf2f6988942ec8e742e5b4aec9d7e70">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d4666122491d43ef08aeb324d1a3d249b9c92f8c\classes.dex" />
+    </item>
+
+</items>

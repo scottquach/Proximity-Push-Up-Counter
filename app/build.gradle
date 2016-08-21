@@ -29,7 +29,8 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:9.0.2'
     compile 'com.google.android.gms:play-services:9.0.2'
 
-
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    compile 'com.jjoe64:graphview:4.1.0'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'

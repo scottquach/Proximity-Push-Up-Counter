@@ -30,8 +30,10 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 
 public class MainActivity extends Activity implements SensorEventListener {
@@ -226,6 +228,15 @@ public class MainActivity extends Activity implements SensorEventListener {
         }else{
             savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups";
         }
+
+
+        editor.putInt(String.valueOf(numberOfSaves),numberOfPushUps);
+        editor.apply();
+
+
+
+
+
         Toast.makeText(this, savePushUpFile, Toast.LENGTH_SHORT).show();
 
         numberOfSaves++;

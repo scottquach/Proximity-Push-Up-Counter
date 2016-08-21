@@ -4,14 +4,9 @@
     android:layout_height="match_parent"
 
     tools:context="com.awesome.scottquach.proximitypush_upcounter.Graph">
-    <org.eazegraph.lib.charts.BarChart
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/barchart"
+    <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        app:egFixedBarWidth="true"
-        app:egBarWidth="20dp"
-        app:egLegendHeight="40dp"/>
+        android:layout_height="300dip"
+        android:id="@+id/graph" />
 
 </RelativeLayout>
