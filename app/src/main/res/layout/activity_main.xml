@@ -1,49 +1,70 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="@drawable/background_gradient"
-    >
+    tools:context=".MainActivity"
+    android:background="@drawable/background_gradient">
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="40dp">
-    </com.google.android.gms.ads.AdView>
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="54dp"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
 
 
     <TextView
-        android:layout_width="400dp"
-        android:layout_height="250dp"
+        android:layout_width="399dp"
+        android:layout_height="221dp"
         android:gravity="center"
         android:text="0"
         android:textSize="200sp"
         android:id="@+id/countDisplay"
         android:textColor="#ff000000"
-        android:onClick="countUpButtonPressed"/>
+        android:onClick="countUpButtonPressed"
+        android:textAlignment="center"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        ads:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="81dp"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/adView"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        ads:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:layout_marginBottom="8dp" />
     <!--<Button-->
-        <!--android:layout_width="350dp"-->
-        <!--android:layout_height="350dp"-->
-        <!--android:text="+"-->
-        <!--android:textSize="100sp"-->
-        <!--android:background="@drawable/web_hi_res_512"-->
-        <!--android:onClick="countUpButtonPressed"/>-->
+    <!--android:layout_width="350dp"-->
+    <!--android:layout_height="350dp"-->
+    <!--android:text="+"-->
+    <!--android:textSize="100sp"-->
+    <!--android:background="@drawable/web_hi_res_512"-->
+    <!--android:onClick="countUpButtonPressed"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Use proxmity sensor or tap number to count up"
         android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="256dp"
+        ads:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,37 +73,75 @@
         android:text="Save"
         android:onClick="savedButtonClicked"
         android:textColor="#ff00bcd4"
-        android:background="@drawable/button_black_round" />
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_black_round"
+        android:id="@+id/button2"
+        android:elevation="0dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toTopOf="@+id/button"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="8dp"
+        ads:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageButton
         android:background="@drawable/icon_refresh_red"
-        android:onClick="refreshButtonPressed"/>
+        android:onClick="refreshButtonPressed"
+        android:id="@+id/button"
+        android:layout_width="40dp"
+        android:elevation="0dp"
+        android:adjustViewBounds="false"
+        android:layout_height="40dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toBottomOf="@+id/vibrateSwitch"
+        ads:layout_constraintRight_toRightOf="@+id/button2"
+        android:layout_marginTop="78dp"
+        ads:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="79dp"
+        ads:layout_constraintLeft_toLeftOf="@+id/button2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Note: it is recommened to place phone under chest"
         android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toTopOf="@+id/vibrateSwitch"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="11dp"
+        ads:layout_constraintLeft_toLeftOf="parent" />
 
     <Switch
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Vibrate"
         android:id="@+id/vibrateSwitch"
         android:checked="true"
-        android:layout_gravity="center_horizontal" />
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toTopOf="@+id/soundSwitch"
+        ads:layout_constraintRight_toRightOf="@+id/soundSwitch"
+        tools:layout_constraintLeft_creator="1"
+        ads:layout_constraintLeft_toLeftOf="@+id/soundSwitch" />
 
     <Switch
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Sound "
         android:id="@+id/soundSwitch"
-        android:layout_gravity="center_horizontal"
-        android:checked="true" />
+        android:checked="true"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="32dp"
+        ads:layout_constraintLeft_toLeftOf="parent" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

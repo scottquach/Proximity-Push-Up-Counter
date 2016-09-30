@@ -123,7 +123,9 @@ public class Saves extends Activity {
 
     }
 
-
+/*On Button
+Cicks
+ */
 
 
     public void homeButtonClicked(View view) {
@@ -161,6 +163,11 @@ public class Saves extends Activity {
     }
 
     public void openGraph(View view) {
+        Intent openGraph = new Intent(Saves.this,Graph.class);
+        startActivity(openGraph);
+    }
+
+    public void graphButtonClicked(View view) {
         Intent openGraph = new Intent(Saves.this,Graph.class);
         startActivity(openGraph);
     }
