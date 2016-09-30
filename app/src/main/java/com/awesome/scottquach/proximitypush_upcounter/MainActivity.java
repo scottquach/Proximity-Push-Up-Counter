@@ -133,7 +133,9 @@ public class MainActivity extends Activity implements SensorEventListener {
         super.onPause();
 
         if (this.isFinishing()){ //basically BACK was pressed from this activity
-            player.stop();
+            if(player != null){
+                player.stop();
+            }
 //            player = null;
             proximitySensor = null;
             sm = null;

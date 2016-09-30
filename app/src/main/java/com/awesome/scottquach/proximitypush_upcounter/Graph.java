@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.wearable.internal.StorageInfoResponse;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+//import com.google.android.gms.wearable.internal.StorageInfoResponse;
+//import com.jjoe64.graphview.GraphView;
+//import com.jjoe64.graphview.series.DataPoint;
+//import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +45,14 @@ public class Graph extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
-        sharedPref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
-        editor = sharedPref.edit();
-
-        sentinel = sharedPref.getInt("sentinel", 0);
-
-
-        iterateThroughSharedPref();
-        setUpGraph();
+//        sharedPref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
+//        editor = sharedPref.edit();
+//
+//        sentinel = sharedPref.getInt("sentinel", 0);
+//
+//
+//        iterateThroughSharedPref();
+//        setUpGraph();
     }
 
     @Override
@@ -77,30 +77,30 @@ public class Graph extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void setUpGraph() {
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-
-        int numberOfSaves = sharedPref.getInt("numberSaves", 1);
-        LineGraphSeries<DataPoint> series = null;
-        for (int i = 0; i < numberOfSaves; i++) {
-            int numberOfPushInt = sharedPref.getInt(String.valueOf(numberOfSaves), 1);
-
-
-            series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                    new DataPoint(i, numberOfPushInt),
-
-            });
-        }
-
-        graph.addSeries(series);
-    }
-
-    private void iterateThroughSharedPref() {
-        int numberOfSaves = sharedPref.getInt("numberSaves", 1);
-        for (int i = 0; i < numberOfSaves; i++) {
-            int numberOfPushInt = sharedPref.getInt(String.valueOf(numberOfSaves), 1);
-            numberOfPushArray.add(numberOfPushInt);
-        }
-
-    }
+//    private void setUpGraph() {
+//        GraphView graph = (GraphView) findViewById(R.id.graph);
+//
+//        int numberOfSaves = sharedPref.getInt("numberSaves", 1);
+//        LineGraphSeries<DataPoint> series = null;
+//        for (int i = 0; i < numberOfSaves; i++) {
+//            int numberOfPushInt = sharedPref.getInt(String.valueOf(numberOfSaves), 1);
+//
+//
+//            series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+//                    new DataPoint(i, numberOfPushInt),
+//
+//            });
+//        }
+//
+//        graph.addSeries(series);
+//    }
+//
+//    private void iterateThroughSharedPref() {
+//        int numberOfSaves = sharedPref.getInt("numberSaves", 1);
+//        for (int i = 0; i < numberOfSaves; i++) {
+//            int numberOfPushInt = sharedPref.getInt(String.valueOf(numberOfSaves), 1);
+//            numberOfPushArray.add(numberOfPushInt);
+//        }
+//
+//    }
 }

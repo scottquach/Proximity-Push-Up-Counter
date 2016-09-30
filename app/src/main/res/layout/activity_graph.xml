@@ -4,9 +4,6 @@
     android:layout_height="match_parent"
 
     tools:context="com.awesome.scottquach.proximitypush_upcounter.Graph">
-    <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
-        android:layout_height="300dip"
-        android:id="@+id/graph" />
+
 
 </RelativeLayout>
