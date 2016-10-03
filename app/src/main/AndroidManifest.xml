@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.awesome.scottquach.proximitypush_upcounter" >
+    package="com.awesome.scottquach.proximitypush_upcounter">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Push-Up Tracker"
-        android:theme="@style/AppTheme"
-
-        >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoadingScreen"
             android:label="@string/app_name"
@@ -25,23 +23,19 @@
         <activity
             android:name=".StartMenu"
             android:label="Push-Up Tracker"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".MainActivity"
             android:label="Main Activity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Saves"
             android:label="@string/title_activity_saves"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Graph"
-            android:label="@string/title_activity_graph" >
-        </activity>
+            android:label="@string/title_activity_graph"></activity>
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>

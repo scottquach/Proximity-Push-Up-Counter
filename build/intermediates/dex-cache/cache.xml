@@ -228,6 +228,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha9\constraint-layout-solver-1.0.0-alpha9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="6a908fd0803cc5f65b007101002aec06dc7544da">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha9_9b2f5f626095dc9a857bc919b906a5e01ffe9b87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -243,6 +252,15 @@
         revision="23.0.0"
         sha1="fe5b47e764869f1076cb9cfe12801ed2ef4e9117">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.0.2_80b1f9ad377fd2a256b992d558feea4181afb39c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha9\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="f2b64f6a762f61a2379d6a79af03e2ee56eefe0b">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.0-alpha9_3e3bdde7f87ac272c54e987c133209414f2da0bf\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -813,15 +831,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Scott Quach\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha8\constraint-layout-solver-1.0.0-alpha8.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="80c371a4fd5e1b77f0e3a25b171356878543ffdd">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha8_4112cf18a9b336aa69d9ed62655cfcdf9d2855b0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -884,15 +893,6 @@
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-plus-9.0.2_0ce9bef7dc9b590d292b47d0afe676cd4a4143d8.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha8\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="0e753ea8d0a2dea270da7d96a7d6e9d2e9c10f94">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support.constraint-constraint-layout-1.0.0-alpha8_47153ee110fd6d6a2ead9f1a18a2241fd2ccdd01\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.2\jars\classes.jar"
         jumboMode="false"
@@ -934,7 +934,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="08b514cbf3376a69abba55bd7ea764f96bedea5f">
+        sha1="5024001dfad350e6719e9ee0b6bc367c691f3a3f">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d4666122491d43ef08aeb324d1a3d249b9c92f8c\classes.dex" />
     </item>
     <item

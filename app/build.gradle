@@ -29,7 +29,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:9.0.2'
 
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'

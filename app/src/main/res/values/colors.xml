@@ -2,4 +2,5 @@
 <resources>
 
     <color name="splashScreenBackground">#03A9F4</color>
+    <color name="textColor">#ff00bcd4</color>
 </resources>
