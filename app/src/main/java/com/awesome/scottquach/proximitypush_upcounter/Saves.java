@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ import java.util.Set;
 
 
 public class Saves extends Activity {
+
+    TextView highscoreView;
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
@@ -44,6 +47,9 @@ public class Saves extends Activity {
 
         sharedPref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         editor = sharedPref.edit();
+
+        highscoreView = (TextView)findViewById(R.id.highscoreView);
+        setHighscoreView();
 
         sentinel = sharedPref.getInt("sentinel", 0);
 
@@ -88,6 +94,14 @@ public class Saves extends Activity {
 
 
 
+
+    }
+
+    private void setHighscoreView(){
+
+
+        int highscore = sharedPref.getInt("highscore",1);
+        highscoreView.setText("Highscore: "+ String.valueOf(highscore));
 
     }
 
@@ -148,6 +162,7 @@ Cicks
                         mainActivityEditor.clear();
                         mainActivityEditor.apply();
                         adapter.clear();
+                        highscoreView.setText("Highscore: ");
                         Toast.makeText(Saves.this, "Data has been reset", Toast.LENGTH_SHORT).show();
                     }
                 })

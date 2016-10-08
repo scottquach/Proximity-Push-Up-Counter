@@ -16,19 +16,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import lecho.lib.hellocharts.animation.ChartAnimationListener;
-import lecho.lib.hellocharts.computator.ChartComputator;
-import lecho.lib.hellocharts.gesture.ChartTouchHandler;
-import lecho.lib.hellocharts.gesture.ContainerScrollType;
-import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.listener.ViewportChangeListener;
-import lecho.lib.hellocharts.model.ChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.SelectedValue;
-import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.renderer.AxesRenderer;
-import lecho.lib.hellocharts.renderer.ChartRenderer;
-import lecho.lib.hellocharts.view.Chart;
+
 
 public class Graph extends AppCompatActivity {
 

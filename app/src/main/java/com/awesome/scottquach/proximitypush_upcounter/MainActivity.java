@@ -63,6 +63,12 @@ public class MainActivity extends Activity implements SensorEventListener {
     SensorManager sm;
     Sensor proximitySensor;
 
+    SharedPreferences savePref;
+    SharedPreferences.Editor saveEditor;
+
+    SharedPreferences settingPref;
+    SharedPreferences.Editor prefEditor;
+
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
@@ -81,6 +87,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        //Initialization
         c = Calendar.getInstance();
         df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         formattedDate = df.format(c.getTime());
@@ -88,8 +95,14 @@ public class MainActivity extends Activity implements SensorEventListener {
         vibrateSwitch = (Switch) findViewById(R.id.vibrateSwitch);
         soundSwitch = (Switch) findViewById(R.id.soundSwitch);
 
+        savePref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
+        saveEditor = savePref.edit();
+
         sharedPref = getSharedPreferences("formattingFile", MODE_PRIVATE);
         editor = sharedPref.edit();
+
+        settingPref = getSharedPreferences("settingsFile",MODE_PRIVATE);
+        goalEditor = settingPref.edit();
 
         goalSharedPref = getSharedPreferences("goalFile", MODE_PRIVATE);
         goalValue = goalSharedPref.getInt("goalValue", 0);
@@ -98,10 +111,23 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         countDisplay = (TextView)findViewById(R.id.countDisplay);
 
+
+        //configure proximity sensor
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         proximitySensor = sm.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         sm.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
+        //configure TTS
+        tts=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    tts.setLanguage(Locale.US);
+                }
 
+
+
+
+        //initial launch file
         sentinel = sharedPref.getInt("formattingSentinel", 0);
         if(sentinel == 0 ){
             editor.putInt("formattingSentinel",1);
@@ -110,12 +136,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             numberOfSaves = sharedPref.getInt("numberSaves", 1);
         }
 
-        tts=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
-                    tts.setLanguage(Locale.UK);
-                }
+
             }
         });
 
@@ -123,9 +144,12 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     }
 
+    private int getHighscore(){
 
 
-
+        int highscore = savePref.getInt("highscore", 1);
+        return highscore;
+    }
 
 
     @Override
@@ -165,6 +189,11 @@ public class MainActivity extends Activity implements SensorEventListener {
     }
 
     @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
     public void onSensorChanged(SensorEvent event) {
 
             for (int i = 0; i<1;i++){
@@ -172,8 +201,22 @@ public class MainActivity extends Activity implements SensorEventListener {
 
                     if (player != null && proximitySensor != null) {
                         numberOfPushUps++;
+
+                        //check highscore
+                        if (numberOfPushUps>getHighscore()){
+                            saveEditor.putInt("highscore",numberOfPushUps);
+                            saveEditor.commit();
+                        }
                         if (numberOfPushUps == goalValue) {
-                            tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
+                            int check = settingPref.getInt("voiceSetting",1);
+                            if (check == 1){
+                                String name = settingPref.getString("name","set name");
+
+                                tts.speak("Goal Reached nice job "+ name, TextToSpeech.QUEUE_FLUSH, null);
+                            }else{
+                                player.start();
+                            }
+
                         }else {
                             if (soundSwitch.isChecked()) {
                                 player.start();
@@ -195,14 +238,18 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-    }
+
 
     public void countUpButtonPressed(View view) {
         numberOfPushUps++;
         countDisplay.setText(String.valueOf(numberOfPushUps));
+
+        //check highscore
+        if (numberOfPushUps>getHighscore()){
+            saveEditor.putInt("highscore",numberOfPushUps);
+            saveEditor.commit();
+        }
 
         if(vibrateSwitch.isChecked() && proximitySensor != null){
         ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(80);
@@ -210,7 +257,14 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         if(player != null && proximitySensor != null && soundSwitch.isChecked()) {
             if (numberOfPushUps == goalValue) {
-                tts.speak("Goal Reached", TextToSpeech.QUEUE_FLUSH, null);
+                int check = settingPref.getInt("voiceSetting",1);
+                if (check == 1){
+                    String name = settingPref.getString("name","set name");
+                    tts.speak("Goal Reached nice job " + name, TextToSpeech.QUEUE_FLUSH, null);
+
+                }else{
+                    player.start();
+                }
 
             }else {
                 player.start();
@@ -235,7 +289,14 @@ public class MainActivity extends Activity implements SensorEventListener {
         editor.putInt(String.valueOf(numberOfSaves),numberOfPushUps);
         editor.apply();
 
-
+        for (int i = 1; i < numberOfSaves; i++){
+            int j = sharedPref.getInt(String.valueOf(i), 0);
+            if (j>getHighscore()){
+                int highscore = sharedPref.getInt(String.valueOf(i),0);
+                saveEditor.putInt("highscore",highscore);
+                saveEditor.commit();
+            }
+        }
 
 
 

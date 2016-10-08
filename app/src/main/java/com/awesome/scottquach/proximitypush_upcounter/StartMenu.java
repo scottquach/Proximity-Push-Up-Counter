@@ -45,6 +45,10 @@ public class StartMenu extends Activity {
         goalTextView.setText(String.valueOf(goalValue));
     }
 
+    /*button
+    clicks
+     */
+
 
 
     public void startPushUpStarted(View view) {
@@ -71,5 +75,10 @@ public class StartMenu extends Activity {
         editor.putInt("goalValue", goalValue);
         editor.apply();
         goalTextView.setText(String.valueOf(goalValue));
+    }
+
+    public void openSettingsPage(View view) {
+        Intent openSettings = new Intent(StartMenu.this,SettingsActivity.class);
+        startActivity(openSettings);
     }
 }
