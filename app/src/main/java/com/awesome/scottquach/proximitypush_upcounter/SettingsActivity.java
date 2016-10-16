@@ -18,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
     Button nameButton;
 
     Switch voiceSwitch;
+    Switch encouragementSwitch;
 
     SharedPreferences settingsPref;
     SharedPreferences.Editor prefEditor;
@@ -30,7 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         nameButton = (Button) findViewById(R.id.nameButton);
 
         voiceSwitch = (Switch)findViewById(R.id.voiceSwitch);
-
+        encouragementSwitch = (Switch)findViewById(R.id.encouragementSwitch);
 
         settingsPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
         prefEditor = settingsPref.edit();
@@ -39,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         retrieveSettings();
 
-        //listener
+        //listeners
         voiceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -52,6 +53,19 @@ public class SettingsActivity extends AppCompatActivity {
                 prefEditor.commit();
             }
         });
+
+        encouragementSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    prefEditor.putInt("encouragementSetting",1);
+                    Toast.makeText(SettingsActivity.this, "Encouragement Activated", Toast.LENGTH_SHORT).show();
+                }else{
+                    prefEditor.putInt("encouragementSetting",0);
+                }
+                prefEditor.commit();
+            }
+        });
     }
 
     private void retrieveSettings(){
@@ -59,6 +73,12 @@ public class SettingsActivity extends AppCompatActivity {
             voiceSwitch.setChecked(true);
         }else{
             voiceSwitch.setChecked(false);
+        }
+
+        if (settingsPref.getInt("encouragementSetting", 1) == 1){
+            encouragementSwitch.setChecked(true);
+        }else{
+            encouragementSwitch.setChecked(false);
         }
     }
 

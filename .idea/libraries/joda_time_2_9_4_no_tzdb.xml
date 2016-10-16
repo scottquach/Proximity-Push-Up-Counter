@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="joda-time-2.9.4-no-tzdb">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.4/42e5f69edd03ac35f7fb93fad004ee6e45657f36/joda-time-2.9.4-no-tzdb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
