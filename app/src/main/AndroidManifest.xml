@@ -32,9 +32,6 @@
             android:name=".Saves"
             android:label="@string/title_activity_saves"
             android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".Graph"
-            android:label="@string/title_activity_graph"></activity>
         <activity android:name=".SettingsActivity"></activity>
     </application>
 

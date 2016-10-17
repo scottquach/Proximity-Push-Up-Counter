@@ -28,8 +28,14 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -77,10 +83,17 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     TextToSpeech tts;
 
+    private DateTime startTime;
+    private DateTime endTime;
+    private boolean isTrackingDuration = false;
+    private int maxDuration;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        JodaTimeAndroid.init(this);
+
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
         AdView mAdView = (AdView) findViewById(R.id.adView);
@@ -102,7 +115,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         editor = sharedPref.edit();
 
         settingPref = getSharedPreferences("settingsFile",MODE_PRIVATE);
-        goalEditor = settingPref.edit();
+        prefEditor = settingPref.edit();
 
         goalSharedPref = getSharedPreferences("goalFile", MODE_PRIVATE);
         goalValue = goalSharedPref.getInt("goalValue", 0);
@@ -111,6 +124,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         countDisplay = (TextView)findViewById(R.id.countDisplay);
 
+        maxDuration = settingPref.getInt("maxDuration",3100);
 
         //configure proximity sensor
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -146,9 +160,27 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     private int getHighscore(){
 
-
         int highscore = savePref.getInt("highscore", 1);
         return highscore;
+    }
+
+    private void trackEncouragement(){
+        if (isTrackingDuration){
+            isTrackingDuration = false;
+            endTime = new DateTime();
+            Duration dur = new Duration(startTime,endTime);
+
+            long milliseconds = dur.getMillis();
+
+            if (milliseconds >= maxDuration){
+                tts.speak("Your Slowing down, keep it up",TextToSpeech.QUEUE_FLUSH,null);
+            }
+        }else{
+            isTrackingDuration = true;
+            startTime = new DateTime();
+        }
+
+
     }
 
 
@@ -201,7 +233,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 
                     if (player != null && proximitySensor != null) {
                         numberOfPushUps++;
-
+                        if (settingPref.getInt("encouragementSetting",1) == 1){
+                            trackEncouragement();
+                        }
                         //check highscore
                         if (numberOfPushUps>getHighscore()){
                             saveEditor.putInt("highscore",numberOfPushUps);
@@ -239,9 +273,14 @@ public class MainActivity extends Activity implements SensorEventListener {
     }
 
 
-
+/*
+Button Clicks
+ */
 
     public void countUpButtonPressed(View view) {
+        if (settingPref.getInt("encouragementSetting",1) == 1){
+            trackEncouragement();
+        }
         numberOfPushUps++;
         countDisplay.setText(String.valueOf(numberOfPushUps));
 

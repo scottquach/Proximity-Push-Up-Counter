@@ -23,9 +23,8 @@
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.43"
-        app:layout_constraintVertical_bias="0.45"
-        android:id="@+id/view" />
+        android:id="@+id/view"
+        app:layout_constraintHorizontal_bias="0.46" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +46,9 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="24dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.13" />
 
     <Button
         android:text="set name"
@@ -66,5 +66,26 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:text="Speed Up Encouragement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_marginStart="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/encouragementSwitch" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/encouragementSwitch"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="24dp"
+        android:checked="true"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/voiceSwitch" />
 
 </android.support.constraint.ConstraintLayout>

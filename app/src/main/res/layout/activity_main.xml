@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity"
-    android:background="@drawable/background_gradient">
+    android:background="@color/colorPrimary">
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -30,7 +30,7 @@
         android:text="0"
         android:textSize="200sp"
         android:id="@+id/countDisplay"
-        android:textColor="#ff000000"
+        android:textColor="@color/textColor"
         android:onClick="countUpButtonPressed"
         android:textAlignment="center"
         tools:layout_constraintTop_creator="1"
@@ -72,7 +72,7 @@
         android:padding="20dp"
         android:text="Save"
         android:onClick="savedButtonClicked"
-        android:textColor="#ff00bcd4"
+        android:textColor="@color/textColor"
         android:background="@drawable/button_black_round"
         android:drawableLeft="@drawable/ic_action_content_save"
         android:id="@+id/button2"
@@ -86,7 +86,7 @@
         ads:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageButton
-        android:background="@drawable/icon_refresh_red"
+        android:background="@drawable/ic_refresh"
         android:onClick="refreshButtonPressed"
         android:id="@+id/button"
         android:layout_width="40dp"
@@ -121,6 +121,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Vibrate"
+        android:textColor="@color/textColor"
         android:id="@+id/vibrateSwitch"
         android:checked="true"
         tools:layout_constraintRight_creator="1"
@@ -134,6 +135,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Sound "
+        android:textColor="@color/textColor"
         android:id="@+id/soundSwitch"
         android:checked="true"
         tools:layout_constraintRight_creator="1"

@@ -109,7 +109,10 @@ public class Saves extends Activity {
     private void iterateThroughSharedPref(){
         for (int i = 0; i < sentinel; i++){
             String temp = sharedPref.getString("save"+i, "No data available");
-            saveData.add(temp);
+            if (!temp.equals("No data available")){
+                saveData.add(temp);
+
+            }
         }
     }
 
@@ -117,11 +120,13 @@ public class Saves extends Activity {
 
 
     private void retrieveDataToSave(Intent intent) {
-        Bundle bundle = intent.getExtras();
-        if(!bundle.isEmpty()){
-            newSaveString = bundle.getString("newPushUpSave");
+        if (intent.getExtras() != null) {
+            Bundle bundle = intent.getExtras();
+            if (!bundle.isEmpty()) {
+                newSaveString = bundle.getString("newPushUpSave");
 //            if(newSaveString == null);
 //                newSaveString = "No Saved Data Currently Available";
+            }
         }
     }
 
@@ -177,13 +182,13 @@ Cicks
 
     }
 
-    public void openGraph(View view) {
-        Intent openGraph = new Intent(Saves.this,Graph.class);
-        startActivity(openGraph);
-    }
-
-    public void graphButtonClicked(View view) {
-        Intent openGraph = new Intent(Saves.this,Graph.class);
-        startActivity(openGraph);
-    }
+//    public void openGraph(View view) {
+//        Intent openGraph = new Intent(Saves.this,Graph.class);
+//        startActivity(openGraph);
+//    }
+//
+//    public void graphButtonClicked(View view) {
+//        Intent openGraph = new Intent(Saves.this,Graph.class);
+//        startActivity(openGraph);
+//    }
 }

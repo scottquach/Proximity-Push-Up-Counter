@@ -81,4 +81,9 @@ public class StartMenu extends Activity {
         Intent openSettings = new Intent(StartMenu.this,SettingsActivity.class);
         startActivity(openSettings);
     }
+
+    public void logButtonClicked(View view) {
+        Intent openSaves = new Intent(StartMenu.this,Saves.class);
+        startActivity(openSaves);
+    }
 }
