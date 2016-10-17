@@ -124,7 +124,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         countDisplay = (TextView)findViewById(R.id.countDisplay);
 
-        maxDuration = settingPref.getInt("maxDuration",4000);
+        maxDuration = settingPref.getInt("maxDuration",3100);
 
         //configure proximity sensor
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);

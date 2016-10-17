@@ -150,7 +150,7 @@
             android:text="Settings"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button3"
+            android:id="@+id/settings"
             android:layout_marginEnd="16dp"
             ads:layout_constraintRight_toRightOf="parent"
             android:layout_marginRight="16dp"
@@ -162,10 +162,28 @@
             android:textColor="@color/textColor"
             ads:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="8dp"
+            android:onClick="openSettingsPage"
+            android:layout_marginTop="24dp"
+            ads:layout_constraintTop_toBottomOf="@+id/log"
+            ads:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:onClick="logButtonClicked"
+            android:text="Log"
+            android:textColor="@color/textColor"
+            android:background="@drawable/button_black_round"
+            android:drawableLeft="@drawable/ic_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/log"
+            android:layout_marginTop="24dp"
             ads:layout_constraintTop_toBottomOf="@+id/button5"
-            ads:layout_constraintVertical_bias="0.100000024"
-            android:onClick="openSettingsPage"/>
+            android:layout_marginEnd="16dp"
+            ads:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            ads:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="16dp" />
 
 
         <!--<Button-->
