@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="start"
+        android:enabled="true"
+        android:icon="@drawable/ic_arrow_up"
+        android:shortcutShortLabel="@string/shortLabelStart"
+        android:shortcutLongLabel="@string/longLabelStart"
+        android:shortcutDisabledMessage="@string/disabledLabelStart">
+    <intent
+        android:action="android.intent.action.VIEW"
+        android:targetPackage="com.awesome.scottquach.proximitypush_upcounter"
+        android:targetClass="com.awesome.scottquach.proximitypush_upcounter.MainActivity"/>
+    <categories android:name="android.shortcut.start"/>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="Log"
+        android:enabled="true"
+        android:icon="@drawable/ic_log"
+        android:shortcutShortLabel="@string/shortLabelLog"
+        android:shortcutLongLabel="@string/longLabelLog"
+        android:shortcutDisabledMessage="@string/disabledLabelLog">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.awesome.scottquach.proximitypush_upcounter"
+            android:targetClass="com.awesome.scottquach.proximitypush_upcounter.Saves"/>
+        <categories android:name="android.shortcut.saves"/>
+    </shortcut>
+
+
+
+
+</shortcuts>

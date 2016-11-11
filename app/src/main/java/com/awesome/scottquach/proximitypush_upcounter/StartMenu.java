@@ -31,10 +31,7 @@ public class StartMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_menu);
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         goalTextView = (TextView) findViewById(R.id.goalTextView);
 
@@ -43,6 +40,11 @@ public class StartMenu extends Activity {
 
         goalValue = sharedPref.getInt("goalValue", 0);
         goalTextView.setText(String.valueOf(goalValue));
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     /*button
