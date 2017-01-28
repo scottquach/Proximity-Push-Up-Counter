@@ -17,6 +17,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -154,6 +155,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         });
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
     }
