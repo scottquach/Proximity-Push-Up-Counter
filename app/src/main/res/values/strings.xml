@@ -9,4 +9,13 @@
     <string name="title_activity_graph">Graph</string>
     <string name="banner_ad_unit_id">ca-app-pub-1876787092384518/3922939982</string>
     <string name="banner_add_unit_id_startMenu">ca-app-pub-1876787092384518/3026459580</string>
+
+
+    <string name="shortLabelStart">Start Tracker</string>
+    <string name="longLabelStart">Start Tracker</string>
+    <string name="disabledLabelStart">Disabled</string>
+
+    <string name="shortLabelLog">Log</string>
+    <string name="longLabelLog">Log</string>
+    <string name="disabledLabelLog">Disabled</string>
 </resources>
