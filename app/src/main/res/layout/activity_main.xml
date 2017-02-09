@@ -17,15 +17,15 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         ads:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         ads:layout_constraintLeft_toLeftOf="parent"
         ads:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
 
 
     <TextView
-        android:layout_width="399dp"
-        android:layout_height="221dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="0"
         android:textSize="200sp"
@@ -38,14 +38,15 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         ads:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="32dp"
         tools:layout_constraintLeft_creator="1"
         ads:layout_constraintLeft_toLeftOf="parent"
         ads:layout_constraintTop_toTopOf="@+id/adView"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         ads:layout_constraintBottom_toTopOf="@+id/textView2"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        ads:layout_constraintHorizontal_bias="0.6" />
     <!--<Button-->
     <!--android:layout_width="350dp"-->
     <!--android:layout_height="350dp"-->
@@ -69,7 +70,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:padding="20dp"
+        android:padding="15dp"
         android:text="Save"
         android:onClick="savedButtonClicked"
         android:textColor="@color/textColor"
