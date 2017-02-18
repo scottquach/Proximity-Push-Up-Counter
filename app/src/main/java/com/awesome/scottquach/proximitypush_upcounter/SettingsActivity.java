@@ -1,7 +1,11 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +15,10 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -19,9 +26,14 @@ public class SettingsActivity extends AppCompatActivity {
 
     Switch voiceSwitch;
     Switch encouragementSwitch;
+    Switch reminderSwitch;
 
     SharedPreferences settingsPref;
     SharedPreferences.Editor prefEditor;
+
+    final static int DIALOG_ID = 80;
+    int selectedHour;
+    int selectedMinute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         voiceSwitch = (Switch)findViewById(R.id.voiceSwitch);
         encouragementSwitch = (Switch)findViewById(R.id.encouragementSwitch);
+        reminderSwitch = (Switch)findViewById(R.id.reminderSwitch);
 
         settingsPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
         prefEditor = settingsPref.edit();
@@ -66,22 +79,87 @@ public class SettingsActivity extends AppCompatActivity {
                 prefEditor.commit();
             }
         });
+
+        reminderSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    prefEditor.putInt("reminderSetting", 1);
+                    createTimePickerDialog();
+
+                }else{
+                    prefEditor.putInt("reminderSetting", 0);
+
+                }
+                prefEditor.commit();
+            }
+        });
     }
 
-    private void retrieveSettings(){
-        if (settingsPref.getInt("voiceSetting",1) == 1){
+    private void retrieveSettings() {
+        if (settingsPref.getInt("voiceSetting", 1) == 1) {
             voiceSwitch.setChecked(true);
-        }else{
+        } else {
             voiceSwitch.setChecked(false);
         }
 
-        if (settingsPref.getInt("encouragementSetting", 1) == 1){
+        if (settingsPref.getInt("encouragementSetting", 1) == 1) {
             encouragementSwitch.setChecked(true);
-        }else{
+        } else {
             encouragementSwitch.setChecked(false);
+        }
+
+        if (settingsPref.getInt("reminderSetting", 0) == 1) {
+            reminderSwitch.setChecked(true);
+        } else{
+            reminderSwitch.setChecked(false);
         }
     }
 
+    private void createTimePickerDialog(){
+        showDialog(DIALOG_ID);
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id){
+        if (id == DIALOG_ID){
+            return new TimePickerDialog(SettingsActivity.this, timePickerListener, 12, 0, false);
+        }else{
+            return null;
+        }
+    }
+
+    protected TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            selectedHour = hourOfDay;
+            selectedMinute = minute;
+            createReminderNotification();
+        }
+    };
+
+    private void createReminderNotification(){
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+        calendar.set(Calendar.MINUTE, selectedMinute);
+
+        Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cancelReminderNotification(){
+        Intent intent = new Intent(this, NotificationReceiver.class);
+        PendingIntent sender =  PendingIntent.getBroadcast(getApplicationContext(), 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        alarmManager.cancel(sender);
+        Toast.makeText(SettingsActivity.this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
+    }
 
     /*button
     clicks

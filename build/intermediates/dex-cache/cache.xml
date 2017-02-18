@@ -12,6 +12,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.0.2_6a601ea438afc863b43823a2a2a656dd8e8698b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.2_f397d7d519d2d2621a5fa912a6ac62be44e07c85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="7e52b440a26498c56b4f263e215223b5451c955e">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.0.2_45b1026c97766e8d31a60d07feb87d037c939c80\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.9.4\42e5f69edd03ac35f7fb93fad004ee6e45657f36\joda-time-2.9.4-no-tzdb.jar"
         jumboMode="true"
         optimize="true"
@@ -30,12 +57,57 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.0.2_44bc41bfb1759d4f0acdcc96d43f8d1bc669babf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.2_5d84962c7c051f051870acbce4816d00e130ed6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.0_20aa81a717270ca46e1ccbf54330d71dab026902\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.0.2_5d6c5ec03abc592a7746b8715108e5885ddc6a86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="0c835e9f3875cf245877c9b17d1c69bc98f16057">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.0.2_88ad16bb1e9bf4fc5052add17a4bd3375fe87099\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="53f10fcd322a3931495d6ca2078a81f4957cdbce">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.0.2_c163c9c3b86d470376c2005d22ceefd437777a74\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,12 +120,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.0.2_05c4a56b666ac6003bb36d7bddebc35ee3fdacae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.0.2_339b20e86d0cfa6445197cc296554dd1008698a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="c96952c162c9f6076f44c5939982cb35491442ea">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.0.2_0ce9bef7dc9b590d292b47d0afe676cd4a4143d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="a498fab72f8663c26fbf3d4496eb6b673b17bcae">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.0.2_7c653a6393aae1c299d479311cd74a94c0ac0e6d\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -75,6 +174,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.0.2_f8e64cf1e662949cc2dc3b34a98982c78387f2a9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -90,6 +198,15 @@
         revision="23.0.0"
         sha1="20e1a0f0de6276a5f36062b655f8b20f8cc00cc4">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.0.2_c60d00d8f818b95fe1dd273682fb59128dde6ed9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.0_3903bc4bb1b7e7038315daffe6673c0feb85e7a3\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -120,6 +237,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_4c5c0a974a115209a329fed7f392c39b5990dd30\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\net.danlew\android.joda\2.9.4.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -138,6 +264,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.0.2_3385ccb824079e873eec5a515bb4e0061081935d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_e31708224d42ef71c5de858948e99e194bcfd7ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="143813b18381b28de1e04aae1d92fcb374a0add9">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.0.2_8e9cea862f23c78977a40455df23f20b8a4b8b7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -153,6 +306,15 @@
         revision="23.0.0"
         sha1="fe5b47e764869f1076cb9cfe12801ed2ef4e9117">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.0.2_80b1f9ad377fd2a256b992d558feea4181afb39c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.2_561a4a04fa18f79a3ee58fc3cdbd18f45c8f310c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -201,6 +363,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="922c24fbfc4247947fcfaf2b95f295a16a8c3d17">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.0.2_33ebc36b99cb29544f208e67f1d53f262d10f816\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -219,291 +390,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.0.2_b0b750f97ed40885be7d004537bdcc1a8710edc6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="d9ea4cdaafa29ec4651d6e4715788d3fcaa7b913">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.0.2_09c5d7ca2fc9942050125dd8b9522b1f1132aa47\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.0.2_d48151ad8b4d83669cd5d6314ae6ee8443718e3e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_127daf6c984e0ab78bcbfd02be18a75ba0c2c307\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.0.2_d3ef5de5d9feb2f20f0823c2dbea7e5bfdf8887e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.2_b459b7881fa586962aac369ce4d6cbd3de729bf5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="2ab5be19bbd34bae74662ea6b2d4451314d92d97">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.0.2_996d710d1c4c86ecf05346254e70f1cbc3b626ac\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="cd4c7c54e15d9ccbc448384fa2c4684d69ca73f0">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.0.2_9d7720a53789031ca49cf71c9916afed56467951\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="112571262b7abd825e35f83b29bf1a4c28fb8e2b">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6d18d17f2e498a695f21f2e5f9e2df48720fc70c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.0.2_e3fd11a539a19997e64155457cff011de8b55cef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="b6af089f583d547bcffc0689b2e80bc7aaa54b15">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.0.2_92387c327a4e4d5eb8368a496ffe328b8d208ab7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_1ba551bf7c7ef04c460c7483321e0facca623682\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="f4fb6981392ca7680d02fd57d26d6124c141d9d9">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.0.2_6a601ea438afc863b43823a2a2a656dd8e8698b1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.2_f397d7d519d2d2621a5fa912a6ac62be44e07c85\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="7e52b440a26498c56b4f263e215223b5451c955e">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.0.2_45b1026c97766e8d31a60d07feb87d037c939c80\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.0.2_44bc41bfb1759d4f0acdcc96d43f8d1bc669babf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.2_5d84962c7c051f051870acbce4816d00e130ed6d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.0_20aa81a717270ca46e1ccbf54330d71dab026902\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="e11da70cff6a544a45cdc21f419802d9bb9043ac">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.0.2_5d6c5ec03abc592a7746b8715108e5885ddc6a86\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="53f10fcd322a3931495d6ca2078a81f4957cdbce">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.0.2_c163c9c3b86d470376c2005d22ceefd437777a74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.0.2_05c4a56b666ac6003bb36d7bddebc35ee3fdacae\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="cf16220db9128d91a215aedc739584181d5ca6a4">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.0.2_339b20e86d0cfa6445197cc296554dd1008698a7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="a498fab72f8663c26fbf3d4496eb6b673b17bcae">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.0.2_7c653a6393aae1c299d479311cd74a94c0ac0e6d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="6ff48ef26bc539c78af4aa061cb9bad6abcbf5e8">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.0.2_f8e64cf1e662949cc2dc3b34a98982c78387f2a9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.0_3903bc4bb1b7e7038315daffe6673c0feb85e7a3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_4c5c0a974a115209a329fed7f392c39b5990dd30\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="f399a2fde7888450cadcaec4974bfd169d8cce43">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.0.2_3385ccb824079e873eec5a515bb4e0061081935d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_e31708224d42ef71c5de858948e99e194bcfd7ab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="143813b18381b28de1e04aae1d92fcb374a0add9">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.0.2_8e9cea862f23c78977a40455df23f20b8a4b8b7c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.2_561a4a04fa18f79a3ee58fc3cdbd18f45c8f310c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="922c24fbfc4247947fcfaf2b95f295a16a8c3d17">
-        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.0.2_33ebc36b99cb29544f208e67f1d53f262d10f816\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_68275a32942b0fa6daa873911fbeda8a05c83972\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.0.2_b0b750f97ed40885be7d004537bdcc1a8710edc6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -543,12 +444,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="d9ea4cdaafa29ec4651d6e4715788d3fcaa7b913">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.0.2_09c5d7ca2fc9942050125dd8b9522b1f1132aa47\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_60f9b8ebed07bc14842b9448a5cec2381ee1a74d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="bc156efaaee99f1ef6bf471347373a4cbb28e2a1">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.0.2_d48151ad8b4d83669cd5d6314ae6ee8443718e3e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_127daf6c984e0ab78bcbfd02be18a75ba0c2c307\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -570,6 +498,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="e6970f0554f9508c041f1f6960af15cc888c9f35">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.0.2_d3ef5de5d9feb2f20f0823c2dbea7e5bfdf8887e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.2_b459b7881fa586962aac369ce4d6cbd3de729bf5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="2ab5be19bbd34bae74662ea6b2d4451314d92d97">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.0.2_996d710d1c4c86ecf05346254e70f1cbc3b626ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="cd4c7c54e15d9ccbc448384fa2c4684d69ca73f0">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.0.2_9d7720a53789031ca49cf71c9916afed56467951\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -579,11 +543,29 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="62933c7b99cd08a9f16f921be7e511b59434aed8">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6d18d17f2e498a695f21f2e5f9e2df48720fc70c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.0.2_e3fd11a539a19997e64155457cff011de8b55cef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="407dfb50a69ec39fad8e2da50c680cc41582ca39">
+        sha1="d637b8a5f462572848f8449364ceb239e3830d59">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d4666122491d43ef08aeb324d1a3d249b9c92f8c\classes.dex" />
     </item>
     <item
@@ -594,6 +576,15 @@
         revision="23.0.0"
         sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.0_abd7d3e71b976bc2161a8c9c1dc356dc35685d10\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="b6af089f583d547bcffc0689b2e80bc7aaa54b15">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.0.2_92387c327a4e4d5eb8368a496ffe328b8d208ab7\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -612,6 +603,15 @@
         revision="23.0.0"
         sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_a8980237376b332b7819f5a1b140aed800ad6835\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_1ba551bf7c7ef04c460c7483321e0facca623682\classes.dex" />
     </item>
 
 </items>
