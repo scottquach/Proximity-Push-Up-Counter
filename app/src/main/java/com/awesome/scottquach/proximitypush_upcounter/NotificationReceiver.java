@@ -1,5 +1,6 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -21,12 +22,13 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 101, openApp, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+        Notification builder = new Notification.Builder(context)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Daily Push-Ups")
                 .setContentText("This is your reminder to do Push-Ups!")
-                .setAutoCancel(true);
-        notificationManager.notify(101, builder.build());
+                .setAutoCancel(true)
+                .build();
+        notificationManager.notify(101, builder);
     }
 }

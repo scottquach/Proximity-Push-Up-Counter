@@ -565,7 +565,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="d637b8a5f462572848f8449364ceb239e3830d59">
+        sha1="7648f17eba0a03f6e05042c54aeac176335c3d43">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d4666122491d43ef08aeb324d1a3d249b9c92f8c\classes.dex" />
     </item>
     <item

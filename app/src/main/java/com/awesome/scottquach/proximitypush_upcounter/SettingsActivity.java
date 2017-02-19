@@ -1,5 +1,6 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
@@ -89,7 +90,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 }else{
                     prefEditor.putInt("reminderSetting", 0);
-
+                    cancelReminderNotification();
                 }
                 prefEditor.commit();
             }
@@ -144,11 +145,12 @@ public class SettingsActivity extends AppCompatActivity {
         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
         calendar.set(Calendar.MINUTE, selectedMinute);
 
-        Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),  24 * 60 * 60 * 1000
+                , pendingIntent);
         Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
     }
 
