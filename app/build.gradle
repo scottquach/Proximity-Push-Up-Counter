@@ -8,10 +8,10 @@ android {
         multiDexEnabled true
 
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
-        versionCode 24
-        versionName "4.2.2"
+        versionCode 25
+        versionName "4.3"
     }
     buildTypes {
         release {
