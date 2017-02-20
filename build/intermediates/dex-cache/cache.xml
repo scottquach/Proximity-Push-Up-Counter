@@ -547,7 +547,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="62933c7b99cd08a9f16f921be7e511b59434aed8">
+        sha1="68432d216a59ede9ea351088d1d86c0e627afb5d">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6d18d17f2e498a695f21f2e5f9e2df48720fc70c\classes.dex" />
     </item>
     <item
@@ -565,7 +565,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="7648f17eba0a03f6e05042c54aeac176335c3d43">
+        sha1="7be6a47d6b88f1164b3a770f304ce2a7f4831b79">
         <dex dex="C:\Users\Scott Quach\AndroidStudioProjects\ProximityPush-UpCounter\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d4666122491d43ef08aeb324d1a3d249b9c92f8c\classes.dex" />
     </item>
     <item

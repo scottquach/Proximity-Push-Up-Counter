@@ -3,11 +3,15 @@ package com.awesome.scottquach.proximitypush_upcounter;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +25,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends Activity {
 
     Button nameButton;
 
@@ -53,6 +57,8 @@ public class SettingsActivity extends AppCompatActivity {
         nameButton.setText(settingsPref.getString("name","set name"));
 
         retrieveSettings();
+
+        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
 
         //listeners
         voiceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -86,6 +92,8 @@ public class SettingsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     prefEditor.putInt("reminderSetting", 1);
+//                    testNotification();
+//                    createReminderNotification();
                     createTimePickerDialog();
 
                 }else{
@@ -97,6 +105,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    //check  settings saved from the last change
     private void retrieveSettings() {
         if (settingsPref.getInt("voiceSetting", 1) == 1) {
             voiceSwitch.setChecked(true);
@@ -136,27 +145,29 @@ public class SettingsActivity extends AppCompatActivity {
             selectedHour = hourOfDay;
             selectedMinute = minute;
             createReminderNotification();
+            Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
         }
     };
 
     private void createReminderNotification(){
         Calendar calendar = Calendar.getInstance();
-
+        calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
         calendar.set(Calendar.MINUTE, selectedMinute);
 
-        Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),  24 * 60 * 60 * 1000
+        Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 24
                 , pendingIntent);
         Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
     }
 
     private void cancelReminderNotification(){
         Intent intent = new Intent(this, NotificationReceiver.class);
-        PendingIntent sender =  PendingIntent.getBroadcast(getApplicationContext(), 101, intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent sender =  PendingIntent.getBroadcast(getApplicationContext(), 0, intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         alarmManager.cancel(sender);
