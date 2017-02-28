@@ -58,8 +58,6 @@ public class SettingsActivity extends Activity {
 
         retrieveSettings();
 
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
-
         //listeners
         voiceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -92,8 +90,6 @@ public class SettingsActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     prefEditor.putInt("reminderSetting", 1);
-//                    testNotification();
-//                    createReminderNotification();
                     createTimePickerDialog();
 
                 }else{
@@ -126,51 +122,49 @@ public class SettingsActivity extends Activity {
         }
     }
 
+    //Create and show timePicker
     private void createTimePickerDialog(){
-        showDialog(DIALOG_ID);
+        TimePickerDialog timePicker = new TimePickerDialog(SettingsActivity.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                selectedHour = hourOfDay;
+                selectedMinute = minute;
+                createReminderNotification();
+            }
+        }, 12, 0, false);
+        timePicker.setTitle("Select Time");
+        timePicker.show();
+
     }
 
-    @Override
-    protected Dialog onCreateDialog(int id){
-        if (id == DIALOG_ID){
-            return new TimePickerDialog(SettingsActivity.this, timePickerListener, 12, 0, false);
-        }else{
-            return null;
-        }
-    }
-
-    protected TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
-        @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            selectedHour = hourOfDay;
-            selectedMinute = minute;
-            createReminderNotification();
-            Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
-        }
-    };
-
+    //create alarm for daily reminder notification and start
     private void createReminderNotification(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
         calendar.set(Calendar.MINUTE, selectedMinute);
 
-
         Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 24
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY
                 , pendingIntent);
         Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
     }
 
+    //cancel reminder notification and alarm
     private void cancelReminderNotification(){
         Intent intent = new Intent(this, NotificationReceiver.class);
-        PendingIntent sender =  PendingIntent.getBroadcast(getApplicationContext(), 0, intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        PendingIntent sender =  PendingIntent.getBroadcast(SettingsActivity.this, 0, intent,PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         alarmManager.cancel(sender);
+
+
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancelAll();
+
         Toast.makeText(SettingsActivity.this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
     }
 
@@ -178,6 +172,7 @@ public class SettingsActivity extends Activity {
     clicks
      */
 
+    //Set the name that is said when tts reminds you to incrase speed
     public void nameButtonClicked(View view) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);

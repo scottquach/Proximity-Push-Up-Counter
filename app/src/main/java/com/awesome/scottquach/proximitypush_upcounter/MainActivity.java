@@ -160,12 +160,13 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     }
 
+    //retrieve highscore
     private int getHighscore(){
-
         int highscore = savePref.getInt("highscore", 1);
         return highscore;
     }
 
+    //track duration between each push-up. tts reminder when slowing down
     private void trackEncouragement(){
         if (isTrackingDuration){
             isTrackingDuration = false;
@@ -185,16 +186,15 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     }
 
-
+    //Canel media player
     @Override
     protected void onPause() {
         super.onPause();
 
-        if (this.isFinishing()){ //basically BACK was pressed from this activity
+        if (this.isFinishing()){
             if(player != null){
                 player.stop();
             }
-//            player = null;
             proximitySensor = null;
             sm = null;
             if(tts !=null){
@@ -206,7 +206,6 @@ public class MainActivity extends Activity implements SensorEventListener {
                 player.stop();
 
             }
-//                player = null;
             proximitySensor = null;
             sm = null;
             if(tts !=null){
@@ -226,7 +225,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
-
+    //Proximity sensor to detect push-ups
     @Override
     public void onSensorChanged(SensorEvent event) {
 
@@ -243,6 +242,7 @@ public class MainActivity extends Activity implements SensorEventListener {
                             saveEditor.putInt("highscore",numberOfPushUps);
                             saveEditor.commit();
                         }
+                        //determine if goal has been reached
                         if (numberOfPushUps == goalValue) {
                             int check = settingPref.getInt("voiceSetting",1);
                             if (check == 1){
@@ -314,19 +314,18 @@ Button Clicks
             player=MediaPlayer.create(MainActivity.this,R.raw.beep);
         }
 
-//        Toast.makeText(this, formattedDate, Toast.LENGTH_SHORT).show();
     }
 
     public void savedButtonClicked(View view) {
 
-
+        //Format text to be saved
         if (numberOfPushUps >= goalValue) {
             savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups, GOAL REACHED";
         }else{
             savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups";
         }
 
-
+        //Save number of push-ups done that session
         editor.putInt(String.valueOf(numberOfSaves),numberOfPushUps);
         editor.apply();
 

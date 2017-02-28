@@ -10,10 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v7.app.NotificationCompat;
-import android.widget.Toast;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -24,46 +20,27 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 public class NotificationReceiver extends BroadcastReceiver {
 
 
-//    @Nullable
-//    @Override
-//    public IBinder onBind(Intent intent) {
-//        return null;
-//    }
-
-//    @Override
-//    public void onCreate() {
-//        Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//
-//        Notification mBuilder = new Notification.Builder(this)
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle("Title")
-//                .setContentText("Text")
-//                .build();
-//
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//
-//        notificationManager.notify(0, mBuilder);
-//
-//    }
-
-
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        //PendingIntent to open app when notification is clicked
         Intent openApp = new Intent(context, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , openApp, PendingIntent.FLAG_UPDATE_CURRENT);
-
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+        //Retreive default notification sound
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+        //Create notification
         Notification mBuilder = new Notification.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Do Push-Ups!")
                 .setContentText("This is your daily reminder")
                 .setContentIntent(pendingIntent)
+                .setSound(sound)
+                .setAutoCancel(true)
                 .build();
 
+        //Notify
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
-
         notificationManager.notify(0, mBuilder);
 
     }
