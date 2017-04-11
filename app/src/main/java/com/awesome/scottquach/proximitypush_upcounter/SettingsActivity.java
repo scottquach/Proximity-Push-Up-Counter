@@ -37,8 +37,8 @@ public class SettingsActivity extends Activity {
     SharedPreferences.Editor prefEditor;
 
     final static int DIALOG_ID = 80;
-    int selectedHour;
-    int selectedMinute;
+    int selectedHour = 12;
+    int selectedMinute = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +145,7 @@ public class SettingsActivity extends Activity {
         calendar.set(Calendar.MINUTE, selectedMinute);
 
         Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY
@@ -156,7 +156,7 @@ public class SettingsActivity extends Activity {
     //cancel reminder notification and alarm
     private void cancelReminderNotification(){
         Intent intent = new Intent(this, NotificationReceiver.class);
-        PendingIntent sender =  PendingIntent.getBroadcast(SettingsActivity.this, 0, intent,PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent sender =  PendingIntent.getBroadcast(SettingsActivity.this, 0, intent,PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         alarmManager.cancel(sender);

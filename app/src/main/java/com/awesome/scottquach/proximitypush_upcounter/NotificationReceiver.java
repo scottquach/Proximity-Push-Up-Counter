@@ -25,7 +25,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         //PendingIntent to open app when notification is clicked
         Intent openApp = new Intent(context, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , openApp, PendingIntent.FLAG_UPDATE_CURRENT);
         //Retreive default notification sound
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
