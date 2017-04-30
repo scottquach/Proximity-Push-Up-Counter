@@ -133,6 +133,7 @@ public class SettingsActivity extends Activity {
             }
         }, 12, 0, false);
         timePicker.setTitle("Select Time");
+        timePicker.setCancelable(false);
         timePicker.show();
 
     }

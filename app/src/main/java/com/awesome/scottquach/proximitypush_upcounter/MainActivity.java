@@ -262,7 +262,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
 
                         if(vibrateSwitch.isChecked() && proximitySensor != null){
-                            ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(80);
+                            ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(50);
                         }
                         countDisplay.setText(String.valueOf(numberOfPushUps));
                     }else{
