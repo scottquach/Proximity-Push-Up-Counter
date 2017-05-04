@@ -51,8 +51,8 @@ public class StartMenu extends Activity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        //When button is held down, incrase faster using handler
         upButton.setOnTouchListener(new View.OnTouchListener() {
-
             private Handler mHandler;
 
             @Override public boolean onTouch(View v, MotionEvent event) {
@@ -87,6 +87,7 @@ public class StartMenu extends Activity {
 
         });
 
+        //When button is held down, decrease faster using handler
         downButton.setOnTouchListener(new View.OnTouchListener() {
             private Handler mHandler;
             @Override public boolean onTouch(View v, MotionEvent event) {
@@ -126,17 +127,13 @@ public class StartMenu extends Activity {
      */
 
 
-
+    //go to main activity
     public void startPushUpStarted(View view) {
         Intent openMainActivity = new Intent(this,MainActivity.class);
         startActivity(openMainActivity);
     }
 
-    public void saveButtonClicked(View view) {
-        Intent openSaves = new Intent(this, Saves.class);
-        startActivity(openSaves);
-    }
-
+    //incrase goal value and save
     public void upButtonClicked(View view) {
         goalValue++;
         editor.putInt("goalValue", goalValue);
@@ -144,6 +141,7 @@ public class StartMenu extends Activity {
         goalTextView.setText(String.valueOf(goalValue));
     }
 
+    //decrase goal value and save
     public void downButtonClicked(View view) {
         if(goalValue >=1) {
             goalValue--;
@@ -153,11 +151,13 @@ public class StartMenu extends Activity {
         goalTextView.setText(String.valueOf(goalValue));
     }
 
+    //open settings page
     public void openSettingsPage(View view) {
         Intent openSettings = new Intent(StartMenu.this,SettingsActivity.class);
         startActivity(openSettings);
     }
 
+    //open log of previous sessions page
     public void logButtonClicked(View view) {
         Intent openSaves = new Intent(StartMenu.this,Saves.class);
         startActivity(openSaves);

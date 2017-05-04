@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
-    <receiver android:name="com.awesome.scottquach.proximitypush_upcounter.NotificationReceiver"/>
+
 
 
     <application
@@ -13,6 +13,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Push-Up Fitness Tracker"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="android.max_aspect"
+            android:value="2.1"/>
 
 
         <activity
@@ -38,11 +41,8 @@
         <activity android:name=".SettingsActivity"
             android:enabled="true"></activity>
 
-        <receiver android:name=".NotificationReceiver" android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
+        <receiver android:name=".NotificationReceiver" android:enabled="true"/>
+
 
     </application>
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ProximityPush-UpCounter.iml" filepath="$PROJECT_DIR$/ProximityPush-UpCounter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proximity-Push-Up-Counter.iml" filepath="$PROJECT_DIR$/Proximity-Push-Up-Counter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

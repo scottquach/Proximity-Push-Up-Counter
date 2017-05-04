@@ -97,15 +97,14 @@ public class Saves extends Activity {
 
     }
 
+    //set highscoreView with current highscore
     private void setHighscoreView(){
-
-
         int highscore = sharedPref.getInt("highscore",1);
         highscoreView.setText("Highscore: "+ String.valueOf(highscore));
 
     }
 
-
+    //Retrieve data through sharedPref
     private void iterateThroughSharedPref(){
         for (int i = 0; i < sentinel; i++){
             String temp = sharedPref.getString("save"+i, "No data available");
@@ -116,9 +115,7 @@ public class Saves extends Activity {
         }
     }
 
-
-
-
+    //Retrieve data from current session
     private void retrieveDataToSave(Intent intent) {
         if (intent.getExtras() != null) {
             Bundle bundle = intent.getExtras();
@@ -130,8 +127,8 @@ public class Saves extends Activity {
         }
     }
 
+    //Fill list view with data
     private void populateListView() {
-
 
         //adapter
         adapter = new ArrayAdapter<String>(this, R.layout.saved_items, saveData);

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "23.0.0"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         multiDexEnabled true
@@ -10,8 +10,8 @@ android {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 25
-        versionName "4.3"
+        versionCode 27
+        versionName "4.3.2"
     }
     buildTypes {
         release {
