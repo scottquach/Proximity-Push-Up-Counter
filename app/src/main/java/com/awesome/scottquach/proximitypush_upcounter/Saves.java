@@ -6,18 +6,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import timber.log.Timber;
 
 public class Saves extends Activity {
 
@@ -27,90 +28,76 @@ public class Saves extends Activity {
     SharedPreferences.Editor editor;
 
     String newSaveString;
-    ArrayList<String> saveData;
+    List<String> saveData;
 
-    ListView listView;
+    RecyclerView recyclerView;
+    RecyclerSavesAdapter adapter;
 
     private int sentinel = 0;
     private int numberOfSavedFiles = 0;
-
-    ArrayAdapter<String> adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saves);
 
-        saveData = new ArrayList<String>();
         Set<String> set = new HashSet<String>();
 
         sharedPref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        highscoreView = (TextView)findViewById(R.id.highscoreView);
+        highscoreView = (TextView) findViewById(R.id.highscoreView);
         setHighscoreView();
 
         sentinel = sharedPref.getInt("sentinel", 0);
 
-        if(getIntent() != null){
+        if (getIntent() != null) {
             Intent intentExtras = getIntent();
-            if(intentExtras != null) {
+            if (intentExtras != null) {
                 retrieveDataToSave(intentExtras);
-
-                if(sentinel == 0){
-
+                if (sentinel == 0) {
                     sentinel = 1;
                     editor.putInt("sentinel", 1);
                     editor.putString("save" + numberOfSavedFiles, newSaveString);
                     numberOfSavedFiles++;
                     editor.putInt("numberSaves", numberOfSavedFiles);
                     editor.apply();
-
-                }else {
-
-
+                } else {
                     numberOfSavedFiles = sharedPref.getInt("numberSaves", 0);
                     editor.putString("save" + numberOfSavedFiles, newSaveString);
                     numberOfSavedFiles++;
-                    editor.putInt("numberSaves",numberOfSavedFiles);
+                    editor.putInt("numberSaves", numberOfSavedFiles);
                     sentinel++;
                     editor.putInt("sentinel", sentinel);
                     editor.apply();
-
                 }
-
                 iterateThroughSharedPref();
                 populateListView();
-            }else{
+            } else {
                 iterateThroughSharedPref();
                 populateListView();
             }
-
-        }else{
+        } else {
             iterateThroughSharedPref();
             populateListView();
         }
-
-
-
-
     }
 
     //set highscoreView with current highscore
-    private void setHighscoreView(){
-        int highscore = sharedPref.getInt("highscore",1);
-        highscoreView.setText("Highscore: "+ String.valueOf(highscore));
+    private void setHighscoreView() {
+        int highscore = sharedPref.getInt("highscore", 1);
+        highscoreView.setText("Highscore: " + String.valueOf(highscore));
 
     }
 
     //Retrieve data through sharedPref
-    private void iterateThroughSharedPref(){
-        for (int i = 0; i < sentinel; i++){
-            String temp = sharedPref.getString("save"+i, "No data available");
-            if (!temp.equals("No data available")){
+    private void iterateThroughSharedPref() {
+        saveData = new ArrayList<>();
+        for (int i = 0; i < sentinel; i++) {
+            String temp = sharedPref.getString("save" + i, "No data available");
+            Timber.d(temp);
+            if (!temp.equals("No data available")) {
                 saveData.add(temp);
-
             }
         }
     }
@@ -127,16 +114,14 @@ public class Saves extends Activity {
         }
     }
 
-    //Fill list view with data
     private void populateListView() {
-
-        //adapter
-        adapter = new ArrayAdapter<String>(this, R.layout.saved_items, saveData);
-
-        listView = (ListView)findViewById(R.id.savedListview);
-        listView.setAdapter(adapter);
-
-
+        recyclerView = (RecyclerView) findViewById(R.id.savedRecyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setStackFromEnd(true);
+        layoutManager.setReverseLayout(true);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new RecyclerSavesAdapter(this, saveData);
+        recyclerView.setAdapter(adapter);
     }
 
 /*On Button
@@ -159,11 +144,12 @@ Cicks
                         sentinel = sharedPref.getInt("sentinel", 0);
                         editor.apply();
 
-                        SharedPreferences mainActivitySharedPreference  = getSharedPreferences("formattingFile", MODE_PRIVATE);
+                        SharedPreferences mainActivitySharedPreference = getSharedPreferences("formattingFile", MODE_PRIVATE);
                         SharedPreferences.Editor mainActivityEditor = mainActivitySharedPreference.edit();
                         mainActivityEditor.clear();
                         mainActivityEditor.apply();
-                        adapter.clear();
+                        adapter.resetData();
+                        adapter.notifyDataSetChanged();
                         highscoreView.setText("Highscore: ");
                         Toast.makeText(Saves.this, "Data has been reset", Toast.LENGTH_SHORT).show();
                     }
