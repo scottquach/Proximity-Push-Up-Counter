@@ -15,6 +15,107 @@
       },
       "oauth_client": [
         {
+          "client_id": "45634523913-ocvjl9sm3gli91t0mgtvt0dti7uioe45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesome.scottquach.proximitypush_upcounter",
+            "certificate_hash": "a03d396e5be69096da9a17d44f91c0343a9d419c"
+          }
+        },
+        {
+          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45634523913:android:0b471379697b222f",
+        "android_client_info": {
+          "package_name": "com.awesome.scott.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45634523913:android:aa62148aabedbd99",
+        "android_client_info": {
+          "package_name": "scottquach.messnerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45634523913:android:ef90ab6917c39f15",
+        "android_client_info": {
+          "package_name": "com.awesome.scott.stop"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
           "client_type": 3
         }

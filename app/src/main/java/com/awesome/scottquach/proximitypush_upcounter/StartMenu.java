@@ -149,13 +149,14 @@ public class StartMenu extends Activity {
 
     //open settings page
     public void openSettingsPage(View view) {
+        Instrumentation.getInstance().track(Instrumentation.TrackEvents.OPENED_SETTINGS, Instrumentation.TrackValues.SUCCESS);
         Intent openSettings = new Intent(StartMenu.this,SettingsActivity.class);
         startActivity(openSettings);
     }
 
     //open log of previous sessions page
     public void logButtonClicked(View view) {
-        Intent openSaves = new Intent(StartMenu.this,Saves.class);
+        Intent openSaves = new Intent(StartMenu.this,SavesActivity.class);
         startActivity(openSaves);
     }
 }

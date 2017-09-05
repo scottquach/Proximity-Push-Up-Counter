@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +19,7 @@ import java.util.Set;
 
 import timber.log.Timber;
 
-public class Saves extends Activity {
+public class SavesActivity extends Activity {
 
     TextView highscoreView;
 
@@ -135,7 +134,7 @@ Cicks
     }
 
     public void resetButtonClicked(View view) {
-        new AlertDialog.Builder(Saves.this)
+        new AlertDialog.Builder(SavesActivity.this)
                 .setTitle("Delete entry")
                 .setMessage("Are you sure you want to delete this entry?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -151,7 +150,8 @@ Cicks
                         adapter.resetData();
                         adapter.notifyDataSetChanged();
                         highscoreView.setText("Highscore: ");
-                        Toast.makeText(Saves.this, "Data has been reset", Toast.LENGTH_SHORT).show();
+                        Instrumentation.getInstance().track(Instrumentation.TrackEvents.RESET_SAVES, Instrumentation.TrackValues.SUCCESS);
+                        Toast.makeText(SavesActivity.this, "Data has been reset", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -166,12 +166,12 @@ Cicks
     }
 
 //    public void openGraph(View view) {
-//        Intent openGraph = new Intent(Saves.this,Graph.class);
+//        Intent openGraph = new Intent(SavesActivity.this,Graph.class);
 //        startActivity(openGraph);
 //    }
 //
 //    public void graphButtonClicked(View view) {
-//        Intent openGraph = new Intent(Saves.this,Graph.class);
+//        Intent openGraph = new Intent(SavesActivity.this,Graph.class);
 //        startActivity(openGraph);
 //    }
 }
