@@ -190,7 +190,7 @@
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->
     <!--android:layout_marginTop="20dp"-->
-    <!--android:text="View Saves"-->
+    <!--android:text="VSavesActivityaves"-->
     <!--android:onClick="saveButtonClicked"-->
     <!--android:textColor="#ff00bcd4"-->
     <!--android:background="#ff000000"-->

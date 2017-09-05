@@ -1,9 +1,5 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
-import android.app.ActionBar;
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -14,11 +10,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,11 +29,7 @@ import org.joda.time.Duration;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 
 public class MainActivity extends Activity implements SensorEventListener {
@@ -351,7 +340,7 @@ Button Clicks
         player = null;
         sm = null;
 
-        Intent openSaves = new Intent(this, Saves.class);
+        Intent openSaves = new Intent(this, SavesActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("newPushUpSave", savePushUpFile);
         openSaves.putExtras(bundle);

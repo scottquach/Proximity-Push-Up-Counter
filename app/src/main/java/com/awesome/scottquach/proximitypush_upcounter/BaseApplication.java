@@ -16,6 +16,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
+        Instrumentation.getInstance().init(this);
         Timber.plant(new MyDebugTree());
     }
 

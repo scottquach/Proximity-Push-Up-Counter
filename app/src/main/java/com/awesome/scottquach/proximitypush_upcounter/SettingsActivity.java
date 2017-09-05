@@ -64,9 +64,11 @@ public class SettingsActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     prefEditor.putInt("voiceSetting",1);
+                    Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_VOICE_FEEDBACK, Instrumentation.TrackValues.SUCCESS);
                     Toast.makeText(SettingsActivity.this, "Voice Activated", Toast.LENGTH_SHORT).show();
                 }else{
                     prefEditor.putInt("voiceSetting",0);
+                    Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_VOICE_FEEDBACK, Instrumentation.TrackValues.FAILURE);
                 }
                 prefEditor.commit();
             }
@@ -77,9 +79,11 @@ public class SettingsActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     prefEditor.putInt("encouragementSetting",1);
+                    Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_SPEED_UP_ENG, Instrumentation.TrackValues.SUCCESS);
                     Toast.makeText(SettingsActivity.this, "Encouragement Activated", Toast.LENGTH_SHORT).show();
                 }else{
                     prefEditor.putInt("encouragementSetting",0);
+                    Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_SPEED_UP_ENG, Instrumentation.TrackValues.FAILURE);
                 }
                 prefEditor.commit();
             }
@@ -95,6 +99,7 @@ public class SettingsActivity extends Activity {
                 }else{
                     prefEditor.putInt("reminderSetting", 0);
                     cancelReminderNotification();
+                    Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_DAILY_REMINDER, Instrumentation.TrackValues.FAILURE);
                 }
                 prefEditor.commit();
             }
@@ -130,6 +135,7 @@ public class SettingsActivity extends Activity {
                 selectedHour = hourOfDay;
                 selectedMinute = minute;
                 createReminderNotification();
+                Instrumentation.getInstance().track(Instrumentation.TrackEvents.TOGGLE_DAILY_REMINDER, Instrumentation.TrackValues.SUCCESS);
             }
         }, 12, 0, false);
         timePicker.setTitle("Select Time");
@@ -189,6 +195,7 @@ public class SettingsActivity extends Activity {
                 prefEditor.putString("name",newName);
                 prefEditor.commit();
                 nameButton.setText(newName);
+                Instrumentation.getInstance().track(Instrumentation.TrackEvents.SET_NAME, Instrumentation.TrackValues.SUCCESS);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
