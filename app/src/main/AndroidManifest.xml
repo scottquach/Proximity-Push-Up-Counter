@@ -12,7 +12,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Push-Up Fitness Tracker"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".BaseApplication">
 
         <meta-data android:name="android.max_aspect"
             android:value="2.1"/>
@@ -44,6 +45,9 @@
         <receiver android:name=".NotificationReceiver" android:enabled="true"/>
 
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1b853f43e0aa989369064dd2dc2521ef53522103" />
     </application>
 
 
