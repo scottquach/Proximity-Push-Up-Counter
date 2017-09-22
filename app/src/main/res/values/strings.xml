@@ -18,4 +18,5 @@
     <string name="shortLabelLog">Log</string>
     <string name="longLabelLog">Log</string>
     <string name="disabledLabelLog">Disabled</string>
+    <string name="change_name">Change Name</string>
 </resources>

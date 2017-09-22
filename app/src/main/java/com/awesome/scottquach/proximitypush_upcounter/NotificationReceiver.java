@@ -41,7 +41,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
         //Notify
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, mBuilder);
+        notificationManager.notify(101, mBuilder);
 
     }
 }
