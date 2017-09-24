@@ -5,7 +5,7 @@
     android:id="@+id/activity_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.awesome.scottquach.proximitypush_upcounter.SettingsActivity"
+    tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.SettingsActivity"
     android:background="@drawable/background_gradient">
 
 

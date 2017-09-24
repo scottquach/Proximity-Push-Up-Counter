@@ -19,7 +19,7 @@
 
 
         <activity
-            android:name=".StartMenu"
+            android:name=".activities.StartMenuActivity"
             android:label="Push-Up Tracker"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,18 +31,18 @@
                 android:resource="@xml/shortcuts"/>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="Main Activity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".SavesActivity"
+            android:name=".activities.SavesActivity"
             android:label="@string/title_activity_saves"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".SettingsActivity"
+        <activity android:name=".activities.SettingsActivity"
             android:enabled="true"></activity>
 
-        <receiver android:name=".NotificationReceiver" android:enabled="true"/>
-        <receiver android:name=".RebootReceiver" android:enabled="true">
+        <receiver android:name=".receivers.NotificationReceiver" android:enabled="true"/>
+        <receiver android:name=".receivers.RebootReceiver" android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>

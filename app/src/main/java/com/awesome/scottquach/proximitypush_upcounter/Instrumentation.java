@@ -37,17 +37,17 @@ public class Instrumentation {
     }
 
     public class TrackEvents {
-        final static String RESET_SAVES = "reset_saves";
-        final static String OPENED_SETTINGS = "opened_settings";
-        final static String SET_NAME = "set_name";
-        final static String TOGGLE_VOICE_FEEDBACK = "toggle_voice_feedback";
-        final static String TOGGLE_SPEED_UP_ENG = "toggle_speed_up_eng";
-        final static String TOGGLE_DAILY_REMINDER = "toggle_daily_reminder";
+        public final static String RESET_SAVES = "reset_saves";
+        public final static String OPENED_SETTINGS = "opened_settings";
+        public final static String SET_NAME = "set_name";
+        public final static String TOGGLE_VOICE_FEEDBACK = "toggle_voice_feedback";
+        public final static String TOGGLE_SPEED_UP_ENG = "toggle_speed_up_eng";
+        public final static String TOGGLE_DAILY_REMINDER = "toggle_daily_reminder";
     }
 
     public class TrackValues {
-        final static String SUCCESS = "success";
-        final static String FAILURE = "failure";
+        public final static String SUCCESS = "success";
+        public final static String FAILURE = "failure";
     }
 
 }

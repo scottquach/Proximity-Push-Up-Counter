@@ -1,15 +1,17 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.receivers;
 
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+
+import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.awesome.scottquach.proximitypush_upcounter.activities.MainActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 

@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,6 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
+import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.awesome.scottquach.proximitypush_upcounter.RecyclerSavesAdapter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -129,7 +133,7 @@ Cicks
 
 
     public void homeButtonClicked(View view) {
-        Intent openHome = new Intent(this, StartMenu.class);
+        Intent openHome = new Intent(this, StartMenuActivity.class);
         startActivity(openHome);
     }
 

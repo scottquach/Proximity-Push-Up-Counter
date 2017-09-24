@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
+import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class StartMenu extends Activity {
+public class StartMenuActivity extends Activity {
 
     private Button upButton;
     private Button downButton;
@@ -150,13 +152,13 @@ public class StartMenu extends Activity {
     //open settings page
     public void openSettingsPage(View view) {
         Instrumentation.getInstance().track(Instrumentation.TrackEvents.OPENED_SETTINGS, Instrumentation.TrackValues.SUCCESS);
-        Intent openSettings = new Intent(StartMenu.this,SettingsActivity.class);
+        Intent openSettings = new Intent(StartMenuActivity.this,SettingsActivity.class);
         startActivity(openSettings);
     }
 
     //open log of previous sessions page
     public void logButtonClicked(View view) {
-        Intent openSaves = new Intent(StartMenu.this,SavesActivity.class);
+        Intent openSaves = new Intent(StartMenuActivity.this,SavesActivity.class);
         startActivity(openSaves);
     }
 }

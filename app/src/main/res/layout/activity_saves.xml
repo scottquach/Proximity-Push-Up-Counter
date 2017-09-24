@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.awesome.scottquach.proximitypush_upcounter.SavesActivity">
+    tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.SavesActivity">
 
 
     <Button
