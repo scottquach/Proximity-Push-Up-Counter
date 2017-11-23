@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.Activity;
 
 
+import com.awesome.scottquach.proximitypush_upcounter.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -33,50 +33,31 @@ import java.util.Calendar;
 import java.util.Locale;
 
 
-public class MainActivity extends Activity implements SensorEventListener {
-
+public class TrackerActivity extends Activity implements SensorEventListener {
 
     private TextView countDisplay;
     private Switch vibrateSwitch;
     private Switch soundSwitch;
 
     private int numberOfPushUps = 0;
-    private int numberOfSaves = 1;
-    private int sentinel;
     private int goalValue;
 
-    private Vibrator V;
+    private MediaPlayer player;
 
-    Calendar c;
+    private SensorManager sm;
+    private Sensor proximitySensor;
 
-    MediaPlayer player;
-
-    SimpleDateFormat df;
-
-    String formattedDate;
-    String savePushUpFile;
-
-    SensorManager sm;
-    Sensor proximitySensor;
-
-    SharedPreferences savePref;
-    SharedPreferences.Editor saveEditor;
-
-    SharedPreferences settingPref;
-    SharedPreferences.Editor prefEditor;
-
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
-
-    SharedPreferences goalSharedPref;
-    SharedPreferences.Editor goalEditor;
+    private SharedPreferences savePref, settingPref, sharedPref, goalSharedPref;
+    private SharedPreferences.Editor saveEditor, prefEditor, editor, goalEditor;
 
     TextToSpeech tts;
 
     private DateTime startTime;
     private DateTime endTime;
     private boolean isTrackingDuration = false;
-    private int maxDuration;
+    private final int maxDuration = 3100;
+
+    private DatabaseManager database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,37 +65,27 @@ public class MainActivity extends Activity implements SensorEventListener {
         setContentView(R.layout.activity_main);
         JodaTimeAndroid.init(this);
 
+        database = new DatabaseManager(this);
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        //Initialization
-        c = Calendar.getInstance();
-        df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        formattedDate = df.format(c.getTime());
-
         vibrateSwitch = (Switch) findViewById(R.id.vibrateSwitch);
         soundSwitch = (Switch) findViewById(R.id.soundSwitch);
+        countDisplay = (TextView) findViewById(R.id.countDisplay);
 
         savePref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         saveEditor = savePref.edit();
-
-        sharedPref = getSharedPreferences("formattingFile", MODE_PRIVATE);
-        editor = sharedPref.edit();
-
+//        sharedPref = getSharedPreferences("formattingFile", MODE_PRIVATE);
+//        editor = sharedPref.edit();
         settingPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
         prefEditor = settingPref.edit();
-
         goalSharedPref = getSharedPreferences("goalFile", MODE_PRIVATE);
         goalValue = goalSharedPref.getInt("goalValue", 0);
 
-        player = MediaPlayer.create(MainActivity.this, R.raw.beep);
-
-        countDisplay = (TextView) findViewById(R.id.countDisplay);
-
-        maxDuration = settingPref.getInt("maxDuration", 3100);
+        player = MediaPlayer.create(TrackerActivity.this, R.raw.beep);
 
         //configure proximity sensor
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -127,22 +98,10 @@ public class MainActivity extends Activity implements SensorEventListener {
                 if (status != TextToSpeech.ERROR) {
                     tts.setLanguage(Locale.US);
                 }
-
-
-                //initial launch file
-                sentinel = sharedPref.getInt("formattingSentinel", 0);
-                if (sentinel == 0) {
-                    editor.putInt("formattingSentinel", 1);
-                    editor.apply();
-                } else {
-                    numberOfSaves = sharedPref.getInt("numberSaves", 1);
-                }
             }
         });
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-
     }
 
     //retrieve highscore
@@ -199,8 +158,6 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
 
         }
-
-
     }
 
     @Override
@@ -243,18 +200,15 @@ public class MainActivity extends Activity implements SensorEventListener {
 
                     }
 
-
                     if (vibrateSwitch.isChecked() && proximitySensor != null) {
                         ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(50);
                     }
                     countDisplay.setText(String.valueOf(numberOfPushUps));
                 } else {
-                    player = MediaPlayer.create(MainActivity.this, R.raw.beep);
+                    player = MediaPlayer.create(TrackerActivity.this, R.raw.beep);
                 }
             }
-
         }
-
     }
 
 
@@ -294,49 +248,29 @@ Button Clicks
                 player.start();
             }
         } else {
-            player = MediaPlayer.create(MainActivity.this, R.raw.beep);
+            player = MediaPlayer.create(TrackerActivity.this, R.raw.beep);
         }
     }
 
     public void savedButtonClicked(View view) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = df.format(c.getTime());
 
-        //Format text to be saved
         if (numberOfPushUps >= goalValue) {
-            savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups, GOAL REACHED";
+//            savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups, GOAL REACHED";
+            database.insertSession(numberOfPushUps, true, formattedDate);
         } else {
-            savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups";
+//            savePushUpFile = numberOfSaves + "." + " " + "On " + formattedDate + " you did : " + numberOfPushUps + " Push-Ups";
+            database.insertSession(numberOfPushUps, false, formattedDate);
         }
-
-        //Save number of push-ups done that session
-        editor.putInt(String.valueOf(numberOfSaves), numberOfPushUps);
-        editor.apply();
-
-        for (int i = 1; i < numberOfSaves; i++) {
-            int j = sharedPref.getInt(String.valueOf(i), 0);
-            if (j > getHighscore()) {
-                int highscore = sharedPref.getInt(String.valueOf(i), 0);
-                saveEditor.putInt("highscore", highscore);
-                saveEditor.commit();
-            }
-        }
-
-
-        Toast.makeText(this, savePushUpFile, Toast.LENGTH_SHORT).show();
-
-        numberOfSaves++;
-        editor.putInt("numberSaves", numberOfSaves);
-        editor.apply();
 
         if (player != null) player.stop();
         proximitySensor = null;
         player = null;
         sm = null;
 
-        Intent openSaves = new Intent(this, SavesActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("newPushUpSave", savePushUpFile);
-        openSaves.putExtras(bundle);
-        startActivity(openSaves);
+        startActivity(new Intent(TrackerActivity.this, SavesActivity.class));
     }
 
     public void refreshButtonPressed(View view) {

@@ -1,6 +1,7 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
 import android.app.Application;
+import android.arch.persistence.room.Room;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -12,12 +13,26 @@ import timber.log.Timber;
  */
 
 public class BaseApplication extends Application {
+
+    private static BaseApplication instance = null;
+    public AppDatabase database;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
         Instrumentation.getInstance().init(this);
         Timber.plant(new MyDebugTree());
+
+        if (instance == null) {
+            instance = this;
+        }
+
+        database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "sessions-database").build();
+    }
+
+    public static BaseApplication getInstance() {
+        return instance;
     }
 
     /**

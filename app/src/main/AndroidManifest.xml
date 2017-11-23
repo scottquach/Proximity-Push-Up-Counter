@@ -14,10 +14,6 @@
         android:theme="@style/AppTheme"
         android:name=".BaseApplication">
 
-        <meta-data android:name="android.max_aspect"
-            android:value="2.1"/>
-
-
         <activity
             android:name=".activities.StartMenuActivity"
             android:label="Push-Up Tracker"
@@ -31,15 +27,15 @@
                 android:resource="@xml/shortcuts"/>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.TrackerActivity"
             android:label="Main Activity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.SavesActivity"
             android:label="@string/title_activity_saves"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"/>
         <activity android:name=".activities.SettingsActivity"
-            android:enabled="true"></activity>
+            android:enabled="true"/>
 
         <receiver android:name=".receivers.NotificationReceiver" android:enabled="true"/>
         <receiver android:name=".receivers.RebootReceiver" android:enabled="true">
@@ -52,6 +48,4 @@
             android:name="io.fabric.ApiKey"
             android:value="1b853f43e0aa989369064dd2dc2521ef53522103" />
     </application>
-
-
 </manifest>

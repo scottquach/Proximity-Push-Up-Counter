@@ -1,10 +1,12 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +14,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.awesome.scottquach.proximitypush_upcounter.BaseApplication;
+import com.awesome.scottquach.proximitypush_upcounter.Constants;
+import com.awesome.scottquach.proximitypush_upcounter.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
+import com.awesome.scottquach.proximitypush_upcounter.LegacyDatabaseTransferer;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.RecyclerSavesAdapter;
+import com.awesome.scottquach.proximitypush_upcounter.SessionEntity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,28 +30,24 @@ import java.util.Set;
 
 import timber.log.Timber;
 
-public class SavesActivity extends Activity {
+public class SavesActivity extends Activity implements DatabaseManager.DatabaseCallback{
 
-    TextView highscoreView;
+    private TextView highscoreView;
 
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
-    String newSaveString;
-    List<String> saveData;
+    private SessionEntity[] saveData;
 
-    RecyclerView recyclerView;
-    RecyclerSavesAdapter adapter;
+    private RecyclerView recyclerView;
+    private RecyclerSavesAdapter adapter;
 
-    private int sentinel = 0;
-    private int numberOfSavedFiles = 0;
+    private DatabaseManager database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saves);
-
-        Set<String> set = new HashSet<String>();
 
         sharedPref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         editor = sharedPref.edit();
@@ -52,38 +55,13 @@ public class SavesActivity extends Activity {
         highscoreView = (TextView) findViewById(R.id.highscoreView);
         setHighscoreView();
 
-        sentinel = sharedPref.getInt("sentinel", 0);
+        database = new DatabaseManager(this);
+    }
 
-        if (getIntent() != null) {
-            Intent intentExtras = getIntent();
-            if (intentExtras != null) {
-                retrieveDataToSave(intentExtras);
-                if (sentinel == 0) {
-                    sentinel = 1;
-                    editor.putInt("sentinel", 1);
-                    editor.putString("save" + numberOfSavedFiles, newSaveString);
-                    numberOfSavedFiles++;
-                    editor.putInt("numberSaves", numberOfSavedFiles);
-                    editor.apply();
-                } else {
-                    numberOfSavedFiles = sharedPref.getInt("numberSaves", 0);
-                    editor.putString("save" + numberOfSavedFiles, newSaveString);
-                    numberOfSavedFiles++;
-                    editor.putInt("numberSaves", numberOfSavedFiles);
-                    sentinel++;
-                    editor.putInt("sentinel", sentinel);
-                    editor.apply();
-                }
-                iterateThroughSharedPref();
-                populateListView();
-            } else {
-                iterateThroughSharedPref();
-                populateListView();
-            }
-        } else {
-            iterateThroughSharedPref();
-            populateListView();
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
     }
 
     //set highscoreView with current highscore
@@ -93,44 +71,31 @@ public class SavesActivity extends Activity {
 
     }
 
-    //Retrieve data through sharedPref
-    private void iterateThroughSharedPref() {
-        saveData = new ArrayList<>();
-        for (int i = 0; i < sentinel; i++) {
-            String temp = sharedPref.getString("save" + i, "No data available");
-            Timber.d(temp);
-            if (!temp.equals("No data available")) {
-                saveData.add(temp);
-            }
-        }
+    /**
+     * Calls to the database to load the sessions in order to be displayed, recycler will be updated
+     * inside callback
+     */
+    private void loadData() {
+        database.loadSessions();
     }
 
-    //Retrieve data from current session
-    private void retrieveDataToSave(Intent intent) {
-        if (intent.getExtras() != null) {
-            Bundle bundle = intent.getExtras();
-            if (!bundle.isEmpty()) {
-                newSaveString = bundle.getString("newPushUpSave");
-//            if(newSaveString == null);
-//                newSaveString = "No Saved Data Currently Available";
-            }
-        }
-    }
-
-    private void populateListView() {
+    /**
+     * Takes in session data and updates the recycler
+     * @param data
+     */
+    private void populateListView(SessionEntity[] data) {
         recyclerView = (RecyclerView) findViewById(R.id.savedRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
         layoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerSavesAdapter(this, saveData);
+        adapter = new RecyclerSavesAdapter(this, data);
         recyclerView.setAdapter(adapter);
     }
 
 /*On Button
 Cicks
  */
-
 
     public void homeButtonClicked(View view) {
         Intent openHome = new Intent(this, StartMenuActivity.class);
@@ -142,18 +107,25 @@ Cicks
                 .setTitle("Delete entry")
                 .setMessage("Are you sure you want to delete this entry?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @SuppressLint("StaticFieldLeak")
                     public void onClick(DialogInterface dialog, int which) {
+//                        sentinel = sharedPref.getInt("sentinel", 0);
                         editor.clear();
-                        sentinel = sharedPref.getInt("sentinel", 0);
                         editor.apply();
+                        database.resetSessionData(saveData);
 
                         SharedPreferences mainActivitySharedPreference = getSharedPreferences("formattingFile", MODE_PRIVATE);
                         SharedPreferences.Editor mainActivityEditor = mainActivitySharedPreference.edit();
                         mainActivityEditor.clear();
                         mainActivityEditor.apply();
+
                         adapter.resetData();
                         adapter.notifyDataSetChanged();
+
                         highscoreView.setText("Highscore: ");
+                        SharedPreferences settingsPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
+                        settingsPref.edit().putBoolean(Constants.LEGACY_DATABASE_TRANSFER, false).apply();
+
                         Instrumentation.getInstance().track(Instrumentation.TrackEvents.RESET_SAVES, Instrumentation.TrackValues.SUCCESS);
                         Toast.makeText(SavesActivity.this, "Data has been reset", Toast.LENGTH_SHORT).show();
                     }
@@ -165,17 +137,12 @@ Cicks
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
-
-
     }
 
-//    public void openGraph(View view) {
-//        Intent openGraph = new Intent(SavesActivity.this,Graph.class);
-//        startActivity(openGraph);
-//    }
-//
-//    public void graphButtonClicked(View view) {
-//        Intent openGraph = new Intent(SavesActivity.this,Graph.class);
-//        startActivity(openGraph);
-//    }
+    @Override
+    public void onSessionDataLoaded(SessionEntity[] data) {
+        Timber.d("Callback called");
+        saveData = data;
+        populateListView(data);
+    }
 }

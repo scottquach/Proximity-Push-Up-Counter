@@ -12,14 +12,14 @@ public class LegacyTextParcer {
 
     public static String getDate(String data) {
         String[] words = data.split(" ");
-        return words[2];
+        return words[2].trim();
     }
 
     public static String getNumberPushUps(String data) {
         String[] words = data.split(" ");
         Timber.d(data);
         Log.d("data", data);
-        return words[7];
+        return words[7].trim();
     }
 
     public static boolean isGoalReached(String data) {

@@ -11,7 +11,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 
 import com.awesome.scottquach.proximitypush_upcounter.R;
-import com.awesome.scottquach.proximitypush_upcounter.activities.MainActivity;
+import com.awesome.scottquach.proximitypush_upcounter.activities.TrackerActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -26,7 +26,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         //PendingIntent to open app when notification is clicked
-        Intent openApp = new Intent(context, MainActivity.class);
+        Intent openApp = new Intent(context, TrackerActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
         //Retreive default notification sound
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

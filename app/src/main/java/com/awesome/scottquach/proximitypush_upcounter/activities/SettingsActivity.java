@@ -27,18 +27,18 @@ import java.util.Calendar;
 
 public class SettingsActivity extends Activity {
 
-    Button nameButton;
+    private Button nameButton;
 
-    Switch voiceSwitch;
-    Switch encouragementSwitch;
-    Switch reminderSwitch;
+    private Switch voiceSwitch;
+    private Switch encouragementSwitch;
+    private Switch reminderSwitch;
 
-    SharedPreferences settingsPref;
-    SharedPreferences.Editor prefEditor;
+    private SharedPreferences settingsPref;
+    private SharedPreferences.Editor prefEditor;
 
-    final static int DIALOG_ID = 80;
-    int selectedHour = 12;
-    int selectedMinute = 0;
+    private final static int DIALOG_ID = 80;
+    private int selectedHour = 12;
+    private int selectedMinute = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +147,6 @@ public class SettingsActivity extends Activity {
         timePicker.setTitle("Select Time");
         timePicker.setCancelable(false);
         timePicker.show();
-
     }
 
     /**

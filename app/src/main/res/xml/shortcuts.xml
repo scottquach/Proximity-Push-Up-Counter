@@ -11,7 +11,7 @@
     <intent
         android:action="android.intent.action.VIEW"
         android:targetPackage="com.awesome.scottquach.proximitypush_upcounter"
-        android:targetClass="com.awesome.scottquach.proximitypush_upcounter.activities.MainActivity"/>
+        android:targetClass="com.awesome.scottquach.proximitypush_upcounter.activities.TrackerActivity"/>
     <categories android:name="android.shortcut.start"/>
     </shortcut>
 

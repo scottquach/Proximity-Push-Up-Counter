@@ -19,15 +19,15 @@ public class RecyclerSavesAdapter extends RecyclerView.Adapter<RecyclerView.View
     private final int FAILURE = 1;
 
     Context context;
-    List<String> savedData;
+    SessionEntity[] savedData;
 
-    public RecyclerSavesAdapter(Context context, List<String> savedData) {
+    public RecyclerSavesAdapter(Context context, SessionEntity[] savedData) {
         this.context = context;
         this.savedData = savedData;
     }
 
     public void resetData() {
-        if (savedData != null) savedData.clear();
+        if (savedData != null) savedData = new SessionEntity[]{};
     }
 
     @Override
@@ -49,26 +49,26 @@ public class RecyclerSavesAdapter extends RecyclerView.Adapter<RecyclerView.View
         switch (holder.getItemViewType()) {
             case SUCCESS:
                 ViewHolderSuccess successHolder = (ViewHolderSuccess) holder;
-                successHolder.dateView.setText(LegacyTextParcer.getDate(savedData.get(position)));
-                successHolder.pushUpsView.setText(LegacyTextParcer.getNumberPushUps(savedData.get(position)));
+                successHolder.dateView.setText(savedData[position].date);
+                successHolder.pushUpsView.setText(String.valueOf(savedData[position].numberOfPushups));
                 break;
 
             case FAILURE:
                 ViewHolderFailure failureHolder = (ViewHolderFailure) holder;
-                failureHolder.dateView.setText(LegacyTextParcer.getDate(savedData.get(position)));
-                failureHolder.pushUpsView.setText(LegacyTextParcer.getNumberPushUps(savedData.get(position)));
+                failureHolder.dateView.setText(savedData[position].date);
+                failureHolder.pushUpsView.setText(String.valueOf(savedData[position].numberOfPushups));
                 break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return savedData.size();
+        return savedData.length;
     }
 
     @Override
     public int getItemViewType(int position) {
-        return LegacyTextParcer.isGoalReached(savedData.get(position)) ? SUCCESS : FAILURE;
+        return savedData[position].isGoalReached ? SUCCESS : FAILURE;
     }
 
     public class ViewHolderSuccess extends RecyclerView.ViewHolder {

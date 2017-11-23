@@ -10,11 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
+import com.awesome.scottquach.proximitypush_upcounter.LegacyDatabaseTransferer;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+
+import timber.log.Timber;
 
 public class StartMenuActivity extends Activity {
 
@@ -48,6 +52,15 @@ public class StartMenuActivity extends Activity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        SharedPreferences settingPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
+        if (!settingPref.getBoolean(Constants.LEGACY_DATABASE_TRANSFER, false)) {
+            new LegacyDatabaseTransferer(this).transferData();
+            settingPref.edit().putBoolean(Constants.LEGACY_DATABASE_TRANSFER, true).apply();
+            Timber.d("legacy database called");
+        } else {
+            Timber.d("legacy datbase not called");
+        }
 
         //When button is held down, incrase faster using handler
         upButton.setOnTouchListener(new View.OnTouchListener() {
@@ -127,7 +140,7 @@ public class StartMenuActivity extends Activity {
 
     //go to main activity
     public void startPushUpStarted(View view) {
-        Intent openMainActivity = new Intent(this,MainActivity.class);
+        Intent openMainActivity = new Intent(this,TrackerActivity.class);
         startActivity(openMainActivity);
     }
 

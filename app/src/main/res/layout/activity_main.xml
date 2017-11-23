@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activities.MainActivity"
+    tools:context=".activities.TrackerActivity"
     android:background="@color/colorPrimary">
 
     <com.google.android.gms.ads.AdView
