@@ -32,6 +32,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import timber.log.Timber;
+
 
 public class TrackerActivity extends Activity implements SensorEventListener {
 
@@ -55,7 +57,7 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     private DateTime startTime;
     private DateTime endTime;
     private boolean isTrackingDuration = false;
-    private final int maxDuration = 3100;
+    private int intervalAverage = 0;
 
     private DatabaseManager database;
 
@@ -113,20 +115,32 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     //track duration between each push-up. tts reminder when slowing down
     private void trackEncouragement() {
         if (isTrackingDuration) {
-            isTrackingDuration = false;
+//            isTrackingDuration = false;
             endTime = new DateTime();
             Duration dur = new Duration(startTime, endTime);
 
             long milliseconds = dur.getMillis();
-
-            if (milliseconds >= maxDuration) {
+            calculateAverageInterval((int) milliseconds);
+            Timber.d("interval was " + milliseconds);
+            if (numberOfPushUps > 3 && milliseconds >= (intervalAverage + 600)) {
                 tts.speak("Your Slowing down, keep it up", TextToSpeech.QUEUE_FLUSH, null);
             }
+
+            isTrackingDuration = true;
+            startTime = new DateTime();
         } else {
             isTrackingDuration = true;
             startTime = new DateTime();
         }
+    }
 
+    private void calculateAverageInterval(int interval) {
+        if (numberOfPushUps == 1) {
+            intervalAverage = interval;
+        } else {
+            intervalAverage = ((intervalAverage + interval) / 2);
+            Timber.d("Average interval is " + intervalAverage);
+        }
 
     }
 
@@ -186,18 +200,16 @@ public class TrackerActivity extends Activity implements SensorEventListener {
                     if (numberOfPushUps == goalValue) {
                         int check = settingPref.getInt("voiceSetting", 1);
                         if (check == 1) {
-                            String name = settingPref.getString("name", "set name");
+                            String name = settingPref.getString("name", "");
 
                             tts.speak("Goal Reached nice job " + name, TextToSpeech.QUEUE_FLUSH, null);
                         } else {
                             if (player != null) player.start();
                         }
-
                     } else {
                         if (soundSwitch.isChecked()) {
                             if (player != null) player.start();
                         }
-
                     }
 
                     if (vibrateSwitch.isChecked() && proximitySensor != null) {
