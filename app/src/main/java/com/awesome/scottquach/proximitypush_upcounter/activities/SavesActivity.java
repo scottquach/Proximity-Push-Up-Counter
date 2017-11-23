@@ -114,11 +114,6 @@ Cicks
                         editor.apply();
                         database.resetSessionData(saveData);
 
-                        SharedPreferences mainActivitySharedPreference = getSharedPreferences("formattingFile", MODE_PRIVATE);
-                        SharedPreferences.Editor mainActivityEditor = mainActivitySharedPreference.edit();
-                        mainActivityEditor.clear();
-                        mainActivityEditor.apply();
-
                         adapter.resetData();
                         adapter.notifyDataSetChanged();
 

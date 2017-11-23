@@ -28,8 +28,8 @@ public class StartMenuActivity extends Activity {
 
     private int goalValue;
 
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +130,6 @@ public class StartMenuActivity extends Activity {
             };
 
         });
-
     }
 
     /*button

@@ -49,8 +49,8 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     private SensorManager sm;
     private Sensor proximitySensor;
 
-    private SharedPreferences savePref, settingPref, sharedPref, goalSharedPref;
-    private SharedPreferences.Editor saveEditor, prefEditor, editor, goalEditor;
+    private SharedPreferences savePref, settingPref, goalSharedPref;
+    private SharedPreferences.Editor saveEditor;
 
     TextToSpeech tts;
 
@@ -64,7 +64,7 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tracker);
         JodaTimeAndroid.init(this);
 
         database = new DatabaseManager(this);
@@ -80,10 +80,7 @@ public class TrackerActivity extends Activity implements SensorEventListener {
 
         savePref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         saveEditor = savePref.edit();
-//        sharedPref = getSharedPreferences("formattingFile", MODE_PRIVATE);
-//        editor = sharedPref.edit();
         settingPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
-        prefEditor = settingPref.edit();
         goalSharedPref = getSharedPreferences("goalFile", MODE_PRIVATE);
         goalValue = goalSharedPref.getInt("goalValue", 0);
 

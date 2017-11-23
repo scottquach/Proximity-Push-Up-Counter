@@ -19,4 +19,21 @@
     <string name="longLabelLog">Log</string>
     <string name="disabledLabelLog">Disabled</string>
     <string name="change_name">Change Name</string>
+    <string name="notification_description">This is your daily reminder</string>
+    <string name="notification_title">Do Push-Ups!</string>
+    <string name="start_tracking">Start Tracking</string>
+    <string name="log">Log</string>
+    <string name="settings">Settings</string>
+    <string name="up">up</string>
+    <string name="down">down</string>
+    <string name="save">Save</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="sound">Sound</string>
+    <string name="tracker_suggestion">Note: it is recommended to place phone under chest</string>
+    <string name="tracker_instruction">Use proximity sensor or tap number to count up</string>
+    <string name="reset">Reset</string>
+    <string name="home">Home</string>
+    <string name="speed_up_encouragement">Speed Up Encouragement</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="voice_feedback">Voice Feedback</string>
 </resources>

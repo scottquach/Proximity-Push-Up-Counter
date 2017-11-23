@@ -8,8 +8,6 @@
     tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.StartMenuActivity"
     android:background="@color/colorPrimary">
 
-
-
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -54,7 +52,7 @@
         <Button
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:text="Start Push-Ups"
+            android:text="@string/start_tracking"
             android:onClick="startPushUpStarted"
             android:textColor="@color/textColor"
             android:background="@drawable/button_black_round"
@@ -102,7 +100,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="up"
+                android:text="@string/up"
                 android:textColor="@color/textColor"
                 android:id="@+id/upButton"
                 android:onClick="upButtonClicked"
@@ -132,7 +130,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:text="down"
+                android:text="@string/down"
                 android:textColor="@color/textColor"
                 android:id="@+id/downButton"
                 android:onClick="downButtonClicked"
@@ -147,7 +145,7 @@
                 android:layout_marginRight="60dp" />
 
         <Button
-            android:text="Settings"
+            android:text="@string/settings"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:id="@+id/settings"
@@ -169,7 +167,7 @@
 
         <Button
             android:onClick="logButtonClicked"
-            android:text="Log"
+            android:text="@string/log"
             android:textColor="@color/textColor"
             android:background="@drawable/button_black_round"
             android:drawableLeft="@drawable/ic_record"
