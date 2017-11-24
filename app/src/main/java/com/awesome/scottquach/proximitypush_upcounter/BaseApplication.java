@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 import android.content.SharedPreferences;
 
+import com.awesome.scottquach.proximitypush_upcounter.database.AppDatabase;
 import com.awesome.scottquach.proximitypush_upcounter.jobs.JobCreatorUtil;
 import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.crashlytics.android.Crashlytics;

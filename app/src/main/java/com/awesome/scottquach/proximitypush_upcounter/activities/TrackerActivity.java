@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.app.Activity;
 
 
-import com.awesome.scottquach.proximitypush_upcounter.DatabaseManager;
+import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -263,7 +263,7 @@ Button Clicks
 
     public void savedButtonClicked(View view) {
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         String formattedDate = df.format(c.getTime());
 
         if (numberOfPushUps >= goalValue) {
