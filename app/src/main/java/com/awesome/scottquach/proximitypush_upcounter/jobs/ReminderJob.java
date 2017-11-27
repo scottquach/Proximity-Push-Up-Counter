@@ -1,9 +1,11 @@
 package com.awesome.scottquach.proximitypush_upcounter.jobs;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -30,27 +32,57 @@ public class ReminderJob extends Job {
     @NonNull
     @Override
     protected Result onRunJob(@NonNull Params params) {
-        //PendingIntent to open app when notification is clicked
-        Intent openApp = new Intent(getContext(), TrackerActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
-        //Retreive default notification sound
-        Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        //Create notification
-        Notification mBuilder = new Notification.Builder(getContext())
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(getContext().getString(R.string.notification_title))
-                .setContentText(getContext().getString(R.string.notification_description))
-                .setContentIntent(pendingIntent)
-                .setSound(sound)
-                .setAutoCancel(true)
-                .build();
-
-        //Notify
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(101, mBuilder);
 
-        return Result.SUCCESS;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("daily_reminder", "Daily Reminder", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.enableVibration(true);
+            channel.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION), new AudioAttributes.Builder().build());
+            notificationManager.createNotificationChannel(channel);
+
+            Intent openApp = new Intent(getContext(), TrackerActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+            //Retreive default notification sound
+            Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+            //Create notification
+            Notification mBuilder = new Notification.Builder(getContext(), "daily_reminder")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle(getContext().getString(R.string.notification_title))
+                    .setContentText(getContext().getString(R.string.notification_description))
+                    .setContentIntent(pendingIntent)
+                    .setSound(sound)
+                    .setAutoCancel(true)
+                    .build();
+
+            //Notify
+            notificationManager.notify(101, mBuilder);
+
+            return Result.SUCCESS;
+        } else {
+
+
+            //PendingIntent to open app when notification is clicked
+            Intent openApp = new Intent(getContext(), TrackerActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+            //Retreive default notification sound
+            Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+            //Create notification
+            Notification mBuilder = new Notification.Builder(getContext())
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentTitle(getContext().getString(R.string.notification_title))
+                    .setContentText(getContext().getString(R.string.notification_description))
+                    .setContentIntent(pendingIntent)
+                    .setSound(sound)
+                    .setAutoCancel(true)
+                    .build();
+
+            //Notify
+            notificationManager.notify(101, mBuilder);
+
+            return Result.SUCCESS;
+        }
     }
 
     public static int scheduleJob(int hour, int minute) {
