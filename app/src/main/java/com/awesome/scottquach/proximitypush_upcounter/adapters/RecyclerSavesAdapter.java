@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.awesome.scottquach.proximitypush_upcounter.LegacyTextParcer;
+import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
 /**

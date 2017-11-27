@@ -36,4 +36,8 @@
     <string name="speed_up_encouragement">Speed Up Encouragement</string>
     <string name="daily_reminder">Daily Reminder</string>
     <string name="voice_feedback">Voice Feedback</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="statistics">Statistics</string>
 </resources>

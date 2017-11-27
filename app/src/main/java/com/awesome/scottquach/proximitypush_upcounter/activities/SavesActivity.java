@@ -17,7 +17,7 @@ import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
 import com.awesome.scottquach.proximitypush_upcounter.R;
-import com.awesome.scottquach.proximitypush_upcounter.RecyclerSavesAdapter;
+import com.awesome.scottquach.proximitypush_upcounter.adapters.RecyclerSavesAdapter;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
 import timber.log.Timber;

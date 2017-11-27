@@ -26,8 +26,8 @@ android {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 32
-        versionName "4.5.1"
+        versionCode 33
+        versionName "4.6"
     }
     buildTypes {
         release {
@@ -45,6 +45,7 @@ android {
     }
 }
 dependencies {
+    implementation 'com.android.support:support-v4:26.1.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:support-core-utils:26.1.0'
@@ -65,6 +66,9 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     compile 'com.evernote:android-job:1.2.1'
+
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.6'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
