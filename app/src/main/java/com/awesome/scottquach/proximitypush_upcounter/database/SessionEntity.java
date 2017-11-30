@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

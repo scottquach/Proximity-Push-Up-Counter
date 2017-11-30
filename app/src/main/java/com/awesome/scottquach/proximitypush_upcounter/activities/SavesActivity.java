@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,19 +13,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.awesome.scottquach.proximitypush_upcounter.BaseApplication;
 import com.awesome.scottquach.proximitypush_upcounter.Constants;
-import com.awesome.scottquach.proximitypush_upcounter.DatabaseManager;
+import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
-import com.awesome.scottquach.proximitypush_upcounter.LegacyDatabaseTransferer;
 import com.awesome.scottquach.proximitypush_upcounter.R;
-import com.awesome.scottquach.proximitypush_upcounter.RecyclerSavesAdapter;
-import com.awesome.scottquach.proximitypush_upcounter.SessionEntity;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.awesome.scottquach.proximitypush_upcounter.adapters.RecyclerSavesAdapter;
+import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
 import timber.log.Timber;
 
@@ -113,11 +105,6 @@ Cicks
                         editor.clear();
                         editor.apply();
                         database.resetSessionData(saveData);
-
-                        SharedPreferences mainActivitySharedPreference = getSharedPreferences("formattingFile", MODE_PRIVATE);
-                        SharedPreferences.Editor mainActivityEditor = mainActivitySharedPreference.edit();
-                        mainActivityEditor.clear();
-                        mainActivityEditor.apply();
 
                         adapter.resetData();
                         adapter.notifyDataSetChanged();

@@ -16,28 +16,12 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_black_round"
         android:onClick="resetButtonClicked"
-        android:text="Reset"
+        android:text="@string/reset"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toStartOf="@+id/highscoreView"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_black_round"
-        android:onClick="openGraph"
-        android:text="graph"
-        android:textColor="#ff00bcd4"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/button6"
@@ -47,24 +31,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_black_round"
-        android:drawableLeft="@drawable/ic_home"
+        android:drawableStart="@drawable/ic_home"
         android:onClick="homeButtonClicked"
-        android:text="Home"
+        android:text="@string/home"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/highscoreView"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="50dp"-->
-    <!--android:text="Graph"-->
-    <!--android:textColor="#ff00bcd4"-->
-    <!--android:background="@drawable/button_black_round"-->
-    <!--android:onClick="graphButtonClicked"/>-->
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/savedRecyclerView"

@@ -2,6 +2,10 @@ package com.awesome.scottquach.proximitypush_upcounter;
 
 import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import timber.log.Timber;
 
 /**
@@ -25,5 +29,20 @@ public class LegacyTextParcer {
     public static boolean isGoalReached(String data) {
         String[] words = data.split(" ");
         return words[words.length-1].equals("REACHED");
+    }
+
+    public static String convertDateFormat(String oldDate) {
+        final String oldFormat = "yyyy-MM-dd";
+        final String newFormat = "MM-dd-yyyy";
+
+        SimpleDateFormat sdf = new SimpleDateFormat(oldFormat);
+        Date date = null;
+        try {
+            date = sdf.parse(oldDate);
+        } catch (ParseException e) {
+            Timber.e(e, "converting date formats");
+        }
+        sdf.applyPattern(newFormat);
+        return sdf.format(date);
     }
 }

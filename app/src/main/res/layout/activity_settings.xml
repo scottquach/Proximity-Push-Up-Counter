@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
-        android:text="Voice Feedback"
+        android:text="@string/voice_feedback"
         app:layout_constraintBaseline_toBaselineOf="@+id/voiceSwitch"
         android:layout_marginStart="24dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,7 +41,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/voiceSwitch"
-        android:text=" "
         android:checked="true"
         android:layout_marginEnd="24dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -68,7 +67,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:text="Speed Up Encouragement"
+        android:text="@string/speed_up_encouragement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
@@ -89,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/voiceSwitch" />
 
     <TextView
-        android:text="Daily Reminder"
+        android:text="@string/daily_reminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"

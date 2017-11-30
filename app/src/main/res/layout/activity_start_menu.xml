@@ -1,199 +1,168 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:gravity="center"
-    tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.StartMenuActivity"
-    android:background="@color/colorPrimary">
+    android:orientation="vertical"
+    tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.StartMenuActivity">
 
-
-
-        android:layout_width="0dp"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:background="@drawable/background_menu_gradient"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        ads:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/linearLayout"
-        tools:layout_constraintLeft_creator="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_add_unit_id_startMenu"
         ads:layout_constraintLeft_toLeftOf="parent"
-        ads:layout_constraintTop_toTopOf="parent">
+        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"></com.google.android.gms.ads.AdView>
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_add_unit_id_startMenu"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            ads:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="35dp"
-            tools:layout_constraintLeft_creator="1"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            ads:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
-
-        <View
-            android:background="@drawable/shape_square_blue"
-            android:layout_marginEnd="8dp"
-            ads:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="8dp"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            android:layout_width="0dp"
-            android:layout_height="135dp" />
-
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Start Push-Ups"
-            android:onClick="startPushUpStarted"
-            android:textColor="@color/textColor"
-            android:background="@drawable/button_black_round"
-            android:layout_gravity="center"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            ads:layout_constraintRight_toRightOf="parent"
-            tools:layout_constraintLeft_creator="1"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            ads:layout_constraintTop_toTopOf="parent"
-            ads:layout_constraintVertical_bias="0.4"
-            android:id="@+id/button5" />
-
-
+    <Button
+        android:id="@+id/button5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="#AB47BC"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        ads:layout_constraintRight_toRightOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_black_round"
+        android:onClick="startPushUpStarted"
+        android:padding="4dp"
+        android:text="@string/start_tracking"
+        android:textColor="@color/textColor"
+        ads:layout_constraintBottom_toTopOf="@+id/button_statistics"
+        ads:layout_constraintEnd_toEndOf="@+id/button_statistics"
+        ads:layout_constraintStart_toStartOf="@+id/button_statistics"
+        tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        ads:layout_constraintLeft_toLeftOf="parent">
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_black_round"
+        android:drawableLeft="@drawable/ic_settings"
+        android:onClick="openSettingsPage"
+        android:text="@string/settings"
+        android:textColor="@color/textColor"
+        ads:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/log"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_black_round"
+        android:drawableLeft="@drawable/ic_record"
+        android:onClick="logButtonClicked"
+        android:padding="4dp"
+        android:text="@string/log"
+        android:textColor="@color/textColor"
+        ads:layout_constraintBottom_toTopOf="@+id/settings"
+        ads:layout_constraintEnd_toEndOf="@+id/settings"
+        ads:layout_constraintStart_toStartOf="@+id/settings" />
+
+    <Button
+        android:id="@+id/button_statistics"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_black_round"
+        android:onClick="statiticsButtonClicked"
+        android:text="@string/statistics"
+        android:textColor="@color/textColor"
+        ads:layout_constraintBottom_toTopOf="@+id/log"
+        ads:layout_constraintEnd_toEndOf="@+id/log"
+        ads:layout_constraintStart_toStartOf="@+id/log" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_square_blue"
+        android:padding="8dp"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="Goal"
-            android:textSize="50sp"
-            android:textColor="@color/textColor"
             android:id="@+id/textView4"
-            android:layout_marginStart="16dp"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="48dp"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp" />
-
-
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="up"
-                android:textColor="@color/textColor"
-                android:id="@+id/upButton"
-                android:onClick="upButtonClicked"
-                android:background="@drawable/button_black_round"
-                android:drawableLeft="@drawable/ic_arrow_up"
-                tools:layout_constraintRight_creator="1"
-                tools:layout_constraintBottom_creator="1"
-                ads:layout_constraintBottom_toTopOf="@+id/downButton"
-                ads:layout_constraintRight_toRightOf="@+id/downButton"
-                tools:layout_constraintLeft_creator="1"
-                android:layout_marginBottom="24dp"
-                ads:layout_constraintLeft_toLeftOf="@+id/downButton" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="40sp"
-                android:textColor="@color/colorAccent"
-                android:id="@+id/goalTextView"
-                ads:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-                android:layout_marginEnd="16dp"
-                ads:layout_constraintRight_toRightOf="parent"
-                android:layout_marginRight="16dp"
-                ads:layout_constraintLeft_toLeftOf="@+id/textView4" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="down"
-                android:textColor="@color/textColor"
-                android:id="@+id/downButton"
-                android:onClick="downButtonClicked"
-                android:background="@drawable/button_black_round"
-                android:drawableLeft="@drawable/ic_action_hardware_keyboard_arrow_down"
-                tools:layout_constraintRight_creator="1"
-                tools:layout_constraintBottom_creator="1"
-                ads:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="60dp"
-                ads:layout_constraintRight_toRightOf="parent"
-                android:layout_marginBottom="23dp"
-                android:layout_marginRight="60dp" />
-
-        <Button
-            android:text="Settings"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/settings"
-            android:layout_marginEnd="16dp"
-            ads:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp"
-            android:background="@drawable/button_black_round"
-            android:drawableLeft="@drawable/ic_settings"
-            android:textColor="@color/textColor"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            android:onClick="openSettingsPage"
-            android:layout_marginTop="24dp"
-            ads:layout_constraintTop_toBottomOf="@+id/log"
-            ads:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:onClick="logButtonClicked"
-            android:text="Log"
-            android:textColor="@color/textColor"
-            android:background="@drawable/button_black_round"
-            android:drawableLeft="@drawable/ic_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/log"
-            android:layout_marginTop="24dp"
-            ads:layout_constraintTop_toBottomOf="@+id/button5"
-            android:layout_marginEnd="16dp"
-            ads:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Goal"
+            android:textColor="@color/textColor"
+            android:textSize="50sp"
+            ads:layout_constraintBottom_toBottomOf="parent"
             ads:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp" />
+            ads:layout_constraintTop_toTopOf="parent" />
 
 
-        <!--<Button-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginTop="20dp"-->
-    <!--android:text="VSavesActivityaves"-->
-    <!--android:onClick="saveButtonClicked"-->
-    <!--android:textColor="#ff00bcd4"-->
-    <!--android:background="#ff000000"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--/>-->
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_black_round"
+            android:drawableLeft="@drawable/ic_arrow_up"
+            android:onClick="upButtonClicked"
+            android:text="@string/up"
+            android:textColor="@color/textColor"
+            ads:layout_constraintBottom_toTopOf="@+id/downButton"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
+
+        <TextView
+            android:id="@+id/goalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            ads:layout_constraintBottom_toBottomOf="parent"
+            ads:layout_constraintStart_toEndOf="@+id/textView4"
+            ads:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/downButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_black_round"
+            android:drawableLeft="@drawable/ic_action_hardware_keyboard_arrow_down"
+            android:onClick="downButtonClicked"
+            android:text="@string/down"
+            android:textColor="@color/textColor"
+            ads:layout_constraintBottom_toBottomOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@+id/upButton"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintRight_creator="1" />
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

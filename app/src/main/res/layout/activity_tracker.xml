@@ -47,17 +47,11 @@
         ads:layout_constraintHorizontal_bias="0.0"
         android:layout_marginTop="8dp"
         ads:layout_constraintTop_toBottomOf="@+id/adView" />
-    <!--<Button-->
-    <!--android:layout_width="350dp"-->
-    <!--android:layout_height="350dp"-->
-    <!--android:text="+"-->
-    <!--android:textSize="100sp"-->
-    <!--android:background="@drawable/web_hi_res_512"-->
-    <!--android:onClick="countUpButtonPressed"/>-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Use proxmity sensor or tap number to count up"
+        android:text="@string/tracker_instruction"
         android:id="@+id/textView2"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
@@ -71,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:padding="15dp"
-        android:text="Save"
+        android:text="@string/save"
         android:onClick="savedButtonClicked"
         android:textColor="@color/textColor"
         android:background="@drawable/button_black_round"
@@ -108,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Note: it is recommened to place phone under chest"
+        android:text="@string/tracker_suggestion"
         android:id="@+id/textView"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
@@ -121,7 +115,7 @@
     <Switch
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Vibrate"
+        android:text="@string/vibrate"
         android:textColor="@color/textColor"
         android:id="@+id/vibrateSwitch"
         android:checked="true"
@@ -135,7 +129,7 @@
     <Switch
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Sound "
+        android:text="@string/sound"
         android:textColor="@color/textColor"
         android:id="@+id/soundSwitch"
         android:checked="true"

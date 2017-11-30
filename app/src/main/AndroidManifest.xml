@@ -4,16 +4,15 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Push-Up Fitness Tracker"
-        android:theme="@style/AppTheme"
-        android:name=".BaseApplication">
-
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.StartMenuActivity"
             android:label="Push-Up Tracker"
@@ -23,29 +22,37 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts"/>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".activities.TrackerActivity"
             android:label="Main Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SavesActivity"
             android:label="@string/title_activity_saves"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:enabled="true"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activities.SettingsActivity"
-            android:enabled="true"/>
 
-        <receiver android:name=".receivers.NotificationReceiver" android:enabled="true"/>
-        <receiver android:name=".receivers.RebootReceiver" android:enabled="true">
+        <receiver
+            android:name=".receivers.RebootReceiver"
+            android:enabled="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="1b853f43e0aa989369064dd2dc2521ef53522103" />
+
+        <activity android:name=".activities.StatisticsActivity"></activity>
     </application>
+
 </manifest>

@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
+import com.awesome.scottquach.proximitypush_upcounter.LegacyTextParcer;
+import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
 /**
  * Created by Scott Quach on 9/3/2017.
@@ -49,13 +51,13 @@ public class RecyclerSavesAdapter extends RecyclerView.Adapter<RecyclerView.View
         switch (holder.getItemViewType()) {
             case SUCCESS:
                 ViewHolderSuccess successHolder = (ViewHolderSuccess) holder;
-                successHolder.dateView.setText(savedData[position].date);
+                successHolder.dateView.setText(LegacyTextParcer.convertDateFormat(savedData[position].date));
                 successHolder.pushUpsView.setText(String.valueOf(savedData[position].numberOfPushups));
                 break;
 
             case FAILURE:
                 ViewHolderFailure failureHolder = (ViewHolderFailure) holder;
-                failureHolder.dateView.setText(savedData[position].date);
+                failureHolder.dateView.setText(LegacyTextParcer.convertDateFormat(savedData[position].date));
                 failureHolder.pushUpsView.setText(String.valueOf(savedData[position].numberOfPushups));
                 break;
         }

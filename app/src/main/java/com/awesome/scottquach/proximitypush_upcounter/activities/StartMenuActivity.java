@@ -28,8 +28,8 @@ public class StartMenuActivity extends Activity {
 
     private int goalValue;
 
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +106,7 @@ public class StartMenuActivity extends Activity {
                     case MotionEvent.ACTION_DOWN:
                         if (mHandler != null) return true;
                         mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 500);
+                        mHandler.postDelayed(mAction, 100);
                         break;
                     case MotionEvent.ACTION_UP:
                         if (mHandler == null) return true;
@@ -125,12 +125,11 @@ public class StartMenuActivity extends Activity {
                     editor.putInt("goalValue", goalValue);
                     editor.apply();
                     goalTextView.setText(String.valueOf(goalValue));
-                    mHandler.postDelayed(this, 500);
+                    mHandler.postDelayed(this, 100);
                 }
             };
 
         });
-
     }
 
     /*button
@@ -173,5 +172,9 @@ public class StartMenuActivity extends Activity {
     public void logButtonClicked(View view) {
         Intent openSaves = new Intent(StartMenuActivity.this,SavesActivity.class);
         startActivity(openSaves);
+    }
+
+    public void statiticsButtonClicked(View view) {
+        startActivity(new Intent(StartMenuActivity.this, StatisticsActivity.class));
     }
 }

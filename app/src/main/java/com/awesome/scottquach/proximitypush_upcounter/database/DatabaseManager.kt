@@ -1,7 +1,8 @@
-package com.awesome.scottquach.proximitypush_upcounter
+package com.awesome.scottquach.proximitypush_upcounter.database
 
 import android.content.Context
 import android.os.AsyncTask
+import com.awesome.scottquach.proximitypush_upcounter.BaseApplication
 import timber.log.Timber
 
 /**

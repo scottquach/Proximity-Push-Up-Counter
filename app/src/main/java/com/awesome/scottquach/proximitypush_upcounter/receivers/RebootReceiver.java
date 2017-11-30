@@ -1,15 +1,11 @@
 package com.awesome.scottquach.proximitypush_upcounter.receivers;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.awesome.scottquach.proximitypush_upcounter.receivers.NotificationReceiver;
-
-import java.util.Calendar;
+import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -20,23 +16,10 @@ import static android.content.Context.MODE_PRIVATE;
 public class RebootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        SharedPreferences sharedPref = context.getSharedPreferences("settingsFile", MODE_PRIVATE);
-
-        if (sharedPref.getInt("reminderSetting", 0) == 1) {
-            int alarmHour = sharedPref.getInt("reminder_hour", 0);
-            int alarmMinute = sharedPref.getInt("reminder_minute", 0);
-
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR_OF_DAY, alarmHour);
-            calendar.set(Calendar.MINUTE, alarmMinute);
-
-            Intent alarmIntent = new Intent(context, NotificationReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY
-                    , pendingIntent);
+        SharedPreferences settingsPref = context.getSharedPreferences("settingsFile", MODE_PRIVATE);
+        if (settingsPref.getInt("reminderSetting", 1) == 1) {
+            ReminderJob.cancelJob();
+            ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
         }
     }
 }

@@ -1,13 +1,9 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
@@ -20,10 +16,8 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
-import com.awesome.scottquach.proximitypush_upcounter.receivers.NotificationReceiver;
+import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.awesome.scottquach.proximitypush_upcounter.R;
-
-import java.util.Calendar;
 
 public class SettingsActivity extends Activity {
 
@@ -122,7 +116,7 @@ public class SettingsActivity extends Activity {
             encouragementSwitch.setChecked(false);
         }
 
-        if (settingsPref.getInt("reminderSetting", 0) == 1) {
+        if (settingsPref.getInt("reminderSetting", 1) == 1) {
             reminderSwitch.setChecked(true);
         } else{
             reminderSwitch.setChecked(false);
@@ -154,17 +148,8 @@ public class SettingsActivity extends Activity {
      * reminder
      */
     private void createReminderNotification(){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
-        calendar.set(Calendar.MINUTE, selectedMinute);
+        ReminderJob.scheduleJob(selectedHour, selectedMinute);
 
-        Intent intent = new Intent(SettingsActivity.this, NotificationReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY
-                , pendingIntent);
         Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
     }
 
@@ -172,15 +157,10 @@ public class SettingsActivity extends Activity {
      * Cancel the alarm that triggers daily notifications
      */
     private void cancelReminderNotification(){
-        Intent intent = new Intent(this, NotificationReceiver.class);
-        PendingIntent sender =  PendingIntent.getBroadcast(SettingsActivity.this, 0, intent,PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        alarmManager.cancel(sender);
-
-
         NotificationManager notificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
+
+        ReminderJob.cancelJob();
 
         Toast.makeText(SettingsActivity.this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
     }

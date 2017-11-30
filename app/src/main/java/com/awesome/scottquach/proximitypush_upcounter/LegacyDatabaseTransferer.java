@@ -1,9 +1,10 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+
+import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
 import java.util.ArrayList;
 

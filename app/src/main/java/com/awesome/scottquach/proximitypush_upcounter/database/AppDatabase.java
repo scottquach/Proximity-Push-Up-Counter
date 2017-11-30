@@ -1,4 +1,4 @@
-package com.awesome.scottquach.proximitypush_upcounter;
+package com.awesome.scottquach.proximitypush_upcounter.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
