@@ -107,6 +107,7 @@ public class ReminderJob extends Job {
 
         Calendar currentTime = Calendar.getInstance();
         currentTime.setTimeInMillis(System.currentTimeMillis());
+        currentTime.set(Calendar.MINUTE, 5);
 
         if (calendar.before(currentTime)) {
             calendar.add(Calendar.DAY_OF_MONTH, 1);
@@ -114,12 +115,13 @@ public class ReminderJob extends Job {
 
         int startIn = (int) (calendar.getTimeInMillis() - currentTime.getTimeInMillis());
 
-
-        int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
-                .setExact(startIn)
-                .build()
-                .schedule();
-        return jobId;
+        if (startIn > 0) {
+            int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
+                    .setExact(startIn)
+                    .build()
+                    .schedule();
+            return jobId;
+        } else return -1;
     }
 
     public static void cancelJob() {
