@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import java.util.Calendar;
 
 import timber.log.Timber;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
@@ -41,7 +43,7 @@ public class ReminderJob extends Job {
             notificationManager.createNotificationChannel(channel);
 
             Intent openApp = new Intent(getContext(), TrackerActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10 , openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_CANCEL_CURRENT);
             //Retreive default notification sound
             Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -57,6 +59,12 @@ public class ReminderJob extends Job {
 
             //Notify
             notificationManager.notify(101, mBuilder);
+
+            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
+            if (settingsPref.getInt("reminderSetting", 1) == 1) {
+                ReminderJob.cancelJob();
+                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+            }
 
             return Result.SUCCESS;
         } else {
@@ -81,6 +89,12 @@ public class ReminderJob extends Job {
             //Notify
             notificationManager.notify(101, mBuilder);
 
+            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
+            if (settingsPref.getInt("reminderSetting", 1) == 1) {
+                ReminderJob.cancelJob();
+                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+            }
+
             return Result.SUCCESS;
         }
     }
@@ -99,16 +113,13 @@ public class ReminderJob extends Job {
         }
 
         int startIn = (int) (calendar.getTimeInMillis() - currentTime.getTimeInMillis());
-        if (startIn > 0) {
 
-            int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
-                    .setExact(startIn)
-                    .build()
-                    .schedule();
-            return jobId;
-        } else {
-            return -1;
-        }
+
+        int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
+                .setExact(startIn)
+                .build()
+                .schedule();
+        return jobId;
     }
 
     public static void cancelJob() {
