@@ -38,8 +38,10 @@ public class BaseApplication extends Application {
 
         SharedPreferences settingsPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
         if (settingsPref.getInt("reminderSetting", 1) == 1) {
-            ReminderJob.cancelJob();
-            ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+//            ReminderJob.cancelJob();
+            if (JobManager.instance().getAllJobRequests().isEmpty()) {
+                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+            }
         }
     }
 

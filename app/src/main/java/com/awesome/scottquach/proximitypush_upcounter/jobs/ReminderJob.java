@@ -14,11 +14,15 @@ import android.support.annotation.NonNull;
 import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.activities.TrackerActivity;
+import com.evernote.android.job.DailyJob;
 import com.evernote.android.job.Job;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
+import java.sql.Time;
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
 
@@ -29,11 +33,11 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * Created by Scott Quach on 11/23/2017.
  */
 
-public class ReminderJob extends Job {
+public class ReminderJob extends DailyJob {
 
     @NonNull
     @Override
-    protected Result onRunJob(@NonNull Params params) {
+    protected DailyJobResult onRunDailyJob(@NonNull Params params) {
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(NOTIFICATION_SERVICE);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -62,11 +66,10 @@ public class ReminderJob extends Job {
 
             SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
             if (settingsPref.getInt("reminderSetting", 1) == 1) {
-                ReminderJob.cancelJob();
                 ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
             }
 
-            return Result.SUCCESS;
+            return DailyJobResult.SUCCESS;
         } else {
 
 
@@ -91,36 +94,45 @@ public class ReminderJob extends Job {
 
             SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
             if (settingsPref.getInt("reminderSetting", 1) == 1) {
-                ReminderJob.cancelJob();
                 ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
             }
 
-            return Result.SUCCESS;
+            return DailyJobResult.SUCCESS;
         }
     }
 
+
     public static int scheduleJob(int hour, int minute) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);
+        Timber.d("Hours is " + hour + " minutes " + minute);
+        Calendar alarm = Calendar.getInstance();
+        alarm.set(Calendar.HOUR_OF_DAY, hour);
+        alarm.set(Calendar.MINUTE, minute);
 
         Calendar currentTime = Calendar.getInstance();
-        currentTime.setTimeInMillis(System.currentTimeMillis());
-        currentTime.set(Calendar.MINUTE, 5);
+        currentTime.add(Calendar.MINUTE, 2);
 
-        if (calendar.before(currentTime)) {
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        if (alarm.before(currentTime)) {
+            alarm.add(Calendar.DAY_OF_MONTH, 1);
         }
+        currentTime.add(Calendar.MINUTE, -2);
 
-        int startIn = (int) (calendar.getTimeInMillis() - currentTime.getTimeInMillis());
+        int startIn = (int) (alarm.getTimeInMillis() - currentTime.getTimeInMillis());
+        Timber.d("Alarm was " + alarm.getTimeInMillis() + " currentTime is " + currentTime.getTimeInMillis());
+        Timber.d("Starting in " + startIn);
+
+        Calendar alarmOffset = Calendar.getInstance();
+        alarmOffset.setTimeInMillis(alarm.getTimeInMillis());
+        alarmOffset.add(Calendar.MINUTE, 1);
 
         if (startIn > 0) {
-            int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
-                    .setExact(startIn)
-                    .build()
-                    .schedule();
-            return jobId;
+//            int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
+//                    .setExact(startIn)
+//                    .setUpdateCurrent(true)
+//                    .build()
+//                    .schedule();
+            DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB), TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute),
+                    TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 100000);
+            return 1;
         } else return -1;
     }
 

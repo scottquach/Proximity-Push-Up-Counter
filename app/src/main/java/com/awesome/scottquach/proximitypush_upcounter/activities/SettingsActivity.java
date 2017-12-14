@@ -15,9 +15,15 @@ import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
 import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.evernote.android.job.Job;
+import com.evernote.android.job.JobCreator;
+import com.evernote.android.job.JobManager;
+
+import timber.log.Timber;
 
 public class SettingsActivity extends Activity {
 
@@ -148,6 +154,7 @@ public class SettingsActivity extends Activity {
      * reminder
      */
     private void createReminderNotification(){
+//        ReminderJob.cancelJob();
         ReminderJob.scheduleJob(selectedHour, selectedMinute);
 
         Toast.makeText(this, "Reminder set for " + selectedHour + ":" + selectedMinute, Toast.LENGTH_SHORT).show();
@@ -170,6 +177,8 @@ public class SettingsActivity extends Activity {
      * @param view
      */
     public void nameButtonClicked(View view) {
+
+        Timber.d(JobManager.instance().getAllJobRequests().toString());
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final EditText editText = new EditText(this);

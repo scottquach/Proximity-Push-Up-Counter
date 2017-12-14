@@ -18,7 +18,7 @@ public class RebootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         SharedPreferences settingsPref = context.getSharedPreferences("settingsFile", MODE_PRIVATE);
         if (settingsPref.getInt("reminderSetting", 1) == 1) {
-            ReminderJob.cancelJob();
+//            ReminderJob.cancelJob();
             ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
         }
     }
