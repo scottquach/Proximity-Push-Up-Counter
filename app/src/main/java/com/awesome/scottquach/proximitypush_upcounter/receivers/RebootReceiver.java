@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
+import com.evernote.android.job.JobManager;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -19,7 +20,9 @@ public class RebootReceiver extends BroadcastReceiver {
         SharedPreferences settingsPref = context.getSharedPreferences("settingsFile", MODE_PRIVATE);
         if (settingsPref.getInt("reminderSetting", 1) == 1) {
 //            ReminderJob.cancelJob();
-            ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+            if (JobManager.instance().getAllJobRequests().isEmpty()) {
+                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+            }
         }
     }
 }

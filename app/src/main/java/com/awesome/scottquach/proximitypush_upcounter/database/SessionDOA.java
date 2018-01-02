@@ -33,4 +33,7 @@ public interface SessionDOA {
     @Delete()
     public void resetTable(SessionEntity[] entities);
 
+    @Delete
+    public void deleteSession(SessionEntity entity);
+
 }
