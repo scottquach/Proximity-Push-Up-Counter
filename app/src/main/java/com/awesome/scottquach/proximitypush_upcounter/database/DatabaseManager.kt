@@ -3,6 +3,10 @@ package com.awesome.scottquach.proximitypush_upcounter.database
 import android.content.Context
 import android.os.AsyncTask
 import com.awesome.scottquach.proximitypush_upcounter.BaseApplication
+import io.reactivex.Single
+import io.reactivex.SingleObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
 /**
@@ -43,6 +47,10 @@ class DatabaseManager(context: Context) {
         ResetSessionData().execute(data)
     }
 
+    fun deleteSession(entity: SessionEntity) {
+       DeleteSession().execute(entity)
+    }
+
     inner class LoadSessions : AsyncTask<Void, Void, Array<SessionEntity>>() {
         override fun doInBackground(vararg p0: Void?): Array<SessionEntity> {
             return BaseApplication.getInstance().database.sessionDOA().querySessions()
@@ -69,5 +77,13 @@ class DatabaseManager(context: Context) {
         override fun onPostExecute(result: Array<SessionEntity>) {
             listener?.onSessionDataLoaded(result)
         }
+    }
+
+    inner class DeleteSession : AsyncTask<SessionEntity, Void, Void> () {
+        override fun doInBackground(vararg p0: SessionEntity): Void? {
+            BaseApplication.getInstance().database.sessionDOA().deleteSession(p0[0])
+            return null
+        }
+
     }
 }

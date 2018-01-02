@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,7 +48,27 @@ public class SavesActivity extends Activity implements DatabaseManager.DatabaseC
         highscoreView = (TextView) findViewById(R.id.highscoreView);
         setHighscoreView();
 
+        recyclerView = (RecyclerView) findViewById(R.id.savedRecyclerView);
+
         database = new DatabaseManager(this);
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                Timber.d("An item was swiped");
+                Toast.makeText(SavesActivity.this, "Session was deleted", Toast.LENGTH_SHORT).show();
+                database.deleteSession(saveData[viewHolder.getAdapterPosition()]);
+                loadData();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     @Override
@@ -76,13 +97,13 @@ public class SavesActivity extends Activity implements DatabaseManager.DatabaseC
      * @param data
      */
     private void populateListView(SessionEntity[] data) {
-        recyclerView = (RecyclerView) findViewById(R.id.savedRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
         layoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new RecyclerSavesAdapter(this, data);
         recyclerView.setAdapter(adapter);
+        recyclerView.scheduleLayoutAnimation();
     }
 
 /*On Button
