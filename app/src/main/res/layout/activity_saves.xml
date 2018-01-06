@@ -32,13 +32,15 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_black_round"
         android:drawableStart="@drawable/ic_home"
+        android:padding="8dp"
+        android:drawableTint="@color/colorAccent"
         android:onClick="homeButtonClicked"
         android:text="@string/home"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/highscoreView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/savedRecyclerView"
@@ -52,7 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         android:layoutAnimation="@anim/layout_animation_slide_up">
-
     </android.support.v7.widget.RecyclerView>
 
     <TextView

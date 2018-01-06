@@ -57,6 +57,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_transparent"
         android:drawableLeft="@drawable/ic_edit"
+        android:drawableTint="@color/colorAccent"
+        android:padding="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"

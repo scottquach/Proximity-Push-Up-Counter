@@ -18,7 +18,7 @@
     <shortcut
         android:shortcutId="Log"
         android:enabled="true"
-        android:icon="@drawable/ic_log"
+        android:icon="@drawable/ic_record"
         android:shortcutShortLabel="@string/shortLabelLog"
         android:shortcutLongLabel="@string/longLabelLog"
         android:shortcutDisabledMessage="@string/disabledLabelLog">

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.app.Activity;
+import android.widget.Toast;
 
 
 import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
@@ -285,5 +286,12 @@ Button Clicks
     public void refreshButtonPressed(View view) {
         numberOfPushUps = 0;
         countDisplay.setText(String.valueOf(numberOfPushUps));
+    }
+
+    public void decreaseButtonClicked(View view) {
+        if (numberOfPushUps > 0) {
+            numberOfPushUps--;
+            countDisplay.setText(String.valueOf(numberOfPushUps));
+        } else Toast.makeText(this, "Cannot decrease anymore", Toast.LENGTH_SHORT).show();
     }
 }
