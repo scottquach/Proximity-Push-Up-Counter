@@ -12,5 +12,6 @@ interface StatisticsContract {
         void setTotalPushups(int totalPushups);
         void setTimesGoalReached(int times);
         void setTimesGoalFailed(int times);
+        void setTodayTotalPushups(int todayTotalPushups);
     }
 }

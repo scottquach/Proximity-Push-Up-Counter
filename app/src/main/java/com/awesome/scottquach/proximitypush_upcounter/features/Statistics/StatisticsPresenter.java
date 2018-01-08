@@ -21,6 +21,7 @@ public class StatisticsPresenter implements StatisticsDatabase.StatisticsDatabas
         database.requestDayHighScore();
         database.requestTimesGoalFailed();
         database.requestTimesGoalReached();
+        database.requestTotalDayPushups();
     }
 
     public void onViewDestroyed() {
@@ -51,5 +52,10 @@ public class StatisticsPresenter implements StatisticsDatabase.StatisticsDatabas
     @Override
     public void timesGoalFailed(int num) {
         view.setTimesGoalFailed(num);
+    }
+
+    @Override
+    public void totalDayPushupsLoaded(int total) {
+        view.setTodayTotalPushups(total);
     }
 }

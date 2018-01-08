@@ -107,6 +107,12 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
         view.setText(String.valueOf(times));
     }
 
+    @Override
+    public void setTodayTotalPushups(int todayTotalPushups) {
+        TextView view = (TextView) getView().findViewById(R.id.text_total_day_pushups);
+        view.setText(String.valueOf(todayTotalPushups));
+    }
+
     public interface StatisticsFragmentInterface {
 
     }

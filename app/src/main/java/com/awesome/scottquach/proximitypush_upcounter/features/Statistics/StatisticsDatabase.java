@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import com.awesome.scottquach.proximitypush_upcounter.BaseApplication;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.Callable;
 
 import io.reactivex.Single;
@@ -107,7 +111,7 @@ public class StatisticsDatabase {
         Single.fromCallable(new Callable<int[]>() {
             @Override
             public int[] call() throws Exception {
-                return BaseApplication.getInstance().database.sessionDOA().queryDaySessionTotal();
+                return BaseApplication.getInstance().database.sessionDOA().queryDaySessionTotals();
             }
         })
                 .subscribeOn(Schedulers.io())
@@ -168,11 +172,42 @@ public class StatisticsDatabase {
                 });
     }
 
+    public void requestTotalDayPushups() {
+        Single.fromCallable(new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                String formattedDate = df.format(c.getTime());
+                return BaseApplication.getInstance().database.sessionDOA().queryTodaySessionTotal(formattedDate);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<Integer>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        compositeDisposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(Integer i) {
+                        if (listener != null) listener.totalDayPushupsLoaded(i);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "Error loading day total");
+                    }
+                });
+    }
+
     interface StatisticsDatabaseCallback {
         void totalPushupsLoaded(int total);
         void highScoreLoaded(int highscore);
         void dayHighScoreLoaded(int highscore);
         void timesGoalReached(int num);
         void timesGoalFailed(int num);
+        void totalDayPushupsLoaded(int total);
     }
 }
