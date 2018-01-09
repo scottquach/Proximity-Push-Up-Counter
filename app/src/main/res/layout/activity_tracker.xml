@@ -28,7 +28,8 @@
     <TextView
         android:id="@+id/countDisplay"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:onClick="countUpButtonPressed"
@@ -36,6 +37,7 @@
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="200sp"
+        ads:layout_constraintBottom_toTopOf="@+id/button"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintHorizontal_bias="0.5"
         ads:layout_constraintStart_toStartOf="parent"
@@ -118,7 +120,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/tracker_suggestion"
         ads:layout_constraintBottom_toTopOf="@+id/vibrateSwitch"
