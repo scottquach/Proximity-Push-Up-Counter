@@ -1,6 +1,7 @@
 package com.awesome.scottquach.proximitypush_upcounter.features.Statistics;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 /**
@@ -46,6 +51,13 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
         if (presenter != null) {
             presenter.loadData();
         }
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
     }
 
     @Override
@@ -111,6 +123,22 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
     public void setTodayTotalPushups(int todayTotalPushups) {
         TextView view = (TextView) getView().findViewById(R.id.text_total_day_pushups);
         view.setText(String.valueOf(todayTotalPushups));
+    }
+
+    @Override
+    public void setGraph(LineGraphSeries<DataPoint> series) {
+        GraphView graphView = (GraphView) getView().findViewById(R.id.graph);
+        graphView.getGridLabelRenderer().setVerticalAxisTitle("Number of Push-Ups");
+        graphView.getGridLabelRenderer().setHorizontalAxisTitle("Sessions from oldest to newest");
+//        graphView.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(getContext()));
+//        graphView.getGridLabelRenderer().setNumHorizontalLabels(3);
+        graphView.getViewport().setXAxisBoundsManual(true);
+        graphView.getViewport().setMaxX(series.getHighestValueX());
+//        graphView.getViewport().setMinX(series.getLowestValueX());
+        graphView.getGridLabelRenderer().setHumanRounding(true);
+        graphView.getViewport().setScrollable(true);
+        graphView.getViewport().setScrollableY(true);
+        graphView.addSeries(series);
     }
 
     public interface StatisticsFragmentInterface {

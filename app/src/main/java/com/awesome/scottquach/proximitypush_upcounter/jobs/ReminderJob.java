@@ -109,12 +109,12 @@ public class ReminderJob extends DailyJob {
         alarm.set(Calendar.MINUTE, minute);
 
         Calendar currentTime = Calendar.getInstance();
-        currentTime.add(Calendar.MINUTE, 2);
+        currentTime.add(Calendar.MINUTE, 1);
 
         if (alarm.before(currentTime)) {
             alarm.add(Calendar.DAY_OF_MONTH, 1);
         }
-        currentTime.add(Calendar.MINUTE, -2);
+        currentTime.add(Calendar.MINUTE, -1);
 
         int startIn = (int) (alarm.getTimeInMillis() - currentTime.getTimeInMillis());
         Timber.d("Alarm was " + alarm.getTimeInMillis() + " currentTime is " + currentTime.getTimeInMillis());
@@ -130,7 +130,7 @@ public class ReminderJob extends DailyJob {
 //                    .setUpdateCurrent(true)
 //                    .build()
 //                    .schedule();
-            DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB), TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute),
+            DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB), TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 2000,
                     TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 100000);
             return 1;
         } else return -1;

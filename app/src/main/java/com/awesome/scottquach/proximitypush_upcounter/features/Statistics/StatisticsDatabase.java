@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 
 import com.awesome.scottquach.proximitypush_upcounter.BaseApplication;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -44,6 +47,48 @@ public class StatisticsDatabase {
         if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
             compositeDisposable.dispose();
         }
+    }
+
+    public void requestGraphData() {
+        Single.fromCallable(new Callable<SessionEntity[]>() {
+            @Override
+            public SessionEntity[] call() throws Exception {
+                return BaseApplication.getInstance().database.sessionDOA().querySessions();
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<SessionEntity[]>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        compositeDisposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(SessionEntity[] sessionEntities) {
+                        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
+                        int x = 1;
+                        for (SessionEntity entity : sessionEntities) {
+                            try {
+                                Date date = df.parse(entity.date);
+                                DataPoint point = new DataPoint(x, entity.numberOfPushups);
+                                series.appendData(point, true, 200, true);
+                                x++;
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        if (listener != null) listener.graphDataLoaded(series);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "Error loading session entities");
+                    }
+                });
     }
 
     public void requestTimesGoalReached() {
@@ -209,5 +254,6 @@ public class StatisticsDatabase {
         void timesGoalReached(int num);
         void timesGoalFailed(int num);
         void totalDayPushupsLoaded(int total);
+        void graphDataLoaded(LineGraphSeries<DataPoint> series);
     }
 }

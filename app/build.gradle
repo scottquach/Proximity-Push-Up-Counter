@@ -26,8 +26,8 @@ android {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 43
-        versionName "4.7.5"
+        versionCode 44
+        versionName "4.8"
     }
     buildTypes {
         release {
@@ -62,12 +62,14 @@ dependencies {
     }
     implementation "android.arch.persistence.room:runtime:1.0.0"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     compile 'com.evernote:android-job:1.2.1'
 
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.6'
+
+    compile 'com.jjoe64:graphview:4.2.1'
 
     compile 'com.google.android.gms:play-services-gcm:11.8.0' //
 }

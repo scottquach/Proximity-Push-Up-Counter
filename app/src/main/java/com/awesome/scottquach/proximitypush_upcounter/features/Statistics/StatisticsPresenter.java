@@ -1,5 +1,8 @@
 package com.awesome.scottquach.proximitypush_upcounter.features.Statistics;
 
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 /**
  * Created by Scott Quach on 11/24/2017.
  */
@@ -22,6 +25,7 @@ public class StatisticsPresenter implements StatisticsDatabase.StatisticsDatabas
         database.requestTimesGoalFailed();
         database.requestTimesGoalReached();
         database.requestTotalDayPushups();
+        database.requestGraphData();
     }
 
     public void onViewDestroyed() {
@@ -57,5 +61,10 @@ public class StatisticsPresenter implements StatisticsDatabase.StatisticsDatabas
     @Override
     public void totalDayPushupsLoaded(int total) {
         view.setTodayTotalPushups(total);
+    }
+
+    @Override
+    public void graphDataLoaded(LineGraphSeries<DataPoint> series) {
+        view.setGraph(series);
     }
 }
