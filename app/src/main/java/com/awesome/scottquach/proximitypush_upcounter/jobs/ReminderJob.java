@@ -31,6 +31,8 @@ import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by Scott Quach on 11/23/2017.
+ *
+ * An evernote DailyJob that is meant to remind the user through a notification daily to do push-ups
  */
 
 public class ReminderJob extends DailyJob {
@@ -47,7 +49,7 @@ public class ReminderJob extends DailyJob {
             notificationManager.createNotificationChannel(channel);
 
             Intent openApp = new Intent(getContext(), TrackerActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_UPDATE_CURRENT);
             //Retreive default notification sound
             Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -75,7 +77,7 @@ public class ReminderJob extends DailyJob {
 
             //PendingIntent to open app when notification is clicked
             Intent openApp = new Intent(getContext(), TrackerActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_CANCEL_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 10, openApp, PendingIntent.FLAG_UPDATE_CURRENT);
             //Retreive default notification sound
             Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -103,37 +105,40 @@ public class ReminderJob extends DailyJob {
 
 
     public static int scheduleJob(int hour, int minute) {
+        ReminderJob.cancelJob();
         Timber.d("Hours is " + hour + " minutes " + minute);
-        Calendar alarm = Calendar.getInstance();
-        alarm.set(Calendar.HOUR_OF_DAY, hour);
-        alarm.set(Calendar.MINUTE, minute);
+//        Calendar alarm = Calendar.getInstance();
+//        alarm.set(Calendar.HOUR_OF_DAY, hour);
+//        alarm.set(Calendar.MINUTE, minute);
+//
+//        Calendar currentTime = Calendar.getInstance();
+//        currentTime.add(Calendar.MINUTE, 1);
+//
+//        if (alarm.before(currentTime)) {
+//            alarm.add(Calendar.DAY_OF_MONTH, 1);
+//        }
+//        currentTime.add(Calendar.MINUTE, -1);
+//
+//        int startIn = (int) (alarm.getTimeInMillis() - currentTime.getTimeInMillis());
+//        Timber.d("Alarm was " + alarm.getTimeInMillis() + " currentTime is " + currentTime.getTimeInMillis());
+//        Timber.d("Starting in " + startIn);
+//
+//        Calendar alarmOffset = Calendar.getInstance();
+//        alarmOffset.setTimeInMillis(alarm.getTimeInMillis());
+//        alarmOffset.add(Calendar.MINUTE, 1);
+//
+//        if (startIn > 0) {
+//            DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB)
+//                    .setUpdateCurrent(true),
+//                    TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 2000,
+//                    TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 100000);
+//            return 1;
+//        } else return -1;
 
-        Calendar currentTime = Calendar.getInstance();
-        currentTime.add(Calendar.MINUTE, 1);
-
-        if (alarm.before(currentTime)) {
-            alarm.add(Calendar.DAY_OF_MONTH, 1);
-        }
-        currentTime.add(Calendar.MINUTE, -1);
-
-        int startIn = (int) (alarm.getTimeInMillis() - currentTime.getTimeInMillis());
-        Timber.d("Alarm was " + alarm.getTimeInMillis() + " currentTime is " + currentTime.getTimeInMillis());
-        Timber.d("Starting in " + startIn);
-
-        Calendar alarmOffset = Calendar.getInstance();
-        alarmOffset.setTimeInMillis(alarm.getTimeInMillis());
-        alarmOffset.add(Calendar.MINUTE, 1);
-
-        if (startIn > 0) {
-//            int jobId = new JobRequest.Builder(Constants.REMINDER_JOB)
-//                    .setExact(startIn)
-//                    .setUpdateCurrent(true)
-//                    .build()
-//                    .schedule();
-            DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB), TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 2000,
-                    TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + 100000);
-            return 1;
-        } else return -1;
+        DailyJob.schedule(new JobRequest.Builder(Constants.REMINDER_JOB).setUpdateCurrent(true),
+                TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute),
+                TimeUnit.HOURS.toMillis(hour) + TimeUnit.MINUTES.toMillis(minute) + TimeUnit.MINUTES.toMillis(5));
+        return 1;
     }
 
     public static void cancelJob() {

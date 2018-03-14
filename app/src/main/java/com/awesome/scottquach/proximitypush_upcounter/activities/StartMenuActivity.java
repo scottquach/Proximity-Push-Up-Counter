@@ -137,13 +137,19 @@ public class StartMenuActivity extends Activity {
      */
 
 
-    //go to main activity
-    public void startPushUpStarted(View view) {
+    /**
+     * Navigates to the tracker activity
+     * @param view
+     */
+    public void startTrackingClicked (View view) {
         Intent openMainActivity = new Intent(this,TrackerActivity.class);
         startActivity(openMainActivity);
     }
 
-    //incrase goal value and save
+    /**
+     * Increases the goal value and updates the screen as well as updates the shared preference
+     * @param view
+     */
     public void upButtonClicked(View view) {
         goalValue++;
         editor.putInt("goalValue", goalValue);
@@ -151,7 +157,10 @@ public class StartMenuActivity extends Activity {
         goalTextView.setText(String.valueOf(goalValue));
     }
 
-    //decrase goal value and save
+    /**
+     * Decreases the gaol value and updates the screen as well as updates the shared preference
+     * @param view
+     */
     public void downButtonClicked(View view) {
         if(goalValue >=1) {
             goalValue--;
@@ -161,19 +170,29 @@ public class StartMenuActivity extends Activity {
         goalTextView.setText(String.valueOf(goalValue));
     }
 
-    //open settings page
+    /**
+     * Navigates to the settings page
+     * @param view
+     */
     public void openSettingsPage(View view) {
         Instrumentation.getInstance().track(Instrumentation.TrackEvents.OPENED_SETTINGS, Instrumentation.TrackValues.SUCCESS);
         Intent openSettings = new Intent(StartMenuActivity.this,SettingsActivity.class);
         startActivity(openSettings);
     }
 
-    //open log of previous sessions page
+    /**
+     * Navigates to the logs page
+     * @param view
+     */
     public void logButtonClicked(View view) {
         Intent openSaves = new Intent(StartMenuActivity.this,SavesActivity.class);
         startActivity(openSaves);
     }
 
+    /**
+     * Navigates to the statistics page
+     * @param view
+     */
     public void statiticsButtonClicked(View view) {
         startActivity(new Intent(StartMenuActivity.this, StatisticsActivity.class));
     }

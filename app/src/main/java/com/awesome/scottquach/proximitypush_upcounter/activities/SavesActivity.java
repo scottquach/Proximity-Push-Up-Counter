@@ -77,9 +77,11 @@ public class SavesActivity extends Activity implements DatabaseManager.DatabaseC
         loadData();
     }
 
-    //set highscoreView with current highscore
+    /**
+     * Update the TextView with the users high score, defaults to 0
+     */
     private void setHighscoreView() {
-        int highscore = sharedPref.getInt("highscore", 1);
+        int highscore = sharedPref.getInt("highscore", 0);
         highscoreView.setText("Highscore: " + String.valueOf(highscore));
 
     }

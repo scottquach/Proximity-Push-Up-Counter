@@ -39,20 +39,17 @@
             android:name=".activities.SettingsActivity"
             android:enabled="true"
             android:screenOrientation="portrait"/>
-
-        <receiver
-            android:name=".receivers.RebootReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="1b853f43e0aa989369064dd2dc2521ef53522103" />
 
         <activity android:name=".activities.StatisticsActivity"></activity>
+        <service
+            android:name=".fcm.FcmTokenRefreshService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

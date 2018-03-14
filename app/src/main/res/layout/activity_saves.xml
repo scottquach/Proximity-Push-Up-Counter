@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        android:layoutAnimation="@anim/layout_animation_slide_up">
+        android:layoutAnimation="@anim/layout_animation_slide_down">
     </android.support.v7.widget.RecyclerView>
 
     <TextView

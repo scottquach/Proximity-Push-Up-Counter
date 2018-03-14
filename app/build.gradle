@@ -46,6 +46,7 @@ android {
 }
 dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:support-core-utils:26.1.0'
