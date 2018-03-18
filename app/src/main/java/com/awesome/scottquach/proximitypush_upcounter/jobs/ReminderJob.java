@@ -66,10 +66,10 @@ public class ReminderJob extends DailyJob {
             //Notify
             notificationManager.notify(101, mBuilder);
 
-            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
-            if (settingsPref.getInt("reminderSetting", 1) == 1) {
-                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
-            }
+//            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
+//            if (settingsPref.getInt("reminderSetting", 1) == 1) {
+//                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+//            }
 
             return DailyJobResult.SUCCESS;
         } else {
@@ -94,10 +94,10 @@ public class ReminderJob extends DailyJob {
             //Notify
             notificationManager.notify(101, mBuilder);
 
-            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
-            if (settingsPref.getInt("reminderSetting", 1) == 1) {
-                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
-            }
+//            SharedPreferences settingsPref = getContext().getSharedPreferences("settingsFile", MODE_PRIVATE);
+//            if (settingsPref.getInt("reminderSetting", 1) == 1) {
+//                ReminderJob.scheduleJob(settingsPref.getInt("reminder_hour", 7), settingsPref.getInt("reminder_minute", 0));
+//            }
 
             return DailyJobResult.SUCCESS;
         }
@@ -105,7 +105,7 @@ public class ReminderJob extends DailyJob {
 
 
     public static int scheduleJob(int hour, int minute) {
-        ReminderJob.cancelJob();
+//        ReminderJob.cancelJob();
         Timber.d("Hours is " + hour + " minutes " + minute);
 //        Calendar alarm = Calendar.getInstance();
 //        alarm.set(Calendar.HOUR_OF_DAY, hour);
