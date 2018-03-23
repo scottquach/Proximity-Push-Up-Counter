@@ -18,13 +18,12 @@ import android.app.Activity;
 import android.widget.Toast;
 
 
+import com.awesome.scottquach.proximitypush_upcounter.GoalPreferenceUtil;
 import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-
-import net.danlew.android.joda.JodaTimeAndroid;
 
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
@@ -50,7 +49,7 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     private SensorManager sm;
     private Sensor proximitySensor;
 
-    private SharedPreferences savePref, settingPref, goalSharedPref;
+    private SharedPreferences savePref, settingPref;
     private SharedPreferences.Editor saveEditor;
 
     TextToSpeech tts;
@@ -66,7 +65,6 @@ public class TrackerActivity extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracker);
-        JodaTimeAndroid.init(this);
 
         database = new DatabaseManager(this);
 
@@ -82,8 +80,7 @@ public class TrackerActivity extends Activity implements SensorEventListener {
         savePref = getSharedPreferences("savedPushUpsFile1", MODE_PRIVATE);
         saveEditor = savePref.edit();
         settingPref = getSharedPreferences("settingsFile", MODE_PRIVATE);
-        goalSharedPref = getSharedPreferences("goalFile", MODE_PRIVATE);
-        goalValue = goalSharedPref.getInt("goalValue", 0);
+        goalValue = GoalPreferenceUtil.getDailyGoal(this);
 
         player = MediaPlayer.create(TrackerActivity.this, R.raw.beep);
 

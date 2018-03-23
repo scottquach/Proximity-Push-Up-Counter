@@ -247,7 +247,7 @@ public class StatisticsDatabase {
                 });
     }
 
-    interface StatisticsDatabaseCallback {
+    public interface StatisticsDatabaseCallback {
         void totalPushupsLoaded(int total);
         void highScoreLoaded(int highscore);
         void dayHighScoreLoaded(int highscore);

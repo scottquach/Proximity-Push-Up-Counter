@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="32dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_add_unit_id_startMenu"
         ads:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +91,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -99,29 +99,34 @@
         android:padding="8dp"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.0"
         ads:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Goal"
-            android:textColor="@color/textColor"
-            android:textSize="50sp"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            ads:layout_constraintLeft_toLeftOf="parent"
-            ads:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginStart="8dp"
+            android:text="Daily Goal"
+            ads:layout_constraintBaseline_toBaselineOf="@+id/dailyUpButton"
+            ads:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Monthly Goal"
+            ads:layout_constraintBaseline_toBaselineOf="@+id/monthlyUpButton"
+            ads:layout_constraintStart_toStartOf="parent" />
 
 
         <Button
-            android:id="@+id/upButton"
+            android:id="@+id/dailyUpButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/button_black_round"
             android:drawableLeft="@drawable/ic_arrow_up"
             android:drawableTint="@android:color/white"
@@ -129,33 +134,18 @@
             android:padding="8dp"
             android:text="@string/up"
             android:textColor="@color/textColor"
-            ads:layout_constraintBottom_toTopOf="@+id/downButton"
+            ads:layout_constraintBottom_toTopOf="@+id/dailyDownButton"
             ads:layout_constraintEnd_toEndOf="parent"
-            ads:layout_constraintTop_toTopOf="parent"
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
 
-        <TextView
-            android:id="@+id/goalTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="0"
-            android:textColor="@color/colorAccent"
-            android:textSize="40sp"
-            ads:layout_constraintBottom_toBottomOf="parent"
-            ads:layout_constraintStart_toEndOf="@+id/textView4"
-            ads:layout_constraintTop_toTopOf="parent" />
-
         <Button
-            android:id="@+id/downButton"
+            android:id="@+id/dailyDownButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/button_black_round"
             android:drawableLeft="@drawable/ic_arrow_down"
             android:drawableTint="@android:color/white"
@@ -165,9 +155,91 @@
             android:textColor="@color/textColor"
             ads:layout_constraintBottom_toBottomOf="parent"
             ads:layout_constraintEnd_toEndOf="parent"
-            ads:layout_constraintTop_toBottomOf="@+id/upButton"
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintRight_creator="1" />
-    </android.support.constraint.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/dayGoalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            ads:layout_constraintBaseline_toBaselineOf="@+id/dailyUpButton"
+            ads:layout_constraintEnd_toEndOf="@+id/monthlyGoalTextView"
+            ads:layout_constraintStart_toStartOf="@+id/monthlyGoalTextView" />
+
+        <TextView
+            android:id="@+id/monthlyGoalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            ads:layout_constraintBaseline_toBaselineOf="@+id/monthlyUpButton"
+            ads:layout_constraintEnd_toStartOf="@+id/monthlyUpButton"
+            ads:layout_constraintStart_toEndOf="@+id/textView7" />
+
+        <Button
+            android:id="@+id/monthlyUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_black_round"
+            android:drawableLeft="@drawable/ic_arrow_up"
+            android:drawableTint="@android:color/white"
+            android:onClick="upButtonClicked"
+            android:padding="8dp"
+            android:text="@string/up"
+            android:textColor="@color/textColor"
+            ads:layout_constraintBottom_toTopOf="@+id/monthlyDownButton"
+            ads:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/monthlyDownButton"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_black_round"
+            android:drawableLeft="@drawable/ic_arrow_down"
+            android:drawableTint="@android:color/white"
+            android:onClick="downButtonClicked"
+            android:padding="8dp"
+            android:text="@string/down"
+            android:textColor="@color/textColor"
+            ads:layout_constraintBottom_toTopOf="@+id/dailyUpButton"
+            ads:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ProgressBar
+            android:id="@+id/progressMonth"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:max="100"
+            ads:layout_constraintEnd_toStartOf="@+id/monthlyDownButton"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toBottomOf="@+id/monthlyGoalTextView" />
+
+        <ProgressBar
+            android:id="@+id/progressDay"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:max="100"
+            ads:layout_constraintEnd_toStartOf="@+id/dailyDownButton"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toBottomOf="@+id/dayGoalTextView" />
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
