@@ -22,7 +22,6 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         multiDexEnabled true
-
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 17
         targetSdkVersion 26
