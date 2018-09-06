@@ -5,7 +5,7 @@ import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +15,9 @@ import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
 import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.awesome.scottquach.proximitypush_upcounter.R;
-import com.evernote.android.job.Job;
-import com.evernote.android.job.JobCreator;
 import com.evernote.android.job.JobManager;
 
 import timber.log.Timber;

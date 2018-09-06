@@ -1,7 +1,7 @@
 package com.awesome.scottquach.proximitypush_upcounter;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.SharedPreferences;
 
 import com.awesome.scottquach.proximitypush_upcounter.database.AppDatabase;

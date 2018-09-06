@@ -5,28 +5,22 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.activities.TrackerActivity;
 import com.evernote.android.job.DailyJob;
-import com.evernote.android.job.Job;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 import timber.log.Timber;
 
-import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
