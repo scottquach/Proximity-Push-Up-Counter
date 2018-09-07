@@ -153,7 +153,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_success" />
+                    app:srcCompat="@drawable/ic_success" />
 
                 <TextView
                     android:id="@+id/text_goal_reached"
@@ -188,7 +188,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_failure" />
+                    app:srcCompat="@drawable/ic_failure" />
 
                 <TextView
                     android:id="@+id/text_goal_failed"

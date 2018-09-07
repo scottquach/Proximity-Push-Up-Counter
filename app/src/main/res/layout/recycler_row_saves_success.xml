@@ -67,7 +67,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_success"/>
+                app:srcCompat="@drawable/ic_success"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

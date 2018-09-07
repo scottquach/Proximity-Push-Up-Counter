@@ -1,11 +1,9 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import androidx.appcompat.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +14,15 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
-import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.evernote.android.job.JobManager;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import timber.log.Timber;
 
-public class SettingsActivity extends Activity {
+public class SettingsActivity extends AppCompatActivity {
 
     private Button nameButton;
 

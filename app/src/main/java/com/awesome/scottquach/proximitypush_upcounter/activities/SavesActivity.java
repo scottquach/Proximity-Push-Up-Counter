@@ -1,29 +1,29 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.awesome.scottquach.proximitypush_upcounter.Constants;
-import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.Instrumentation;
 import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.adapters.RecyclerSavesAdapter;
+import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import timber.log.Timber;
 
-public class SavesActivity extends Activity implements DatabaseManager.DatabaseCallback{
+public class SavesActivity extends AppCompatActivity implements DatabaseManager.DatabaseCallback{
 
     private TextView highscoreView;
 

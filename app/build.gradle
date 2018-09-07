@@ -22,7 +22,7 @@ android {
     buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 47
         versionName "4.8.3"
@@ -48,8 +48,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
     implementation 'androidx.recyclerview:recyclerview:1.0.0-rc02'
     implementation 'androidx.cardview:cardview:1.0.0-rc02'
-
-    implementation 'com.nineoldandroids:library:2.4.0'
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation 'com.jakewharton.timber:timber:4.7.0'
