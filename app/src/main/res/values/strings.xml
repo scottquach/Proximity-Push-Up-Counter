@@ -30,7 +30,7 @@
     <string name="vibrate">Vibrate</string>
     <string name="sound">Sound</string>
     <string name="tracker_suggestion">Note: it is recommended to place phone under chest</string>
-    <string name="tracker_instruction">Use proximity sensor or tap number to count up</string>
+    <string name="tracker_instruction">Place phone face up under chest to use proximity sensor or tap screen to increment</string>
     <string name="reset">Reset</string>
     <string name="home">Home</string>
     <string name="speed_up_encouragement">Speed Up Encouragement</string>

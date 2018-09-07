@@ -45,11 +45,16 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="@string/tracker_instruction"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        ads:layout_constraintBottom_toTopOf="@+id/textView"
+        ads:layout_constraintBottom_toTopOf="@+id/vibrateSwitch"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintHorizontal_bias="0.5"
         ads:layout_constraintStart_toStartOf="parent"
@@ -68,8 +73,8 @@
         android:onClick="savedButtonClicked"
         android:padding="8dp"
         android:text="@string/save"
-        android:textColor="@color/textColor"
         android:textAllCaps="false"
+        android:textColor="@color/textColor"
         ads:layout_constraintBottom_toTopOf="@+id/textView2"
         ads:layout_constraintEnd_toStartOf="@+id/countDisplay"
         ads:layout_constraintHorizontal_bias="0.5"
@@ -114,21 +119,6 @@
         ads:layout_constraintHorizontal_bias="0.5"
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="@+id/button2" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/tracker_suggestion"
-        android:textColor="@color/colorAccent"
-        ads:layout_constraintBottom_toTopOf="@+id/vibrateSwitch"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.5"
-        ads:layout_constraintStart_toStartOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
 
     <Switch
         android:id="@+id/vibrateSwitch"

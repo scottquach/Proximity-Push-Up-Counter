@@ -82,7 +82,7 @@ public class SavesActivity extends AppCompatActivity implements DatabaseManager.
      */
     private void setHighscoreView() {
         int highscore = sharedPref.getInt("highscore", 0);
-        highscoreView.setText("Highscore: " + String.valueOf(highscore));
+        highscoreView.setText("Best Session " + String.valueOf(highscore));
 
     }
 

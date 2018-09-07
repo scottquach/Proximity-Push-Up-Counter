@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorDark"
     tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.SavesActivity">
 
 
@@ -11,36 +11,32 @@
         android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="13dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/button_black_round"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_blue"
         android:onClick="resetButtonClicked"
         android:text="@string/reset"
+        android:textAllCaps="false"
         android:textColor="@color/textColor"
-        app:layout_constraintEnd_toStartOf="@+id/highscoreView"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/button_black_round"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_blue"
         android:drawableStart="@drawable/ic_home"
-        android:padding="8dp"
         android:drawableTint="@color/colorAccent"
         android:onClick="homeButtonClicked"
+        android:padding="8dp"
         android:text="@string/home"
+        android:textAllCaps="false"
         android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/highscoreView"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/savedRecyclerView"
@@ -60,19 +56,20 @@
         android:id="@+id/highscoreView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
-        android:background="@drawable/textview_transparent_white"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Highscore 100"
-        android:textAlignment="center"
+        android:text="Best Session 1111"
+        android:textAlignment="viewStart"
         android:textColor="@color/textColor"
+        android:textSize="20sp"
         android:textStyle="normal|bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        tools:layout_editor_absoluteX="131dp" />
+        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
