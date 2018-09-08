@@ -1,7 +1,7 @@
 package com.awesome.scottquach.proximitypush_upcounter.database;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 /**
  * Created by Scott Quach on 11/21/2017.

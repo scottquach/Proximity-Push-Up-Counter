@@ -1,13 +1,15 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
-import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
+import android.text.InputType;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ import com.awesome.scottquach.proximitypush_upcounter.R;
 import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.database.SessionEntity;
 import com.awesome.scottquach.proximitypush_upcounter.features.Statistics.StatisticsDatabase;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -33,13 +36,16 @@ import org.joda.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import timber.log.Timber;
 
-public class StartMenuActivity extends Activity implements DatabaseManager.DatabaseCallback, StatisticsDatabase.StatisticsDatabaseCallback {
+public class StartMenuActivity extends AppCompatActivity implements DatabaseManager.DatabaseCallback, StatisticsDatabase.StatisticsDatabaseCallback {
 
-    private Button dailyUpButton, dailyDownButton, monthlyUpButton, monthlyDownButton;
+    //    private Button dailyUpButton, dailyDownButton, monthlyUpButton, monthlyDownButton;
     private TextView dailyGoalView, monthlyGoalView;
     private ProgressBar monthProgress, dayProgress;
+    private ImageButton dailyGoalEditButton, monthlyGoalEditButton;
 
     private int dailyGoalValue, monthlyGoalValue;
 
@@ -63,11 +69,12 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
         monthlyGoalValue = GoalPreferenceUtil.getMonthlyGoal(this);
         monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
 
-        dailyUpButton = (Button) findViewById(R.id.dailyUpButton);
-        dailyDownButton = (Button) findViewById(R.id.dailyDownButton);
+        dailyGoalEditButton = (ImageButton) findViewById(R.id.dailyGoalEditButton);
+        monthlyGoalEditButton = (ImageButton) findViewById(R.id.monthlyGoalEditButton);
 
-        monthlyUpButton = (Button) findViewById(R.id.monthlyUpButton);
-        monthlyDownButton = (Button) findViewById(R.id.monthlyDownButton);
+        dayProgress.getIndeterminateDrawable().setColorFilter(0xFFFFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
+        monthProgress.getIndeterminateDrawable().setColorFilter(0xFFFFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
+
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
         AdView mAdView = (AdView) findViewById(R.id.adView);
@@ -85,155 +92,60 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
 
         requestDataUpdate();
 
-        //When button is held down, incrase faster using handler
-        dailyUpButton.setOnTouchListener(new View.OnTouchListener() {
-            private Handler mHandler;
-
-            @Override public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        if (mHandler != null){
-                            return true;
-                        }
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 150);
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (mHandler == null){
-                            return true;
-                        }
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
-                        requestDataUpdate();
-                        break;
-                }
-                return false;
-            }
-
-            Runnable mAction = new Runnable() {
-                @Override public void run() {
-                    dailyGoalValue++;
-                    GoalPreferenceUtil.setDailyGoal(StartMenuActivity.this, dailyGoalValue);
-                    dailyGoalView.setText(String.valueOf(dailyGoalValue));
-                    mHandler.postDelayed(this, 150);
-                }
-            };
-
-        });
-
-        //When button is held down, decrease faster using handler
-        dailyDownButton.setOnTouchListener(new View.OnTouchListener() {
-            private Handler mHandler;
-            @Override public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        if (mHandler != null) return true;
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 150);
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (mHandler == null) return true;
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
-                        requestDataUpdate();
-                        break;
-                }
-                return false;
-            }
-
-            Runnable mAction = new Runnable() {
-                @Override public void run() {
-                    if(dailyGoalValue >=1) {
-                        dailyGoalValue--;
-                    }
-                    GoalPreferenceUtil.setDailyGoal(StartMenuActivity.this, dailyGoalValue);
-                    dailyGoalView.setText(String.valueOf(dailyGoalValue));
-                    mHandler.postDelayed(this, 150);
-                }
-            };
-
-        });
-
-        monthlyUpButton.setOnClickListener((listener)-> {
-            monthlyGoalValue++;
-            GoalPreferenceUtil.setMonthlyGoal(this, monthlyGoalValue);
-            monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
-            requestDataUpdate();
-        });
-
-        monthlyDownButton.setOnClickListener((listener) -> {
-            if(monthlyGoalValue >=1) {
-                monthlyGoalValue--;
-            }
-            GoalPreferenceUtil.setMonthlyGoal(this, monthlyGoalValue);
-            monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
-            requestDataUpdate();
-        });
-
-        monthlyUpButton.setOnTouchListener(new View.OnTouchListener() {
-            private Handler mHandler;
+        dailyGoalEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        if (mHandler != null){
-                            return true;
-                        }
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 100);
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (mHandler == null){
-                            return true;
-                        }
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
-                        requestDataUpdate();
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                showNumPicker(dailyGoalEditButton.getId());
             }
-
-            Runnable mAction = new Runnable() {
-                @Override public void run() {
-                    monthlyGoalValue++;
-                    GoalPreferenceUtil.setMonthlyGoal(StartMenuActivity.this, monthlyGoalValue);
-                    monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
-                    mHandler.postDelayed(this, 100);
-                }
-            };
         });
 
-        monthlyDownButton.setOnTouchListener(new View.OnTouchListener() {
-            private Handler mHandler;
-            @Override public boolean onTouch(View v, MotionEvent event) {
-                switch(event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        if (mHandler != null) return true;
-                        mHandler = new Handler();
-                        mHandler.postDelayed(mAction, 150);
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if (mHandler == null) return true;
-                        mHandler.removeCallbacks(mAction);
-                        mHandler = null;
-                        requestDataUpdate();
-                        break;
-                }
-                return false;
+        monthlyGoalEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showNumPicker(monthlyGoalEditButton.getId());
             }
+        });
+    }
 
-            Runnable mAction = new Runnable() {
-                @Override public void run() {
-                    if(monthlyGoalValue >=1) {
-                        monthlyGoalValue--;
+    /**
+     * Displays a number picker meant to allow the user to set their daily or monthly goal. The
+     * passed in goalType is the id of the edit button and determines which goal the selected number
+     * should be applied to
+     *
+     * @param goalType
+     */
+    private void showNumPicker(int goalType) {
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setRawInputType(Configuration.KEYBOARD_12KEY);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("Set Goal Value")
+                .setView(input)
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (goalType == dailyGoalEditButton.getId()) {
+                            dailyGoalValue = Integer.valueOf(input.getText().toString());
+
+                            GoalPreferenceUtil.setDailyGoal(StartMenuActivity.this, dailyGoalValue);
+                            dailyGoalView.setText(String.valueOf(dailyGoalValue));
+                        } else if (goalType == monthlyGoalEditButton.getId()) {
+                            monthlyGoalValue = Integer.valueOf(input.getText().toString());
+
+                            GoalPreferenceUtil.setMonthlyGoal(StartMenuActivity.this, monthlyGoalValue);
+                            monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
+                        }
+                        requestDataUpdate();
                     }
-                    GoalPreferenceUtil.setMonthlyGoal(StartMenuActivity.this, monthlyGoalValue);
-                    monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
-                    mHandler.postDelayed(this, 150);
-                }
-            };
-        });
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        builder.create().show();
     }
 
     /**
@@ -242,20 +154,21 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
     private void requestDataUpdate() {
         database.loadSessions();
         statsDatabase.requestTotalDayPushups();
-
     }
 
     /**
      * Navigates to the tracker activity
+     *
      * @param view
      */
-    public void startTrackingClicked (View view) {
-        Intent openMainActivity = new Intent(this,TrackerActivity.class);
+    public void startTrackingClicked(View view) {
+        Intent openMainActivity = new Intent(this, TrackerActivity.class);
         startActivity(openMainActivity);
     }
 
     /**
      * Increases the goal value and updates the screen as well as updates the shared preference
+     *
      * @param view
      */
     public void upButtonClicked(View view) {
@@ -267,10 +180,11 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
 
     /**
      * Decreases the gaol value and updates the screen as well as updates the shared preference
+     *
      * @param view
      */
     public void downButtonClicked(View view) {
-        if(dailyGoalValue >=1) {
+        if (dailyGoalValue >= 1) {
             dailyGoalValue--;
         }
         GoalPreferenceUtil.setDailyGoal(this, dailyGoalValue);
@@ -280,25 +194,28 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
 
     /**
      * Navigates to the settings page
+     *
      * @param view
      */
     public void openSettingsPage(View view) {
         Instrumentation.getInstance().track(Instrumentation.TrackEvents.OPENED_SETTINGS, Instrumentation.TrackValues.SUCCESS);
-        Intent openSettings = new Intent(StartMenuActivity.this,SettingsActivity.class);
+        Intent openSettings = new Intent(StartMenuActivity.this, SettingsActivity.class);
         startActivity(openSettings);
     }
 
     /**
      * Navigates to the logs page
+     *
      * @param view
      */
     public void logButtonClicked(View view) {
-        Intent openSaves = new Intent(StartMenuActivity.this,SavesActivity.class);
+        Intent openSaves = new Intent(StartMenuActivity.this, SavesActivity.class);
         startActivity(openSaves);
     }
 
     /**
      * Navigates to the statistics page
+     *
      * @param view
      */
     public void statiticsButtonClicked(View view) {
@@ -353,6 +270,7 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
 
     /**
      * statsDatabase callback that is used to determine how many pushups the user has done today
+     *
      * @param total pushups done today
      */
     @Override
@@ -367,6 +285,7 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
     public void dayHighScoreLoaded(int highscore) {
 
     }
+
     @Override
     public void totalPushupsLoaded(int total) {
 
@@ -376,10 +295,12 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
     public void highScoreLoaded(int highscore) {
 
     }
+
     @Override
     public void timesGoalReached(int num) {
 
     }
+
     @Override
     public void timesGoalFailed(int num) {
 
@@ -389,7 +310,6 @@ public class StartMenuActivity extends Activity implements DatabaseManager.Datab
     public void graphDataLoaded(LineGraphSeries<DataPoint> series) {
 
     }
-
 
 
 }

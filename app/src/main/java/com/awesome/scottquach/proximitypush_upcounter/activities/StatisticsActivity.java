@@ -1,6 +1,6 @@
 package com.awesome.scottquach.proximitypush_upcounter.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.awesome.scottquach.proximitypush_upcounter.R;

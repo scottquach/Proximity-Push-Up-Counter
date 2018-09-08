@@ -1,7 +1,7 @@
 package com.awesome.scottquach.proximitypush_upcounter.jobs;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.awesome.scottquach.proximitypush_upcounter.Constants;
 import com.evernote.android.job.Job;

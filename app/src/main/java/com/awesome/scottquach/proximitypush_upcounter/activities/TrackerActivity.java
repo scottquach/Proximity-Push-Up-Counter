@@ -14,13 +14,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.app.Activity;
 import android.widget.Toast;
 
-
 import com.awesome.scottquach.proximitypush_upcounter.GoalPreferenceUtil;
-import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.awesome.scottquach.proximitypush_upcounter.R;
+import com.awesome.scottquach.proximitypush_upcounter.database.DatabaseManager;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -32,10 +30,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import androidx.appcompat.app.AppCompatActivity;
 import timber.log.Timber;
 
 
-public class TrackerActivity extends Activity implements SensorEventListener {
+public class TrackerActivity extends AppCompatActivity implements SensorEventListener {
 
     private TextView countDisplay;
     private Switch vibrateSwitch;
