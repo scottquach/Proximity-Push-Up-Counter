@@ -90,19 +90,19 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
 
     @Override
     public void setSessionHighScore(int highscore) {
-        TextView view = (TextView) getView().findViewById(R.id.text_high_score);
+        TextView view = (TextView) getView().findViewById(R.id.text_best_session);
         view.setText(String.valueOf(highscore));
     }
 
     @Override
     public void setDayHighScore(int highscore) {
-        TextView view = (TextView) getView().findViewById(R.id.text_day_high_score);
+        TextView view = (TextView) getView().findViewById(R.id.text_best_day);
         view.setText(String.valueOf(highscore));
     }
 
     @Override
     public void setTotalPushups(int totalPushups) {
-        TextView view = (TextView) getView().findViewById(R.id.text_total_pushups);
+        TextView view = (TextView) getView().findViewById(R.id.text_all_time);
         view.setText(String.valueOf(totalPushups));
     }
 
@@ -120,7 +120,7 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
 
     @Override
     public void setTodayTotalPushups(int todayTotalPushups) {
-        TextView view = (TextView) getView().findViewById(R.id.text_total_day_pushups);
+        TextView view = (TextView) getView().findViewById(R.id.text_completed_today);
         view.setText(String.valueOf(todayTotalPushups));
     }
 
