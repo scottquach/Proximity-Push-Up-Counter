@@ -15,18 +15,14 @@ android {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 47
-        versionName "4.8.3"
+        versionCode 49
+        versionName "4.9.1"
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-
-    dexOptions {
-        javaMaxHeapSize "4g"
     }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
@@ -67,8 +63,3 @@ dependencies {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
-
-repositories {
-    maven { url 'https://maven.google.com' }
-    maven { url 'https://maven.fabric.io/public' }
-}

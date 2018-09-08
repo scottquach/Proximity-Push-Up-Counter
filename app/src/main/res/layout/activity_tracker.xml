@@ -17,6 +17,7 @@
         ads:adUnitId="@string/banner_ad_unit_id"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
         ads:layout_constraintHorizontal_bias="0.5"
         ads:layout_constraintStart_toStartOf="parent"
         tools:layout_constraintLeft_creator="1"
