@@ -94,7 +94,6 @@
         ads:adUnitId="@string/banner_add_unit_id_startMenu"
         ads:layout_constraintLeft_toLeftOf="parent"
         ads:layout_constraintRight_toRightOf="parent"
-        android:visibility="gone"
         ads:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
