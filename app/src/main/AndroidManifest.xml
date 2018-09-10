@@ -18,7 +18,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Push-Up Fitness Tracker"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true">
         <activity
             android:name=".activities.StartMenuActivity"
             android:label="Push-Up Tracker"
@@ -62,6 +63,4 @@
             android:enabled="true"
             tools:replace="android:enabled"/>
     </application>
-
-
 </manifest>
