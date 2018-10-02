@@ -110,4 +110,18 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/encouragementSwitch" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:autoLink="web"
+        android:text="https://admob-app-id-2446206781.firebaseapp.com"
+        android:textColor="@color/browser_actions_title_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

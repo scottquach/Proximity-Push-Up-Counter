@@ -15,8 +15,8 @@ android {
         applicationId "com.awesome.scottquach.proximitypush_upcounter"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 52
-        versionName "4.9.4"
+        versionCode 53
+        versionName "4.9.5"
     }
     buildTypes {
         release {
