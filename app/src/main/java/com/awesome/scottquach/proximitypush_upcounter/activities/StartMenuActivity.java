@@ -76,7 +76,6 @@ public class StartMenuActivity extends AppCompatActivity implements DatabaseMana
         monthProgress.getIndeterminateDrawable().setColorFilter(0xFFFFFFFF, android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -114,7 +113,7 @@ public class StartMenuActivity extends AppCompatActivity implements DatabaseMana
      *
      * @param goalType
      */
-    private void showNumPicker(int goalType) {
+    private void showNumPicker(final int goalType) {
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         input.setRawInputType(Configuration.KEYBOARD_12KEY);

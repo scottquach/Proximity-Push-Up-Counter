@@ -9,6 +9,7 @@ import com.awesome.scottquach.proximitypush_upcounter.jobs.JobCreatorUtil;
 import com.awesome.scottquach.proximitypush_upcounter.jobs.ReminderJob;
 import com.crashlytics.android.Crashlytics;
 import com.evernote.android.job.JobManager;
+import com.google.android.gms.ads.MobileAds;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
@@ -32,6 +33,8 @@ public class BaseApplication extends Application {
         if (instance == null) {
             instance = this;
         }
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1876787092384518~2446206781");
 
         JobManager.create(this).addJobCreator(new JobCreatorUtil());
         database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "sessions-database").build();
