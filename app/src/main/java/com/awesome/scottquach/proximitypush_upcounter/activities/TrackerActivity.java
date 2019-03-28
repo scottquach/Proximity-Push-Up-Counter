@@ -85,6 +85,11 @@ public class TrackerActivity extends AppCompatActivity implements SensorEventLis
 
         //configure proximity sensor
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        if (sm == null) {
+            Toast.makeText(this, "Proximity sensor not available on device", Toast.LENGTH_LONG).show();
+        }
+
         proximitySensor = sm.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         sm.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
         //configure TTS
