@@ -26,7 +26,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+//        Fabric.with(this, new Crashlytics());
         Instrumentation.getInstance().init(this);
         Timber.plant(new MyDebugTree());
 
