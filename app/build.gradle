@@ -16,6 +16,8 @@ android {
         targetSdkVersion 28
         versionCode 55
         versionName "4.9.7"
+        multiDexEnabled true //Add this
+
     }
     buildTypes {
         release {
@@ -61,4 +63,3 @@ dependencies {
     implementation 'com.google.android.gms:play-services-gcm:16.1.0'
 }
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'

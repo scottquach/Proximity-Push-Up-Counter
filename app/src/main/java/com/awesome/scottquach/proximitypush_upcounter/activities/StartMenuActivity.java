@@ -124,13 +124,21 @@ public class StartMenuActivity extends AppCompatActivity implements DatabaseMana
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String inputString = (input.getText().length() != 0 ? input.getText().toString() : "0");
+                        int inputNum = 0;
+                        try {
+                            inputNum = Integer.valueOf(inputString);
+                        } catch (NumberFormatException exception) {
+                            inputNum = 0;
+                        }
+
                         if (goalType == dailyGoalEditButton.getId()) {
-                            dailyGoalValue = Integer.valueOf(input.getText().toString());
+                            dailyGoalValue = inputNum;
 
                             GoalPreferenceUtil.setDailyGoal(StartMenuActivity.this, dailyGoalValue);
                             dailyGoalView.setText(String.valueOf(dailyGoalValue));
                         } else if (goalType == monthlyGoalEditButton.getId()) {
-                            monthlyGoalValue = Integer.valueOf(input.getText().toString());
+                            monthlyGoalValue = inputNum;
 
                             GoalPreferenceUtil.setMonthlyGoal(StartMenuActivity.this, monthlyGoalValue);
                             monthlyGoalView.setText(String.valueOf(monthlyGoalValue));
