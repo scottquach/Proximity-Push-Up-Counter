@@ -43,7 +43,7 @@ import timber.log.Timber;
 public class StartMenuActivity extends AppCompatActivity implements DatabaseManager.DatabaseCallback, StatisticsDatabase.StatisticsDatabaseCallback {
 
     //    private Button dailyUpButton, dailyDownButton, monthlyUpButton, monthlyDownButton;
-    private TextView dailyGoalView, monthlyGoalView;
+    private TextView dailyGoalView, monthlyGoalView, dailyGoalProgress, monthlyGoalProgress;
     private ProgressBar monthProgress, dayProgress;
     private ImageButton dailyGoalEditButton, monthlyGoalEditButton;
 
@@ -59,6 +59,9 @@ public class StartMenuActivity extends AppCompatActivity implements DatabaseMana
 
         dailyGoalView = (TextView) findViewById(R.id.dayGoalTextView);
         monthlyGoalView = (TextView) findViewById(R.id.monthlyGoalTextView);
+
+        dailyGoalProgress = (TextView) findViewById(R.id.textDayProgress);
+        monthlyGoalProgress = (TextView) findViewById(R.id.textMonthProgress);
 
         dayProgress = (ProgressBar) findViewById(R.id.progressDay);
         monthProgress = (ProgressBar) findViewById(R.id.progressMonth);
@@ -232,11 +235,13 @@ public class StartMenuActivity extends AppCompatActivity implements DatabaseMana
     private void updateMonthlyGoalProgress(int pushupsDone) {
         monthProgress.setMax(monthlyGoalValue);
         monthProgress.setProgress(pushupsDone);
+        monthlyGoalProgress.setText(String.valueOf(pushupsDone));
     }
 
     private void updateDailyGoalProgress(int pushupsDone) {
         dayProgress.setMax(dailyGoalValue);
         dayProgress.setProgress(pushupsDone);
+        dailyGoalProgress.setText(String.valueOf(pushupsDone));
     }
 
 

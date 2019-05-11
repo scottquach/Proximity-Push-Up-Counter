@@ -3,87 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark"
+    android:background="@color/colorPrimaryDark"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.StartMenuActivity">
-
-    <ProgressBar
-        android:id="@+id/progressMonth"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/circular_progress_background"
-        android:max="100"
-        android:progressDrawable="@drawable/circular_progress"
-        android:theme="@style/ProgressBarStyle"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/dailyGoalDescriptionTextView" />
-
-    <ProgressBar
-        android:id="@+id/progressDay"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="135dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/circular_progress_background"
-        android:max="100"
-        android:progressDrawable="@drawable/circular_progress"
-        android:theme="@style/ProgressBarStyle"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.5"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/adView" />
-
-    <TextView
-        android:id="@+id/monthlyGoalDescriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Monthly Goal"
-        android:textColor="@color/colorSecondary"
-        android:textStyle="bold"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/progressMonth" />
-
-    <TextView
-        android:id="@+id/dailyGoalDescriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Session Goal"
-        android:textColor="@color/colorSecondary"
-        android:textStyle="bold"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.5"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toBottomOf="@+id/progressDay" />
-
-    <TextView
-        android:id="@+id/dayGoalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1111"
-        android:textColor="@color/colorAccent"
-        android:textSize="36sp"
-        ads:layout_constraintBottom_toBottomOf="@+id/progressDay"
-        ads:layout_constraintEnd_toEndOf="@+id/progressDay"
-        ads:layout_constraintStart_toStartOf="@+id/progressDay"
-        ads:layout_constraintTop_toTopOf="@+id/progressDay" />
-
-    <TextView
-        android:id="@+id/monthlyGoalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1111"
-        android:textColor="@color/colorAccent"
-        android:textSize="36sp"
-        ads:layout_constraintBottom_toBottomOf="@+id/progressMonth"
-        ads:layout_constraintEnd_toEndOf="@+id/progressMonth"
-        ads:layout_constraintStart_toStartOf="@+id/progressMonth"
-        ads:layout_constraintTop_toTopOf="@+id/progressMonth" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -92,19 +15,37 @@
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_add_unit_id_startMenu"
-        ads:layout_constraintLeft_toLeftOf="parent"
-        ads:layout_constraintRight_toRightOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"></com.google.android.gms.ads.AdView>
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_circle"
+        android:backgroundTint="#5ECCFC"
+        android:clickable="false"
+        android:src="@drawable/ic_play"
+        android:tint="@color/white"
+        ads:layout_constraintBottom_toBottomOf="@+id/button5"
+        ads:layout_constraintEnd_toStartOf="@+id/button5"
+        ads:layout_constraintHorizontal_bias="1.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/button5" />
+
     <Button
         android:id="@+id/button5"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_background_blue"
         android:onClick="startTrackingClicked"
         android:padding="4dp"
@@ -112,81 +53,263 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         ads:layout_constraintBottom_toTopOf="@+id/button_statistics"
-        ads:layout_constraintEnd_toEndOf="@+id/button_statistics"
-        ads:layout_constraintHorizontal_bias="0.0"
-        ads:layout_constraintStart_toStartOf="@+id/button_statistics"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/cardView3"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_circle"
+        android:backgroundTint="#F6C93B"
+        android:clickable="false"
+        android:src="@drawable/ic_chart"
+        android:tint="@color/white"
+        ads:layout_constraintBottom_toBottomOf="@+id/button_statistics"
+        ads:layout_constraintEnd_toStartOf="@+id/button_statistics"
+        ads:layout_constraintHorizontal_bias="1.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/button_statistics" />
 
     <ImageButton
-        android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_circle"
+        android:backgroundTint="#E48B54"
+        android:clickable="false"
+        android:src="@drawable/ic_log"
+        android:tint="@color/white"
+        ads:layout_constraintBottom_toBottomOf="@+id/log"
+        ads:layout_constraintEnd_toStartOf="@+id/log"
+        ads:layout_constraintHorizontal_bias="1.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/log" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_background_circle"
+        android:clickable="false"
+        android:src="@drawable/ic_settings"
+        android:tint="@color/white"
+        ads:layout_constraintBottom_toBottomOf="@+id/settings"
+        ads:layout_constraintEnd_toStartOf="@+id/settings"
+        ads:layout_constraintHorizontal_bias="1.0"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/settings" />
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/button_background_blue"
         android:onClick="openSettingsPage"
         android:padding="8dp"
-        android:src="@drawable/ic_settings"
+        android:text="Settings"
         android:textAllCaps="false"
+        android:textColor="@color/textColor"
         android:tint="@color/white"
-        ads:layout_constraintBottom_toBottomOf="@+id/log"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintTop_toTopOf="@+id/log" />
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="@+id/log"
+        ads:layout_constraintTop_toBottomOf="@+id/log" />
 
     <Button
         android:id="@+id/log"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/button_background_blue"
         android:onClick="logButtonClicked"
         android:padding="4dp"
         android:text="@string/log"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toStartOf="@+id/settings"
-        ads:layout_constraintStart_toStartOf="parent" />
+        ads:layout_constraintBottom_toTopOf="@+id/settings"
+        ads:layout_constraintEnd_toEndOf="@+id/button_statistics"
+        ads:layout_constraintTop_toBottomOf="@+id/button_statistics" />
 
     <Button
         android:id="@+id/button_statistics"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background_blue"
         android:onClick="statiticsButtonClicked"
         android:text="@string/statistics"
-        android:textColor="@color/white"
-        android:background="@drawable/button_background_blue"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         ads:layout_constraintBottom_toTopOf="@+id/log"
-        ads:layout_constraintEnd_toEndOf="@+id/log"
-        ads:layout_constraintStart_toStartOf="@+id/log" />
+        ads:layout_constraintEnd_toEndOf="@+id/button5"
+        ads:layout_constraintTop_toBottomOf="@+id/button5" />
 
-    <ImageButton
-        android:id="@+id/dailyGoalEditButton"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        ads:layout_constraintStart_toEndOf="@+id/progressDay"
-        ads:layout_constraintTop_toTopOf="@+id/progressDay"
-        ads:srcCompat="@drawable/ic_edit" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        ads:cardCornerRadius="8dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/adView">
 
-    <ImageButton
-        android:id="@+id/monthlyGoalEditButton"
-        android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressDay"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:max="100"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                ads:layout_constraintEnd_toStartOf="@+id/dailyGoalEditButton"
+                ads:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/dailyGoalEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:srcCompat="@drawable/ic_edit" />
+
+            <TextView
+                android:id="@+id/textDayProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="250"
+                android:textColor="@color/textColorDark"
+                android:textSize="64sp"
+                ads:layout_constraintBottom_toTopOf="@+id/progressDay"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dayGoalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1111"
+                android:textColor="@color/textColorDark"
+                android:textSize="34sp"
+                ads:layout_constraintEnd_toEndOf="@+id/textView19"
+                ads:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Towards daily goal of"
+                android:textColor="@color/textColorDark"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        ads:layout_constraintStart_toEndOf="@+id/progressMonth"
-        ads:layout_constraintTop_toTopOf="@+id/progressMonth"
-        ads:srcCompat="@drawable/ic_edit" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        ads:cardCornerRadius="8dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/monthlyGoalEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:srcCompat="@drawable/ic_edit" />
+
+            <TextView
+                android:id="@+id/textMonthProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="250"
+                android:textColor="@color/textColorDark"
+                android:textSize="64sp"
+                ads:layout_constraintBottom_toTopOf="@+id/progressMonth"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/monthlyGoalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1111"
+                android:textColor="@color/textColorDark"
+                android:textSize="34sp"
+                ads:layout_constraintEnd_toEndOf="@+id/textView17"
+                ads:layout_constraintHorizontal_bias="1.0"
+                ads:layout_constraintStart_toStartOf="@+id/textView17"
+                ads:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Towards monthly goal of"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/textColorDark" />
+
+            <ProgressBar
+                android:id="@+id/progressMonth"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:max="100"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                ads:layout_constraintEnd_toStartOf="@+id/monthlyGoalEditButton"
+                ads:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

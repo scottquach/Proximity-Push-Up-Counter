@@ -30,7 +30,7 @@
     <string name="vibrate">Vibrate</string>
     <string name="sound">Sound</string>
     <string name="tracker_suggestion">Note: it is recommended to place phone under chest</string>
-    <string name="tracker_instruction">Place phone face up under chest to use proximity sensor or tap screen to increment</string>
+    <string name="tracker_instruction">Place phone face up under face to use proximity sensor or tap screen to increment</string>
     <string name="reset">Reset</string>
     <string name="home">Home</string>
     <string name="speed_up_encouragement">Speed Up Encouragement</string>
@@ -42,7 +42,7 @@
     <string name="statistics">Statistics</string>
     <string name="decrease">Decrease</string>
     <string name="your_best">Your Best</string>
-    <string name="session">Session</string>
+    <string name="session">Individual Session</string>
     <string name="day">Day</string>
     <string name="completed_today">Completed Today</string>
     <string name="all_time_total">All-time Total</string>
