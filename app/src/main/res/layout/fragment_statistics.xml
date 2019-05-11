@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark">
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/textView4"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/session"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/day"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -81,7 +81,7 @@
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:text="@string/completed_today"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/all_time_total"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -140,7 +140,7 @@
         android:drawableEnd="@drawable/ic_success"
         android:gravity="center"
         android:text="@string/reached"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -164,7 +164,7 @@
         android:drawableEnd="@drawable/ic_failure"
         android:gravity="center"
         android:text="@string/failed"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />

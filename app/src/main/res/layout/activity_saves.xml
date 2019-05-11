@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.awesome.scottquach.proximitypush_upcounter.activities.SavesActivity">
 
 
@@ -29,7 +29,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_background_blue"
         android:drawableStart="@drawable/ic_home"
-        android:drawableTint="@color/colorAccent"
+        android:drawableTint="@color/textColor"
         android:onClick="homeButtonClicked"
         android:padding="8dp"
         android:text="@string/home"

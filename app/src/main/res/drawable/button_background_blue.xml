@@ -11,7 +11,7 @@
                 android:radius="8dp"/>
 
             <solid
-                android:color="@color/colorSecondary"/>
+                android:color="@color/colorAccent"/>
         </shape>
     </item>
 </ripple>
