@@ -8,45 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:45634523913:android:319877245b0533f1",
-        "android_client_info": {
-          "package_name": "com.awesome.scottquach.proximitypush_upcounter"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "45634523913-ocvjl9sm3gli91t0mgtvt0dti7uioe45.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.awesome.scottquach.proximitypush_upcounter",
-            "certificate_hash": "a03d396e5be69096da9a17d44f91c0343a9d419c"
-          }
-        },
-        {
-          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:45634523913:android:0b471379697b222f",
         "android_client_info": {
           "package_name": "com.awesome.scott.app"
@@ -64,46 +25,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:45634523913:android:aa62148aabedbd99",
-        "android_client_info": {
-          "package_name": "scottquach.messnerapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
@@ -126,17 +54,100 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-1876787092384518~2010397989"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45634523913:android:319877245b0533f1",
+        "android_client_info": {
+          "package_name": "com.awesome.scottquach.proximitypush_upcounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45634523913-d6ikt7jkaabqrj599f7vriibic4f195h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesome.scottquach.proximitypush_upcounter",
+            "certificate_hash": "b0f3c91d3071eb5a52663205251c24cd7f10a72c"
+          }
+        },
+        {
+          "client_id": "45634523913-g5iar7ke1fnt6eqt8ui990okr8td8t94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesome.scottquach.proximitypush_upcounter",
+            "certificate_hash": "de599dfd3f2ca2a9e1725690bfb2896ac2078f54"
+          }
+        },
+        {
+          "client_id": "45634523913-ocvjl9sm3gli91t0mgtvt0dti7uioe45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesome.scottquach.proximitypush_upcounter",
+            "certificate_hash": "a03d396e5be69096da9a17d44f91c0343a9d419c"
+          }
+        },
+        {
+          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1876787092384518~2446206781"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45634523913:android:aa62148aabedbd99",
+        "android_client_info": {
+          "package_name": "scottquach.messnerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCqkziEHr2JvN4pmtpKNpKgOP_j21Brc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45634523913-gdnm6j079f7ojj6hfisqj6oh2c3kt2t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1876787092384518~3054982385"
     }
   ],
   "configuration_version": "1"
